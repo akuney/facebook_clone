@@ -37,9 +37,15 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def name
+    self.profile.first_name + " " + self.profile.last_name
+  end
+
   private
 
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
   end
+
+
 end
