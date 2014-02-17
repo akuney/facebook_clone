@@ -8,6 +8,5 @@
 <% @reqs_sent.each do |req| %>
 <%= render "sent_request",
 :user => PendingFriendship.find(req.second_friend_id)%>
-<%= render ""%>
 <% end %>
 
