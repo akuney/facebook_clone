@@ -14,4 +14,10 @@ class PendingFriendshipsController < ApplicationController
   def index
     @user = current_user
   end
+
+  def requests_sent
+  end
+
+  def requests_received
+  end
 end
