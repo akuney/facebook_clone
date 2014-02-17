@@ -38,6 +38,14 @@
       <option value="<%= day.to_s %>"> <%= day %>
         <% end %>
   </select>
+
+  Year
+  <select name="user[birth_day]">
+    <% (2001.downto(1910)).each do |year| %>
+
+      <option value="<%= year.to_s %>"> <%= year %>
+        <% end %>
+  </select>
 </p>
 
 </form>
