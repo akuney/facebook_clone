@@ -1,5 +1,32 @@
 <!-- Shows Profile (user info) -->
 
+<p>
 Name: <%= @profile.first_name %> <%= @profile.last_name %>
 <br>
 Date of Birth: <%= @profile.birth_month %> <%= @profile.birth_day %>, <%= @profile.birth_year %>
+<br>
+Gender: <%= @profile.gender %>
+</p>
+
+<p>
+  Job: <%= @profile.job %>
+  <br>
+  Employer: <%= @profile.employer %>
+</p>
+
+<p>
+  Current City: <%= @profile.current_city %>
+  <br>
+  Home City: <%= @profile.home_city %>
+</p>
+
+<p>
+  Relationship Status: <%= @profile.relationship_status %>
+  <br>
+  Interested In: <%= @profile.interested_in %>
+</p>
+
+<p>
+  About Me: <%= @profile.about_me %>
+</p>
+

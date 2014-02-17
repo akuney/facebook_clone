@@ -16,6 +16,8 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
     @profile.update_attributes(params[:profile])
+    @profile.save!
+
     redirect_to profile_url(@profile)
   end
 
