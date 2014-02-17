@@ -30,7 +30,7 @@
     <% ["January", "February", "March", "April",
     "May","June","July","August",
     "September","October","November","December"].each do |month| %>
-    <option value="<%= month %>"> <%= month%>
+    <option value="<%= month %>" <%= 'selected' if month == @profile.birth_month %>> <%= month %>
 <% end %>
   </select>
 
