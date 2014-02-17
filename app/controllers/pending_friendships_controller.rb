@@ -1,0 +1,2 @@
+class PendingFriendshipsController < ApplicationController
+end
