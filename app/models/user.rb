@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
 
   has_one :profile, foreign_key: :owner_id
 
-  has_many :friendships
+  has_many :first_friendships, class_name: :friendship, foreign_key: :first_friend_id
+  has_many :second_friendships, class_name: :friendship, foreign_key: :second_friend_id
   has_many :second_friends, through: :friendships, source: :second_friend
   has_many :first_friends, through: :friendships, source: :first_friend
 
