@@ -26,6 +26,7 @@
     <h3>Birthdate</h3>
     Month
   <select name="profile[birth_month]">
+    <option value="">
     <% ["January", "February", "March", "April",
     "May","June","July","August",
     "September","October","November","December"].each do |month| %>
@@ -36,6 +37,7 @@
 
   Day
   <select name="profile[birth_day]">
+    <option value="">
     <% (1..31).each do |day| %>
 
       <option value="<%= day.to_s %>"> <%= day %>
@@ -44,6 +46,7 @@
 
   Year
   <select name="profile[birth_day]">
+    <option value="">
     <% (2001.downto(1910)).each do |year| %>
 
       <option value="<%= year.to_s %>"> <%= year %>
@@ -54,6 +57,7 @@
 <p>
   <h3>Gender</h3>
   <select name="profile[gender]">
+    <option value="">
     <% ["Female", "Male", "Other"].each do |gender| %>
     <option value="<%= gender %>"> <%= gender %>
     <% end%>
@@ -91,12 +95,19 @@
 
   <label>
     Relationship Status
-    <input name="profile[relationship_status]">
+    <select name="profile[relationship_status]">
+      <option value="">
+        <% ["Single", "In a Relationship", "Engaged", "Married",
+        "Divorced", "Widowed", "Other"].each do |status| %>
+          <option value="<%= status %>"> <%= status %>
+        <% end%>
+    </select>
   </label>
 
   <label>
     Interested In
     <select name="profile[interested_in]">
+      <option value="">
       <% ["Women", "Men", "Men and Women", "Other"].each do |gender| %>
       <option value="<%= gender %>"> <%= gender %>
       <% end%>
