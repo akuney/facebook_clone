@@ -1,16 +1,11 @@
-<img src="<%= @user.profile.photo_url %>"></img>
+<!-- User show page -->
 
-<section>
-  <%= @user.profile.first_name %> <%= @user.profile.last_name %>
-  <%= @user.email %>
-</section>
+<% if current_user = @user %>
+<%= render "helpers/you"%>
+<% else %>
+<%= render "helpers/friend" %>
+<% end %>
+<!-- refactor this to have three cases later -->
 
-<section>
-  <button >Timeline</button>
-  <button >About</button>
-  <button >Photos</button>
-  <button >Friends</button>
-  <button >Message</button>
-  <button >Unfriend</button>
-</section>
+
 
