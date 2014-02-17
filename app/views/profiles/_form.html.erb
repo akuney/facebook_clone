@@ -1,0 +1,132 @@
+<!-- Partial for creating and editing profiles -->
+
+<form action="<%= profiles_url %>" method="POST">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+     <input type="hidden" name="profile[owner_id]"
+     value="<%= current_user.id %>">
+
+  <p>
+    <h3>Name</h3>
+  <label>
+    First Name
+    <input name="profile[first_name]" value="<%= @profile.first_name %>">
+  </label>
+
+  <label>
+    Last Name
+    <input name="profile[last_name]" value="<%= @profile.last_name%>">
+  </label>
+  </p>
+
+  <p>
+    <h3>Birthdate</h3>
+    Month
+  <select name="profile[birth_month]">
+    <option value="">
+    <% ["January", "February", "March", "April",
+    "May","June","July","August",
+    "September","October","November","December"].each do |month| %>
+    <option value="<%= month %>"> <%= month%>
+<% end %>
+  </select>
+
+
+  Day
+  <select name="profile[birth_day]">
+    <option value="">
+    <% (1..31).each do |day| %>
+
+      <option value="<%= day.to_s %>"> <%= day %>
+        <% end %>
+  </select>
+
+  Year
+  <select name="profile[birth_day]">
+    <option value="">
+    <% (2001.downto(1910)).each do |year| %>
+
+      <option value="<%= year.to_s %>"> <%= year %>
+        <% end %>
+  </select>
+</p>
+
+<p>
+  <h3>Gender</h3>
+  <select name="profile[gender]">
+    <option value="">
+    <% ["Female", "Male", "Other"].each do |gender| %>
+    <option value="<%= gender %>"> <%= gender %>
+    <% end%>
+  </select>
+</p>
+
+<p>
+  <h3>Employment Info</h3>
+  <label>
+    Job
+    <input name="profile[job]">
+  </label>
+
+  <label>
+    Employer
+    <input name="profile[employer]">
+  </label>
+</p>
+
+<p>
+  <h3>Geography</h3>
+  <label>
+    Current City
+    <input name="profile[current_city]">
+  </label>
+
+  <label>
+    Home City
+    <input name="profile[home_city]">
+  </label>
+</p>
+
+<p>
+  <h3>Relationships</h3>
+
+  <label>
+    Relationship Status
+    <select name="profile[relationship_status]">
+      <option value="">
+        <% ["Single", "In a Relationship", "Engaged", "Married",
+        "Divorced", "Widowed", "Other"].each do |status| %>
+          <option value="<%= status %>"> <%= status %>
+        <% end%>
+    </select>
+  </label>
+
+  <label>
+    Interested In
+    <select name="profile[interested_in]">
+      <option value="">
+      <% ["Women", "Men", "Men and Women", "Other"].each do |gender| %>
+      <option value="<%= gender %>"> <%= gender %>
+      <% end%>
+    </select>
+  </label>
+</p>
+
+<p>
+  <h3>Profile Picture</h3>
+  <label>
+    URL
+    <input name="profile[photo_url]">
+  </label>
+</p>
+
+<p>
+  <h3>About me</h3>
+  <textarea name="profile[about_me]"></textarea>
+</p>
+
+<input type="submit" value="Create My Profile!">
+</form>

@@ -10,11 +10,14 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @profile = current_user.profile
   end
 
   def update
+    @profile.update_attributes(params[:profile])
   end
 
   def show
+    @user = current_user
   end
 end
