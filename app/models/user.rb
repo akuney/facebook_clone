@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 
   has_one :profile, foreign_key: :owner_id
 
+  has_many :friendships
+  has_many :second_friends, through: :friendships, source: :second_friend
+  has_many :first_friends, through: :friendships, source: :first_friend
+
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
     user.try(:is_password?, password) ? user : nil
