@@ -1,3 +1,3 @@
 class PendingFriendship < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :first_friend_id, :second_friend_id
 end
