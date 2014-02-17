@@ -81,5 +81,23 @@
     Home City
     <input name="user[home_city]">
   </label>
+</p>
 
+<p>
+  <h3>Relationships</h3>
+
+  <label>
+    Relationship Status
+    <input name="user[relationship_status]">
+  </label>
+
+  <label>
+    Interested In
+    <select name="user[interested_in]">
+      <% ["Women", "Men", "Men and Women", "Other"].each do |gender| %>
+      <option value="<%= gender %>"> <%= gender %>
+      <% end%>
+    </select>
+  </label>
+</p>
 </form>
