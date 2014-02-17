@@ -4,17 +4,15 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    render :new
   end
 
   def create
     @user = User.new(params[:user])
+    @user.save!
 
-    if @user.save
-      sign_in(@user)
-      redirect_to new_profile_url
-    else
-      render :json => @user.errors.full_messages
-    end
+    sign_in(@user)
+    redirect_to new_profile_url
   end
 
   def show

@@ -8,9 +8,9 @@
 </head>
 <body>
 
-  <% if signed_in? %>
+  <% if (signed_in? && current_user.profile)%>
       <%= render 'helpers/top_bar'%>
-  <% else %>
+  <% elsif !signed_in? %>
     <%= link_to "Sign In", new_session_url %> or
     <%= link_to "Sign up", new_user_url %>
   <% end %>

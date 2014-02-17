@@ -1,9 +1,9 @@
 <!-- User show page -->
 
 <% if current_user = @user %>
-<%= render "helpers/you"%>
+<%= render "/helpers/you", :user => @user %>
 <% else %>
-<%= render "helpers/friend" %>
+<%= render "/helpers/friend", :user => @user %>
 <% end %>
 <!-- refactor this to have three cases later -->
 

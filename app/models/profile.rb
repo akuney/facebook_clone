@@ -3,7 +3,6 @@ class Profile < ActiveRecord::Base
   :birth_year, :gender, :job, :employer, :current_city, :home_city,
   :relationship_status, :interested_in, :about_me, :photo_url, :owner_id
 
-  belongs_to :owner
+  belongs_to :owner, class_name: :user
 
-  validates :first_name, :last_name, :photo_url, presence: true
 end
