@@ -6,5 +6,38 @@
      type="hidden"
      value="<%= form_authenticity_token %>">
 
+  <p>
+    <h3>Name</h3>
+  <label>
+    First Name
+    <input name="user[first_name]" value="">
+  </label>
+
+  <label>
+    Last Name
+    <input name="user[last_name]" value="">
+  </label>
+  </p>
+
+  <p>
+    <h3>Birthdate</h3>
+    Month
+  <select name="user[birth_month]">
+    <% ["January", "February", "March", "April",
+    "May","June","July","August",
+    "September","October","November","December"].each do |month| %>
+    <option value="<%= month %>"> <%= month%>
+<% end %>
+  </select>
+
+
+  Day
+  <select name="user[birth_day]">
+    <% (1..31).each do |day| %>
+
+      <option value="<%= day.to_s %>"> <%= day %>
+        <% end %>
+  </select>
+</p>
 
 </form>
