@@ -1,2 +1,13 @@
 <!-- Index of Pending Friendships -->
 
+<% @reqs_received.each do |req| %>
+<%= render "received_request",
+:user => PendingFriendship.find(req.first_friend_id) %>
+<% end %>
+
+<% @reqs_sent.each do |req| %>
+<%= render "sent_request",
+:user => PendingFriendship.find(req.second_friend_id)%>
+<%= render ""%>
+<% end %>
+

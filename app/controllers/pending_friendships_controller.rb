@@ -13,13 +13,9 @@ class PendingFriendshipsController < ApplicationController
 
   def index
     @user = current_user
+    @reqs_sent = PendingFriendship.requests_sent(@user)
+    @reqs_received = PendingFriendship.requests_received(@user)
   end
 
-  def requests_sent(user)
-    return PendingFriendship.where?('first_friend_id = ?', user.id)
-  end
 
-  def requests_received(user)
-    return PendingFriendship.where?('second_friend_id = ?', user.id)
-  end
 end
