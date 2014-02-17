@@ -6,23 +6,26 @@
      type="hidden"
      value="<%= form_authenticity_token %>">
 
+     <input type="hidden" name="profile[owner_id]"
+     value="<%= current_user.id %>">
+
   <p>
     <h3>Name</h3>
   <label>
     First Name
-    <input name="user[first_name]" value="">
+    <input name="profile[first_name]" value="">
   </label>
 
   <label>
     Last Name
-    <input name="user[last_name]" value="">
+    <input name="profile[last_name]" value="">
   </label>
   </p>
 
   <p>
     <h3>Birthdate</h3>
     Month
-  <select name="user[birth_month]">
+  <select name="profile[birth_month]">
     <% ["January", "February", "March", "April",
     "May","June","July","August",
     "September","October","November","December"].each do |month| %>
@@ -32,7 +35,7 @@
 
 
   Day
-  <select name="user[birth_day]">
+  <select name="profile[birth_day]">
     <% (1..31).each do |day| %>
 
       <option value="<%= day.to_s %>"> <%= day %>
@@ -40,7 +43,7 @@
   </select>
 
   Year
-  <select name="user[birth_day]">
+  <select name="profile[birth_day]">
     <% (2001.downto(1910)).each do |year| %>
 
       <option value="<%= year.to_s %>"> <%= year %>
@@ -50,7 +53,7 @@
 
 <p>
   <h3>Gender</h3>
-  <select name="user[gender]">
+  <select name="profile[gender]">
     <% ["Female", "Male", "Other"].each do |gender| %>
     <option value="<%= gender %>"> <%= gender %>
     <% end%>
@@ -61,12 +64,12 @@
   <h3>Employment Info</h3>
   <label>
     Job
-    <input name="user[job]">
+    <input name="profile[job]">
   </label>
 
   <label>
     Employer
-    <input name="user[employer]">
+    <input name="profile[employer]">
   </label>
 </p>
 
@@ -74,12 +77,12 @@
   <h3>Geography</h3>
   <label>
     Current City
-    <input name="user[current_city]">
+    <input name="profile[current_city]">
   </label>
 
   <label>
     Home City
-    <input name="user[home_city]">
+    <input name="profile[home_city]">
   </label>
 </p>
 
@@ -88,16 +91,26 @@
 
   <label>
     Relationship Status
-    <input name="user[relationship_status]">
+    <input name="profile[relationship_status]">
   </label>
 
   <label>
     Interested In
-    <select name="user[interested_in]">
+    <select name="profile[interested_in]">
       <% ["Women", "Men", "Men and Women", "Other"].each do |gender| %>
       <option value="<%= gender %>"> <%= gender %>
       <% end%>
     </select>
   </label>
 </p>
+
+<p>
+  <h3>Profile Picture</h3>
+  <label>
+    URL
+    <input name="profile[photo_url]">
+  </label>
+</p>
+
+<p>
 </form>

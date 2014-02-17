@@ -1,9 +1,11 @@
 class ProfilesController < ApplicationController
   def new
-    @user = current_user
+    @profile = Profile.new
   end
 
   def create
+    @profile = Profile.new(params[:profile])
+    @profile.save!
   end
 
   def edit
