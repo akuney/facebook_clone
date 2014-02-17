@@ -48,4 +48,38 @@
   </select>
 </p>
 
+<p>
+  <h3>Gender</h3>
+  <select name="user[gender]">
+    <% ["Female", "Male", "Other"].each do |gender| %>
+    <option value="<%= gender %>"> <%= gender %>
+    <% end%>
+  </select>
+</p>
+
+<p>
+  <h3>Employment Info</h3>
+  <label>
+    Job
+    <input name="user[job]">
+  </label>
+
+  <label>
+    Employer
+    <input name="user[employer]">
+  </label>
+</p>
+
+<p>
+  <h3>Geography</h3>
+  <label>
+    Current City
+    <input name="user[current_city]">
+  </label>
+
+  <label>
+    Home City
+    <input name="user[home_city]">
+  </label>
+
 </form>
