@@ -11,10 +11,11 @@ class User < ActiveRecord::Base
 
   has_one :profile, foreign_key: :owner_id
 
-  has_many :first_friendships, class_name: :friendship, foreign_key: :first_friend_id
-  has_many :second_friendships, class_name: :friendship, foreign_key: :second_friend_id
-  has_many :second_friends, through: :friendships, source: :second_friend
-  has_many :first_friends, through: :friendships, source: :first_friend
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+  # got this from a RailsCast
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
