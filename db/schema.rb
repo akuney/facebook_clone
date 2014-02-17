@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20140217183052) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "owner_id"
+    t.string   "photo_url"
   end
 
   add_index "profiles", ["owner_id"], :name => "index_profiles_on_owner_id"
@@ -40,7 +41,6 @@ ActiveRecord::Schema.define(:version => 20140217183052) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "session_token"
-    t.string   "photo_url"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
