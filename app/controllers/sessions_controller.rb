@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     if user
       sign_in(user)
-      redirect_to user_url(user)
+      redirect_to user_profile_url(user.id, user.profile.id)
     else
       render :json => "Credentials were wrong"
     end
