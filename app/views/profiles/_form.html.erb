@@ -40,7 +40,8 @@
     <option value="">
     <% (1..31).each do |day| %>
 
-      <option value="<%= day.to_s %>"> <%= day %>
+      <option value="<%= day.to_s %>"
+        <%= 'selected' if day == @profile.birth_day%>> <%= day %>
         <% end %>
   </select>
 
@@ -49,7 +50,8 @@
     <option value="">
     <% (2001.downto(1910)).each do |year| %>
 
-      <option value="<%= year.to_s %>"> <%= year %>
+      <option value="<%= year.to_s %>"
+        <%= 'selected' if year == @profile.birth_year%>> <%= year %>
         <% end %>
   </select>
 </p>
@@ -59,7 +61,7 @@
   <select name="profile[gender]">
     <option value="">
     <% ["Female", "Male", "Other"].each do |gender| %>
-    <option value="<%= gender %>"> <%= gender %>
+    <option value="<%= gender %>" <%= 'selected' if gender == @profile.gender%>> <%= gender %>
     <% end%>
   </select>
 </p>
@@ -68,12 +70,12 @@
   <h3>Employment Info</h3>
   <label>
     Job
-    <input name="profile[job]">
+    <input name="profile[job]" value="<%= @profile.job %>">
   </label>
 
   <label>
     Employer
-    <input name="profile[employer]">
+    <input name="profile[employer]" value="<%= @profile.employer %>">
   </label>
 </p>
 
@@ -81,12 +83,12 @@
   <h3>Geography</h3>
   <label>
     Current City
-    <input name="profile[current_city]">
+    <input name="profile[current_city]" value="<%= @profile.current_city%>">
   </label>
 
   <label>
     Home City
-    <input name="profile[home_city]">
+    <input name="profile[home_city]" value="<%= @profile.home_city%>">
   </label>
 </p>
 
@@ -99,7 +101,7 @@
       <option value="">
         <% ["Single", "In a Relationship", "Engaged", "Married",
         "Divorced", "Widowed", "Other"].each do |status| %>
-          <option value="<%= status %>"> <%= status %>
+          <option value="<%= status %>" <%= 'selected' if status == @profile.relationship_status %>> <%= status %>
         <% end%>
     </select>
   </label>
@@ -109,7 +111,7 @@
     <select name="profile[interested_in]">
       <option value="">
       <% ["Women", "Men", "Men and Women", "Other"].each do |gender| %>
-      <option value="<%= gender %>"> <%= gender %>
+      <option value="<%= gender %>" <%= 'selected' if gender == @profile.interested_in%>> <%= gender %>
       <% end%>
     </select>
   </label>
@@ -119,14 +121,17 @@
   <h3>Profile Picture</h3>
   <label>
     URL
-    <input name="profile[photo_url]">
+    <input name="profile[photo_url]" value="<%= @profile.photo_url %>">
   </label>
 </p>
 
 <p>
   <h3>About me</h3>
-  <textarea name="profile[about_me]"></textarea>
+  <textarea name="profile[about_me]">
+<%= @profile.about_me %>
+  </textarea>
 </p>
 
-<input type="submit" value="Create My Profile!">
+<input type="submit" value=
+"<%= @profile.persisted? ? 'Edit my profile!' : 'Create my profile!'%>"
 </form>
