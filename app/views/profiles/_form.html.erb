@@ -1,6 +1,10 @@
 <!-- Partial for creating and editing profiles -->
 
-<form action="<%= profiles_url %>" method="POST">
+<form action="<%= profile.persisted? ? profile_url(profile) : profiles_url %>"
+  method="POST">
+
+  <input name="_method" type="hidden"
+  value="<%= profile.persisted? ? "PUT" : "POST"%>">
   <input
      name="authenticity_token"
      type="hidden"
@@ -13,12 +17,12 @@
     <h3>Name</h3>
   <label>
     First Name
-    <input name="profile[first_name]" value="<%= @profile.first_name %>">
+    <input name="profile[first_name]" value="<%= profile.first_name %>">
   </label>
 
   <label>
     Last Name
-    <input name="profile[last_name]" value="<%= @profile.last_name%>">
+    <input name="profile[last_name]" value="<%= profile.last_name%>">
   </label>
   </p>
 
@@ -30,7 +34,7 @@
     <% ["January", "February", "March", "April",
     "May","June","July","August",
     "September","October","November","December"].each do |month| %>
-    <option value="<%= month %>" <%= 'selected' if month == @profile.birth_month %>> <%= month %>
+    <option value="<%= month %>" <%= 'selected' if month == profile.birth_month %>> <%= month %>
 <% end %>
   </select>
 
@@ -41,7 +45,7 @@
     <% (1..31).each do |day| %>
 
       <option value="<%= day.to_s %>"
-        <%= 'selected' if day == @profile.birth_day%>> <%= day %>
+        <%= 'selected' if day == profile.birth_day%>> <%= day %>
         <% end %>
   </select>
 
@@ -51,7 +55,7 @@
     <% (2001.downto(1910)).each do |year| %>
 
       <option value="<%= year.to_s %>"
-        <%= 'selected' if year == @profile.birth_year%>> <%= year %>
+        <%= 'selected' if year == profile.birth_year%>> <%= year %>
         <% end %>
   </select>
 </p>
@@ -61,7 +65,7 @@
   <select name="profile[gender]">
     <option value="">
     <% ["Female", "Male", "Other"].each do |gender| %>
-    <option value="<%= gender %>" <%= 'selected' if gender == @profile.gender%>> <%= gender %>
+    <option value="<%= gender %>" <%= 'selected' if gender == profile.gender%>> <%= gender %>
     <% end%>
   </select>
 </p>
@@ -70,12 +74,12 @@
   <h3>Employment Info</h3>
   <label>
     Job
-    <input name="profile[job]" value="<%= @profile.job %>">
+    <input name="profile[job]" value="<%= profile.job %>">
   </label>
 
   <label>
     Employer
-    <input name="profile[employer]" value="<%= @profile.employer %>">
+    <input name="profile[employer]" value="<%= profile.employer %>">
   </label>
 </p>
 
@@ -83,12 +87,12 @@
   <h3>Geography</h3>
   <label>
     Current City
-    <input name="profile[current_city]" value="<%= @profile.current_city%>">
+    <input name="profile[current_city]" value="<%= profile.current_city%>">
   </label>
 
   <label>
     Home City
-    <input name="profile[home_city]" value="<%= @profile.home_city%>">
+    <input name="profile[home_city]" value="<%= profile.home_city%>">
   </label>
 </p>
 
@@ -101,7 +105,7 @@
       <option value="">
         <% ["Single", "In a Relationship", "Engaged", "Married",
         "Divorced", "Widowed", "Other"].each do |status| %>
-          <option value="<%= status %>" <%= 'selected' if status == @profile.relationship_status %>> <%= status %>
+          <option value="<%= status %>" <%= 'selected' if status == profile.relationship_status %>> <%= status %>
         <% end%>
     </select>
   </label>
@@ -111,7 +115,7 @@
     <select name="profile[interested_in]">
       <option value="">
       <% ["Women", "Men", "Men and Women", "Other"].each do |gender| %>
-      <option value="<%= gender %>" <%= 'selected' if gender == @profile.interested_in%>> <%= gender %>
+      <option value="<%= gender %>" <%= 'selected' if gender == profile.interested_in%>> <%= gender %>
       <% end%>
     </select>
   </label>
@@ -121,17 +125,17 @@
   <h3>Profile Picture</h3>
   <label>
     URL
-    <input name="profile[photo_url]" value="<%= @profile.photo_url %>">
+    <input name="profile[photo_url]" value="<%= profile.photo_url %>">
   </label>
 </p>
 
 <p>
   <h3>About me</h3>
   <textarea name="profile[about_me]">
-<%= @profile.about_me %>
+<%= profile.about_me %>
   </textarea>
 </p>
 
 <input type="submit" value=
-"<%= @profile.persisted? ? 'Edit my profile!' : 'Create my profile!'%>"
+"<%= profile.persisted? ? 'Edit my profile!' : 'Create my profile!'%>">
 </form>
