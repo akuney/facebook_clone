@@ -45,12 +45,12 @@
     <% (1..31).each do |day| %>
 
       <option value="<%= day.to_s %>"
-        <%= 'selected' if day == profile.birth_day%>> <%= day %>
+        <%= 'selected' if day == profile.birth_day %>> <%= day %>
         <% end %>
   </select>
 
   Year
-  <select name="profile[birth_day]">
+  <select name="profile[birth_year]">
     <option value="">
     <% (2001.downto(1910)).each do |year| %>
 

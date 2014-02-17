@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     @profile.save!
-    redirect_to new_profile_url
+    redirect_to profile_url(@profile)
   end
 
   def edit
@@ -16,10 +16,10 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
     @profile.update_attributes(params[:profile])
-    redirect_to new_profile_url
+    redirect_to profile_url(@profile)
   end
 
   def show
-    @user = current_user
+    @profile = Profile.find(params[:id])
   end
 end
