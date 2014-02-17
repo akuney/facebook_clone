@@ -9,8 +9,7 @@
 <body>
 
   <% if signed_in? %>
-      Hello <%= current_user.profile.first_name %>!
-      <%= button_to "Sign Out", session_url, :method => :delete %>
+      <%= render 'helpers/top_bar'%>
   <% else %>
     <%= link_to "Sign In", new_session_url %> or
     <%= link_to "Sign up", new_user_url %>
