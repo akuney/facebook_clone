@@ -3,9 +3,20 @@
 <%= Like.all.count %> likes
 
 <% unless current_user.statuses_liked.include?(post) %>
-<%= button_to "Like", status_likes_url(post), method: :post %>
+
+  <form action="<%= status_likes_url(post) %>" method="POST">
+    <input
+       name="authenticity_token"
+       type="hidden"
+       value="<%= form_authenticity_token %>">
+
+    <input type="hidden" name="like[liker_id]" value="<%= current_user.id %>">
+    <input type="hidden" name="like[post_id]" value="<%= post.id %>">
+
+    <input type="submit" value="Like"
+  </form>
 <% else %>
-<%= button_to "Unlike",
-status_like_url(post, Like.find_by_liker_and_post(current_user, post)),
-method: :delete %>
+  <%= button_to "Unlike",
+  status_like_url(post, Like.find_by_liker_and_post(current_user, post)),
+  method: :delete %>
 <% end %>
