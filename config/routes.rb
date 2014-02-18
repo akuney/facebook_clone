@@ -11,6 +11,21 @@ FacebookClone::Application.routes.draw do
 
   resources :friendships, only: [:create, :destroy, :index]
 
+  resources :statuses, except: [:index] do
+    resources :replies, only: [:index]
+    resources :likes, only: [:create, :destroy, :index]
+  end
+
+  resources :comments, except: [:index] do
+    resources :replies, only: [:index]
+    resources :likes, only: [:create, :destroy, :index]
+  end
+
+  resources :replies, except: [:index] do
+    resources :likes, only: [:create, :destroy, :index]
+  end
+
+
   root to: "root#root"
 
   # The priority is based upon order of creation:
