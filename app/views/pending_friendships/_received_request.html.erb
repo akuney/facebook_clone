@@ -8,5 +8,6 @@
   value="<%= pending_friendship.pending_friend_id %>">
   <input type="submit" value="Accept Request">
 </form>
+
 <%= button_to "Reject Request",
 pending_friendship_url(pending_friendship), :method => :delete %>

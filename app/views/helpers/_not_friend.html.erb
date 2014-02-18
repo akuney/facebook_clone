@@ -5,8 +5,14 @@
 </section>
 
 <section>
-  <%= button_to "Add Friend", pending_friendships_url %>
-  <!-- this is 'post' by default for all button_to -->
+  <form action="<%= pending_friendships_url %>" method="POST">
+    <input type="hidden" name="pending_friendship[user_id]"
+    value="<%= current_user.id %>">
+    <input type="hidden" name="pending_friendship[pending_friend_id]"
+    value="<%= user.id %>">
+    <input type="submit" value="Add Friend">
+  </form>
+
   <button >Message</button>
   <button >Mutual Friends</button>
 </section>
