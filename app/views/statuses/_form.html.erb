@@ -1,0 +1,19 @@
+<!-- new or edit status -->
+
+<form action="<%= status.persisted? ? status_url(status) : statuses_url %>"
+  method="POST">
+
+  <input name="_method" type="hidden"
+  value="<%= status.persisted? ? "PUT" : "POST"%>">
+
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="status[author_id]" value="<%= current_user.id %>">
+
+  What's On Your Mind?
+  <textarea name="status[text]"><%= status.text %></textarea>
+  <input type="submit" value="Submit">
+</form>

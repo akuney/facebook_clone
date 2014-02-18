@@ -1,5 +1,6 @@
 class StatusesController < ApplicationController
   def new
+    @status = Status.new
     @user = current_user
   end
 
@@ -21,8 +22,13 @@ class StatusesController < ApplicationController
   end
 
   def edit
+    @status = Status.find(params[:id])
   end
 
   def update
+    @status = Status.find(params[:id])
+    @status.update_attributes(params[:status])
+    @status.save!
+    redirect_to user_statuses_url(current_user)
   end
 end
