@@ -3,4 +3,6 @@ class Status < ActiveRecord::Base
 
   has_many :replies, as: :parent
   has_many :likes, as: :post
+
+  belongs_to :author, class_name: "User"
 end
