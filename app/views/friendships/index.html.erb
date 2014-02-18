@@ -3,6 +3,7 @@
 <% @user.all_friends.each do |friend| %>
   <img src="<%= @user.profile.photo_url %>"></img>
   <%= user.name %>
+  <% @friendship = @user.friendship_with(friend) %>
   <%= button_to "Unfriend", friendships_url(@friendship), method: :delete %>
 
 <% end %>

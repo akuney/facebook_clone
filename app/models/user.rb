@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
     self.friendships + self.inverse_friendships
   end
 
+  def friendship_with(user)
+    Friendship.where(user_id: self.id, friend_id: user.id).first
+  end
+
   private
 
   def ensure_session_token
