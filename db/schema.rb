@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140217221507) do
+ActiveRecord::Schema.define(:version => 20140218135957) do
 
   create_table "friendships", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -21,14 +21,11 @@ ActiveRecord::Schema.define(:version => 20140217221507) do
   end
 
   create_table "pending_friendships", :force => true do |t|
-    t.integer  "first_friend_id"
-    t.integer  "second_friend_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "user_id"
+    t.integer  "pending_friend_id"
   end
-
-  add_index "pending_friendships", ["first_friend_id"], :name => "index_pending_friendships_on_first_friend_id"
-  add_index "pending_friendships", ["second_friend_id"], :name => "index_pending_friendships_on_second_friend_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "first_name",          :null => false
