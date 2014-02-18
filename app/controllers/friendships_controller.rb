@@ -9,13 +9,13 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.new(user_id: @user_id, friend_id: @friend_id)
     @friendship.save!
 
-    redirect_to :back
+    redirect_to pending_friendships_url
   end
 
   def destroy
     @friendship = Friendship.find(params[:friendship])
     @friendship.destroy
-    redirect_to :back
+    redirect_to pending_friendships_url
   end
 
 end
