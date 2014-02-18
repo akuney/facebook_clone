@@ -1,5 +1,6 @@
 <img src="<%= user.profile.photo_url %>">
 <%= user.name %>
 
-<button>Accept Request</button>
-<button>Reject Request</button>
+<%= button_to "Accept Request", friendships_url %>
+<%= button_to "Reject Request",
+pending_friendship_url(pending_friendship), :method => :delete %>
