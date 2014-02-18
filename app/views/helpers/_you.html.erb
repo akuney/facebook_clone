@@ -9,5 +9,5 @@
   <button >Timeline</button>
   <button >About</button>
   <button >Photos</button>
-  <button >Friends</button>
+  <%= button_to "Friends", user_friendships_url(current_user), method: :get %>
 </section>
