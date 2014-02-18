@@ -11,13 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218135957) do
+ActiveRecord::Schema.define(:version => 20140218162156) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "recipient_id"
+    t.text     "text"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "friendships", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
     t.integer  "friend_id"
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "liker_id"
+    t.integer  "post_id"
+    t.string   "post_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pending_friendships", :force => true do |t|
@@ -48,6 +64,21 @@ ActiveRecord::Schema.define(:version => 20140218135957) do
   end
 
   add_index "profiles", ["owner_id"], :name => "index_profiles_on_owner_id"
+
+  create_table "replies", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "comment_id"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.integer  "author_id"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",           :null => false
