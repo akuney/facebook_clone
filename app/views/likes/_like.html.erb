@@ -5,5 +5,5 @@
 <% unless current_user.posts_liked.include?(post) %>
 <%= button_to "Like", status_likes_url(post), method: :post %>
 <% else %>
-<%= button_to "Unlike", status_like_url(post, ? ), method: :get %>
+<%= button_to "Unlike", status_like_url(post, ? ), method: :delete %>
 <% end %>
