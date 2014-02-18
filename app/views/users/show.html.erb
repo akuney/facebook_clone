@@ -2,8 +2,10 @@
 
 <% if current_user = @user %>
 <%= render "/helpers/you", :user => @user %>
-<% else %>
+<% elsif current_user.all_friends.include?(@user) %>
 <%= render "/helpers/friend", :user => @user %>
+<% else %>
+<%= render "/helpers/not_friend", :user => @user %>
 <% end %>
 <!-- refactor this to have three cases later -->
 
