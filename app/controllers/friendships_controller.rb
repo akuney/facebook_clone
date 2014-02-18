@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def create
-    @friendship = Friendship.new(params[:friendship])
+    @pending_friendship = PendingFriendship.find(params[:pending_friendship])
     @friendship.save!
 
     redirect_to :back

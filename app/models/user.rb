@@ -54,6 +54,10 @@ class User < ActiveRecord::Base
     self.profile.first_name + " " + self.profile.last_name
   end
 
+  def all_friends
+    self.friends + self.inverse_friends
+  end
+
   private
 
   def ensure_session_token
