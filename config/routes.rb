@@ -1,6 +1,7 @@
 FacebookClone::Application.routes.draw do
   resources :users, :only => [:create, :new, :show] do
     resources :friendships, only: [:index]
+    resources :statuses, only: [:index]
   end
 
   resource :session, :only => [:create, :destroy, :new]
@@ -11,7 +12,7 @@ FacebookClone::Application.routes.draw do
 
   resources :friendships, only: [:create, :destroy, :index]
 
-  resources :statuses do
+  resources :statuses, except: [:index] do
     resources :replies, only: [:index]
     resources :likes, only: [:create, :destroy, :index]
   end
