@@ -19,6 +19,9 @@ class StatusesController < ApplicationController
   end
 
   def destroy
+    @status = Status.find(params[:id])
+    @status.destroy
+    redirect_to user_statuses_url(current_user)
   end
 
   def edit
