@@ -2,7 +2,7 @@ class PendingFriendshipsController < ApplicationController
   def create
     @pending_friendship = PendingFriendship.new(params[:pending_friendship])
     @pending_friendship.save!
-    redirect_to :back
+    redirect_to user_url(current_user)
   end
 
   def destroy
