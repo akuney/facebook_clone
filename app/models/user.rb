@@ -64,8 +64,8 @@ class User < ActiveRecord::Base
   end
 
   def friendship_with(user)
-    friendship = Friendship.where(user_id: self.id, friend_id: user.id)
-    + Friendship.where(user_id: user.id, friend_id: self.id)
+    friendship = Friendship.where(user_id: self.id, friend_id: user.id) +
+     Friendship.where(user_id: user.id, friend_id: self.id)
 
     return friendship.first
   end
