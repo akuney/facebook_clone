@@ -26,8 +26,12 @@ class User < ActiveRecord::Base
 
 
   has_many :statuses, foreign_key: "author_id"
-  has_many :comments, foreign_key: "author_id"
+
+  has_many :authored_comments, class_name: "Comment", foreign_key: "author_id"
+  has_many :received_comments, class_name: "Comment", foreign_key: "recipient_id"
+
   has_many :replies, foreign_key: "author_id"
+
   has_many :likes, foreign_key: "liker_id"
 
 
