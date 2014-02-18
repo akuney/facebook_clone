@@ -7,7 +7,7 @@ FacebookClone::Application.routes.draw do
 
   resources :pending_friendships, only: [:create, :destroy, :index]
 
-  resources :friendships, only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy, :index]
 
   root to: "root#root"
 
