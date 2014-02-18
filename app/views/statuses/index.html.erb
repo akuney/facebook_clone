@@ -1,5 +1,9 @@
 <!-- status index -->
 
+<% if (@user == current_user)%>
+<%= button_to "Create new status", new_status_url %>
+<% end %>
+
 <% @statuses.each do |status| %>
 <%= render "statuses/show", :status => status,
 :user => @user %>
