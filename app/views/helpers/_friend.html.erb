@@ -12,5 +12,5 @@
   <%= button_to "Friends", user_friendships_url(user), method: :get %>
   <button >Message</button>
   <%= button_to "Unfriend",
-  friendships_url(current_user.friendship_with(user)), method: :delete %>
+  friendship_url(current_user.friendship_with(user).id), method: :delete %>
 </section>

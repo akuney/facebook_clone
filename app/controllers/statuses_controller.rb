@@ -31,7 +31,11 @@ class StatusesController < ApplicationController
 
   def update
     @status = Status.find(params[:id])
+    @likes = @status.likes
+
     @status.update_attributes(params[:status])
+    @status.likes = @likes
+
     @status.save!
     redirect_to user_statuses_url(current_user)
   end
