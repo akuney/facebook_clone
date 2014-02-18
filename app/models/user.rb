@@ -54,8 +54,13 @@ class User < ActiveRecord::Base
     self.profile.first_name + " " + self.profile.last_name
   end
 
+
   def all_friends
     self.friends + self.inverse_friends
+  end
+
+  def all_friendships
+    self.friendships + self.inverse_friendships
   end
 
   private
