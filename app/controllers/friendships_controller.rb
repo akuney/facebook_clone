@@ -23,6 +23,7 @@ class FriendshipsController < ApplicationController
       @user = params[:user_id]
     else
       @user = current_user
+
     end
   end
 
