@@ -7,6 +7,8 @@ FacebookClone::Application.routes.draw do
 
   resources :pending_friendships, only: [:create, :destroy, :index]
 
+  resources :friendships, only: [:create, :destroy]
+
   root to: "root#root"
 
   # The priority is based upon order of creation:
