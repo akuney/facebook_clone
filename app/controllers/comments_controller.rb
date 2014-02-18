@@ -32,7 +32,11 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
+    @likes = @comment.likes
+
     @comment.update_attributes(params[:comment])
+    @comment.likes = @likes
+
     @comment.save!
     redirect_to user_statuses_url(@comment.recipient)
   end
