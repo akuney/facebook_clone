@@ -1,7 +1,7 @@
 <section class='top-bar'>
   <%= current_user.name %>
 
-  <button>Friend Requests</button>
+  <%= button_to "Friend Requests", pending_friendships_url, method: :get %>
   <button>Messages</button>
   <button>Notifications</button>
   <button>My Page</button>
