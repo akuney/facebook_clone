@@ -1,4 +1,4 @@
-<img src="<%= @user.profile.photo_url %>"></img>
+<img src="<%= user.profile.photo_url %>"></img>
 
 <section>
   <%= user.name %>
@@ -7,9 +7,10 @@
 
 <section>
   <button >Timeline</button>
-  <button >About</button>
+  <%= button_to "About", profile_url(user.profile), method: :get %>
   <button >Photos</button>
-  <button >Friends</button>
+  <%= button_to "Friends", user_friendships_url(user) %>
   <button >Message</button>
-  <button >Unfriend</button>
+  <%= button_to "Unfriend",
+  friendships_url(current_user.friendship_with(user)), method: :delete %>
 </section>
