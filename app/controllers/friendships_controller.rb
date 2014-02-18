@@ -18,4 +18,8 @@ class FriendshipsController < ApplicationController
     redirect_to pending_friendships_url
   end
 
+  def index
+
+  end
+
 end

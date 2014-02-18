@@ -2,6 +2,11 @@
 <%= user.name %>
 
 <form action="<%= friendships_url %>" method="POST">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
   <input type="hidden" name="pending_friendship[user_id]"
   value="<%= pending_friendship.user_id %>">
   <input type="hidden" name="pending_friendship[pending_friend_id]"
