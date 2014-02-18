@@ -1,0 +1,15 @@
+<!-- comment index -->
+<% if (current_user == @user) %>
+<%= render "/helpers/you", :user => @user %>
+<% else %>
+<%= render "/helpers/friend", :user => @user %>
+<% end %>
+
+<% unless (@user == current_user)%>
+<%= button_to "Create new comment", new_comment_url, method: :get %>
+<% end %>
+
+<% @comments.each do |comment| %>
+<%= render "show", :comment => comment,
+:user => @user %>
+<% end %>

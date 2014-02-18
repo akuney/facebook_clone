@@ -1,0 +1,10 @@
+<!-- Comment show -->
+
+<%= comment.author.name %>
+<%= comment.text %>
+<%= render 'likes/like', :post => comment %>
+
+<% if current_user == comment.author %>
+<%= button_to "Edit comment", edit_comment_url(comment), method: :get %>
+<%= button_to "Remove comment", comment_url(comment), method: :delete %>
+<% end %>

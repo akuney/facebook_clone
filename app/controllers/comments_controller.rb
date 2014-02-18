@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @comments = @user.comments_received
+    @comments = @user.received_comments
   end
 
   def show

@@ -7,9 +7,16 @@
 
 <% if (@user == current_user)%>
 <%= button_to "Create new status", new_status_url, method: :get %>
+<% else %>
+<%= button_to "Create new comment", new_comment_url, method: :get %>
 <% end %>
 
 <% @statuses.each do |status| %>
 <%= render "show", :status => status,
+:user => @user %>
+<% end %>
+
+<% @comments.each do |comment| %>
+<%= render "comments/show", :comment => comment,
 :user => @user %>
 <% end %>

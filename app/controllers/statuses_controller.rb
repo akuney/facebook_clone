@@ -7,6 +7,7 @@ class StatusesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @statuses = @user.statuses
+    @comments = @user.received_comments
   end
 
   def show
