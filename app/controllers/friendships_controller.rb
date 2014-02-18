@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def create
-    @pending_friendship = PendingFriendship.find(params[:pending_friendship])
+    @pending_friendship = PendingFriendship.where(params[:pending_friendship]).first
     @user_id = @pending_friendship.user_id
     @friend_id = @pending_friendship.friend_id
 
