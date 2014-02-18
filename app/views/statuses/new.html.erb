@@ -1,0 +1,14 @@
+<!-- new status -->
+
+<form action="<%= statuses_url %>" method="POST">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="status[author_id]" value="<%= @user.id %>">
+
+  What's On Your Mind?
+  <textarea name="status[text]"></textarea>
+  <input type="submit" value="Submit">
+</form>
