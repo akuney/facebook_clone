@@ -7,7 +7,7 @@
 
 <section>
   <%= button_to "Timeline", user_statuses_url(current_user), method: :get %>
-  <%= button_to "About", profile_url(current_user.profile), method: :get %>
+  <%= button_to "About", user_profile_url(current_user, current_user.profile), method: :get %>
   <button >Photos</button>
   <%= button_to "Friends", user_friendships_url(current_user), method: :get %>
 </section>
