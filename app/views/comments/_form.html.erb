@@ -1,0 +1,19 @@
+<!-- New or Edit Comment -->
+
+<form action="<%= comment.persisted? ? comment_url(comment) : comments_url %>"
+  method="POST">
+
+  <input name="_method" type="hidden"
+  value="<%= comment.persisted? ? "PUT" : "POST"%>">
+
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="comment[author_id]" value="<%= current_user.id %>">
+
+  Write Comment
+  <textarea name="status[text]"><%= comment.text %></textarea>
+  <input type="submit" value="Submit">
+</form>
