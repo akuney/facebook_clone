@@ -1,6 +1,6 @@
 <!-- Likes Index -->
 
-<%= Like.all.count %> likes
+<%= post.num_likes %> likes
 
 <% unless current_user.statuses_liked.include?(post) %>
   <form action="<%= status_likes_url(post.id) %>" method="POST">

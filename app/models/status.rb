@@ -6,4 +6,8 @@ class Status < ActiveRecord::Base
   has_many :likers, through: :likes, source: :liker
 
   belongs_to :author, class_name: "User"
+
+  def num_likes
+    self.likes.count
+  end
 end
