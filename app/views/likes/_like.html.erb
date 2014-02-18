@@ -3,8 +3,7 @@
 <%= Like.all.count %> likes
 
 <% unless current_user.statuses_liked.include?(post) %>
-
-  <form action="<%= status_likes_url(post) %>" method="POST">
+  <form action="<%= status_likes_url(post.id) %>" method="POST">
     <input
        name="authenticity_token"
        type="hidden"
@@ -12,8 +11,9 @@
 
     <input type="hidden" name="like[liker_id]" value="<%= current_user.id %>">
     <input type="hidden" name="like[post_id]" value="<%= post.id %>">
+    <input type="hidden" name="like[post_type]" value="<%= post.class.to_s %>">
 
-    <input type="submit" value="Like"
+    <input type="submit" value="Like">
   </form>
 <% else %>
   <%= button_to "Unlike",
