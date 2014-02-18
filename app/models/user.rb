@@ -17,6 +17,13 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   # got this from a RailsCast
 
+  has_many :pending_friendships
+  has_many :pending_friends, :through => :pending_friendships
+  has_many :inverse_pending_friendships,
+  :class_name => "PendingFriendship", :foreign_key => "pending_friend_id"
+  has_many :inverse_pending_friends, :through => :inverse_pending_friendships,
+  :source => :user
+
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
     user.try(:is_password?, password) ? user : nil
