@@ -1,1 +1,6 @@
 <!-- status index -->
+
+<% @statuses.each do |status| %>
+<%= render "statuses/show", :status => status,
+:user => @user %>
+<% %>
