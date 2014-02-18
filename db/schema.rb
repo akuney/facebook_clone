@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218162156) do
+ActiveRecord::Schema.define(:version => 20140218162752) do
 
   create_table "comments", :force => true do |t|
     t.integer  "author_id"
@@ -67,10 +67,11 @@ ActiveRecord::Schema.define(:version => 20140218162156) do
 
   create_table "replies", :force => true do |t|
     t.integer  "author_id"
-    t.integer  "comment_id"
     t.text     "text"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "parent_id"
+    t.string   "parent_type"
   end
 
   create_table "statuses", :force => true do |t|
