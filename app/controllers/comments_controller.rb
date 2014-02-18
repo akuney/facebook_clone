@@ -15,13 +15,15 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment])
     @comment.save!
-    redirect_to user_comments_url(current_user)
+    redirect_to user_statuses_url(@comment.recipient)
+    # We are on someone else's page, and we want to stay there.
   end
 
   def destroy
     @comment = Comment.find(params[:id])
+    @recipient = @comment.recipient
     @comment.destroy
-    redirect_to user_comments_url(current_user)
+    redirect_to user_statuses_url(@recipient)
   end
 
   def edit
@@ -32,6 +34,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.update_attributes(params[:comment])
     @comment.save!
-    redirect_to user_comments_url(current_user)
+    redirect_to user_statuses_url(@comment.recipient)
   end
 end
