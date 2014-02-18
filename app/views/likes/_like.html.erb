@@ -2,7 +2,7 @@
 
 <%= Like.all.count %> likes
 
-<% unless current_user.posts_liked.include?(post) %>
+<% unless current_user.statuses_liked.include?(post) %>
 <%= button_to "Like", status_likes_url(post), method: :post %>
 <% else %>
 <%= button_to "Unlike",
