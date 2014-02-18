@@ -20,7 +20,7 @@ class FriendshipsController < ApplicationController
 
   def index
     if (params[:user_id])
-      @user = params[:user_id]
+      @user = User.find(params[:user_id])
     else
       @user = current_user
     end
