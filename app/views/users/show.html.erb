@@ -1,6 +1,6 @@
 <!-- User show page -->
 
-<% if current_user = @user %>
+<% if (current_user == @user) %>
 <%= render "/helpers/you", :user => @user %>
 <% elsif current_user.all_friends.include?(@user) %>
 <%= render "/helpers/friend", :user => @user %>
