@@ -10,8 +10,4 @@ class LikesController < ApplicationController
     @like.destroy
     redirect_to :back
   end
-
-  def index
-    @likes = Like.all
-  end
 end
