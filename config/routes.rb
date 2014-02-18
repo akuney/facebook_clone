@@ -2,11 +2,12 @@ FacebookClone::Application.routes.draw do
   resources :users, :only => [:create, :new, :show] do
     resources :friendships, only: [:index]
     resources :statuses, only: [:index]
+    resources :profiles, only: [:show]
   end
 
   resource :session, :only => [:create, :destroy, :new]
 
-  resources :profiles, only: [:new, :edit, :create, :update, :show]
+  resources :profiles, only: [:new, :edit, :create, :update]
 
   resources :pending_friendships, only: [:create, :destroy, :index]
 
