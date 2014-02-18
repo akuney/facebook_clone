@@ -1,5 +1,8 @@
 <!-- Friends index page -->
 
 <% @user.all_friends.each do |friend| %>
+  <img src="<%= @user.profile.photo_url %>"></img>
+  <%= user.name %>
+  <%= button_to "Unfriend", friendships_url(@friendship), method: :delete %>
 
 <% end %>
