@@ -13,7 +13,7 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @friendship = Friendship.find(params[:friendship])
+    @friendship = Friendship.find(params[:id])
     @friendship.destroy
     redirect_to pending_friendships_url
   end
