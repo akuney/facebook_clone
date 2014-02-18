@@ -2,11 +2,12 @@
 
 <% @reqs_received.each do |req| %>
 <%= render "received_request",
-:user => PendingFriendship.find(req.user_id) %>
+:pending_friendship => req,
+:user => req.user %>
 <% end %>
 
 <% @reqs_sent.each do |req| %>
 <%= render "sent_request",
-:user => PendingFriendship.find(req.pending_friend_id)%>
+:user => req.friend %>
 <% end %>
 
