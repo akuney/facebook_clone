@@ -13,8 +13,8 @@ class PendingFriendshipsController < ApplicationController
 
   def index
     @user = current_user
-    @reqs_sent = PendingFriendship.requests_sent(@user)
-    @reqs_received = PendingFriendship.requests_received(@user)
+    @reqs_sent = current_user.pending_friends
+    @reqs_received = current_user.inverse_pending_friends
   end
 
 
