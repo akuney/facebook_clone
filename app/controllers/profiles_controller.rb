@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     @profile.save!
-    redirect_to profile_url(@profile)
+    redirect_to user_profile_url(current_user, @profile)
   end
 
   def edit
@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
     @profile.update_attributes(params[:profile])
     @profile.save!
 
-    redirect_to profile_url(@profile)
+    redirect_to user_profile_url(current_user, @profile)
   end
 
   def show
