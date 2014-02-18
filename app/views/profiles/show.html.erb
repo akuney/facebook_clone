@@ -1,4 +1,9 @@
 <!-- Shows Profile (user info) -->
+<% if (current_user == @user) %>
+<%= render "/helpers/you", :user => @user %>
+<% else %>
+<%= render "/helpers/friend", :user => @user %>
+<% end %>
 
 <p>
 Name: <%= @profile.first_name %> <%= @profile.last_name %>
