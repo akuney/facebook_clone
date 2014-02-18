@@ -1,6 +1,12 @@
 class FriendshipsController < ApplicationController
   def create
     @pending_friendship = PendingFriendship.find(params[:pending_friendship])
+    @user_id = @pending_friendship.user_id
+    @friend_id = @pending_friendship.friend_id
+
+    @pending_friendship.destroy
+
+    @friendship = Friendship.new(user_id: @user_id, friend_id: @friend_id)
     @friendship.save!
 
     redirect_to :back

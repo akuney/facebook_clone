@@ -8,7 +8,7 @@ class PendingFriendshipsController < ApplicationController
   def destroy
     @pending_friendship = PendingFriendship.find(params[:pending_friendship])
     @pending_friendship.destroy
-    redirect_to :back
+    render :index
   end
 
   def index
