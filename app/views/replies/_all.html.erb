@@ -1,9 +1,9 @@
 <% class_name = post.class.to_s %>
 <% if (class_name == "Comment") %>
-  <% action= <%= comment_url(post) %>
+  <% action= <%= comment_replies_url(post) %>
   <% %>
 <% elsif (class_name == "Status") %>
-  <% action = <%= status_url(post)
+  <% action = <%= status_replies_url(post)
 <% end %>
 
 <% post.replies.each do |reply| %>
@@ -15,4 +15,9 @@
 <form action="<%= action %>" method="POST">
   Reply
   <textarea name="<%= class_name %>[text]"></textarea>
+
+  <input type="hidden" name="<%= class_name %>[author_id]"
+  value="<%= current_user.id %>">
+  <input type="hidden" name="<%= parent_id %>" value="<%= post %>">
+  <input type="hidden" name="<%= parent_type %>" value="<%= class_name %>">
 </form>
