@@ -3,14 +3,6 @@ class RepliesController < ApplicationController
 
   end
 
-  def index
-    @user = User.find(params[:user_id])
-    @comments = @user.received_comments
-  end
-
-  def show
-  end
-
   def create
     @comment = Comment.new(params[:comment])
     @comment.save!
