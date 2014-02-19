@@ -16,13 +16,15 @@ FacebookClone::Application.routes.draw do
 
   resources :statuses, except: [:index] do
     resources :likes, only: [:create, :destroy, :index]
+    resources :replies, only: [:create]
   end
 
   resources :comments, except: [:index, :new] do
     resources :likes, only: [:create, :destroy, :index]
+    resources :replies, only: [:create]
   end
 
-  resources :replies, except: [:index, :new] do
+  resources :replies, except: [:index, :new, :create] do
     resources :likes, only: [:create, :destroy, :index]
   end
 
