@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
   has_many :user_message_threads, foreign_key: "recipient_id"
   has_many :message_threads, through: :user_message_threads,
   source: :message_thread
+  has_many :authored_messages, foreign_key: "author_id"
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
