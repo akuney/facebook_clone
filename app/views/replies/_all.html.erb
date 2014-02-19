@@ -1,9 +1,8 @@
 <% class_name = post.class.to_s %>
 <% if (class_name == "Comment") %>
-  <% action= <%= comment_replies_url(post) %>
-  <% %>
+  <% action = comment_replies_url(post) %>
 <% elsif (class_name == "Status") %>
-  <% action = <%= status_replies_url(post)
+  <% action = status_replies_url(post) %>
 <% end %>
 
 <% post.replies.each do |reply| %>
@@ -13,6 +12,11 @@
 <% end %>
 
 <form action="<%= action %>" method="POST">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
   Reply
   <textarea name="reply[text]"></textarea>
 
@@ -20,4 +24,6 @@
   value="<%= current_user.id %>">
   <input type="hidden" name="reply[parent_id]" value="<%= post.id %>">
   <input type="hidden" name="reply[parent_type]" value="<%= class_name %>">
+
+  <input type="submit" value="Submit">
 </form>

@@ -1,7 +1,7 @@
 class RepliesController < ApplicationController
 
   def create
-    @reply = Comment.new(params[:comment])
+    @reply = Reply.new(params[:reply])
     @reply.save!
 
     if @reply.parent_type == "Comment"
