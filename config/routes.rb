@@ -15,12 +15,10 @@ FacebookClone::Application.routes.draw do
   resources :friendships, only: [:create, :destroy, :index]
 
   resources :statuses, except: [:index] do
-    resources :replies, only: [:index, :new]
     resources :likes, only: [:create, :destroy, :index]
   end
 
   resources :comments, except: [:index, :new] do
-    resources :replies, only: [:index, :new]
     resources :likes, only: [:create, :destroy, :index]
   end
 

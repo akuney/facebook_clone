@@ -1,7 +1,4 @@
 class RepliesController < ApplicationController
-  def new
-
-  end
 
   def create
     @comment = Comment.new(params[:comment])
