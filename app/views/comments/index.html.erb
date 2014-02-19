@@ -6,7 +6,7 @@
 <% end %>
 
 <% unless (@user == current_user)%>
-<%= button_to "Create new comment", new_comment_url, method: :get %>
+<%= link_to "Create new comment", new_comment_url %>
 <% end %>
 
 <% @comments.each do |comment| %>

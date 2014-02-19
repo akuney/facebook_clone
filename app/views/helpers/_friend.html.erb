@@ -1,16 +1,29 @@
 <img src="<%= user.profile.photo_url %>"></img>
 
 <section>
-  <%= user.name %>
+  <%= link_to user.name, user_statuses_url(user) %>
   <%= user.email %>
 </section>
 
 <section>
-  <%= link_to "Timeline", user_statuses_url(user) %>
-  <%= link_to "About", user_profile_url(user, user.profile) %>
-  <%= link_to "Photos" %>
-  <%= link_to "Friends", user_friendships_url(user) %>
-  <button >Message</button>
-  <%= button_to "Unfriend",
-  friendship_url(current_user.friendship_with(user).id), method: :delete %>
+  <ul class="links">
+    <li>
+      <%= link_to "Timeline", user_statuses_url(user) %>
+    </li>
+    <li>
+      <%= link_to "About", user_profile_url(user, user.profile) %>
+    </li>
+    <li>
+      <%= link_to "Photos" %>
+    </li>
+    <li>
+      <%= link_to "Friends", user_friendships_url(user) %>
+    </li>
+    <li>
+      <%= link_to "Message"%>
+    </li>
+    <li>
+      <%= button_to "Unfriend",
+      friendship_url(current_user.friendship_with(user).id), method: :delete %>
+    </li>
 </section>

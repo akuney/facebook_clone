@@ -1,8 +1,8 @@
 <img src="<%= user.profile.photo_url %>"></img>
 
-<section>
-  <%= user.name %>
-</section>
+<div class="link">
+  <%= link_to user.name, user_statuses_url(user) %>
+</div>
 
 <section>
   <form action="<%= pending_friendships_url %>" method="POST">
@@ -16,9 +16,13 @@
     value="<%= current_user.id %>">
     <input type="hidden" name="pending_friendship[pending_friend_id]"
     value="<%= user.id %>">
-    <input type="submit" value="Add Friend">
+
+    <div class="submit">
+      <input type="submit" value="Add Friend">
+    </div>
   </form>
 
-  <button >Message</button>
-  <button >Mutual Friends</button>
+  <div class="link">
+    <%= link_to "Mutual Friends", user_mutual_friends_url(user) %>
+  </div>
 </section>

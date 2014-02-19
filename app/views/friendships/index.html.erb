@@ -2,15 +2,24 @@
 
 <% @user.all_friends.each do |friend| %>
   <p>
-    <img src="<%= @user.profile.photo_url %>"></img>
-    <%= link_to friend.name, user_statuses_url(friend) %>
+    <div class="image">
+      <img src="<%= @user.profile.photo_url %>"></img>
+    </div>
+
+    <div class="link">
+      <%= link_to friend.name, user_statuses_url(friend) %>
+    </div>
 
     <% if (current_user.all_friends.include?(friend))%>
-    <%= button_to "Unfriend",
-    friendship_url(@user.friendship_with(friend)), method: :delete %>
+    <div class='link'>
+      <%= button_to "Unfriend",
+      friendship_url(@user.friendship_with(friend)), method: :delete %>
+    </div>
     <% end %>
 
-    <%= link_to "Mutual Friends", user_mutual_friends_url(friend)%>
+    <div class='link'>
+      <%= link_to "Mutual Friends", user_mutual_friends_url(friend)%>
+    </div>
   </p>
 
 
