@@ -14,13 +14,11 @@
 <% @statuses.each do |status| %>
 <%= render "show", :status => status,
 :user => @user %>
-
-<% status.replies each do |reply| %>
-
-<% end %>
+<%= render "replies/all", :post => status %>
 <% end %>
 
 <% @comments.each do |comment| %>
 <%= render "comments/show", :comment => comment,
 :user => @user %>
+<%= render "replies/all", :post => comment %>
 <% end %>
