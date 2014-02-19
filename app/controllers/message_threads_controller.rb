@@ -9,6 +9,11 @@ class MessageThreadsController < ApplicationController
   def create
     @message_thread = MessageThread.new(params[:message_thread])
     @message_thread.save!
+
+    @message = Message.new(params[:message])
+    @message.thread_id = @message_thread.id
+    @message.save!
+
     render :index
   end
 

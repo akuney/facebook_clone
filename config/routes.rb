@@ -33,8 +33,6 @@ FacebookClone::Application.routes.draw do
   end
 
 
-
-
   root to: "root#root"
 
   # The priority is based upon order of creation:

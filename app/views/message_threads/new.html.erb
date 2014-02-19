@@ -1,0 +1,24 @@
+<!-- new message thread form -->
+
+<form action="message_threads_url" method="POST">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="message_thread[creator_id]"
+  value="<%= current_user.id %>">
+
+  <label>
+      Thread Title:
+    <input name="message_thread[title]">
+  </label>
+
+  <br>
+
+  <input type="hidden" name="message[author_id] value=<%= current_user.id %>">
+  Message:
+  <textarea name="message[text]"></textarea>
+
+  <input type="submit" value="Submit">
+</form>
