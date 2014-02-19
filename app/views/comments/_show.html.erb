@@ -1,11 +1,18 @@
 <!-- Comment show -->
 
-<%= comment.author.name %>
-<%= comment.text %>
-<%= render 'likes/like', :post => comment %>
+<div class='comment'>
+  <%= comment.author.name %>
+  <%= comment.text %>
+  <%= render 'likes/like', :post => comment %>
+</div>
 
 <% if current_user == comment.author %>
-<%= link_to "Edit comment", edit_comment_url(comment) %>
-<%= button_to "Remove comment", comment_url(comment), method: :delete %>
+<div class='link'>
+  <%= link_to "Edit comment", edit_comment_url(comment) %>
+</div>
+
+<div class='link'>
+  <%= button_to "Remove comment", comment_url(comment), method: :delete %>
+</div>
 <% end %>
 

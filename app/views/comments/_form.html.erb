@@ -14,8 +14,12 @@
   <input type="hidden" name="comment[author_id]" value="<%= current_user.id %>">
   <input type="hidden" name="comment[recipient_id]" value="<%= user.id %>">
 
-  Write Comment
-  <textarea name="comment[text]"><%= comment.text %></textarea>
+  <div class='textarea'>
+    Write Comment
+    <textarea name="comment[text]"><%= comment.text %></textarea>
+  </div>
 
-  <input type="submit" value="Submit">
+  <div class='submit'>
+    <input type="submit" value="Submit">
+  </div>
 </form>

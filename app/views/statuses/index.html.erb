@@ -6,9 +6,9 @@
 <% end %>
 
 <% if (@user == current_user)%>
-<%= button_to "Create new status", new_status_url, method: :get %>
+<%= link_to "Create new status", new_status_url %>
 <% else %>
-<%= button_to "Create new comment", new_user_comment_url(@user), method: :get %>
+<%= link_to "Create new comment", new_user_comment_url(@user) %>
 <% end %>
 
 <% @statuses.each do |status| %>

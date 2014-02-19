@@ -5,6 +5,7 @@ FacebookClone::Application.routes.draw do
     resources :comments, only: [:index, :new]
     resources :profiles, only: [:show]
     resources :mutual_friends, only: [:index]
+    resources :message_threads, only: [:new]
   end
 
   resource :session, :only => [:create, :destroy, :new]
