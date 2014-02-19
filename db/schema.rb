@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218220917) do
+ActiveRecord::Schema.define(:version => 20140219162453) do
 
   create_table "comments", :force => true do |t|
     t.integer  "author_id"
@@ -32,6 +32,21 @@ ActiveRecord::Schema.define(:version => 20140218220917) do
     t.integer  "liker_id"
     t.integer  "post_id"
     t.string   "post_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "message_threads", :force => true do |t|
+    t.integer  "creator_id"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "thread_id"
+    t.text     "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -79,6 +94,13 @@ ActiveRecord::Schema.define(:version => 20140218220917) do
     t.text     "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_message_threads", :force => true do |t|
+    t.integer  "message_thread_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|
