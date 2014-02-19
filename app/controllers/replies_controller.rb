@@ -11,5 +11,10 @@ class RepliesController < ApplicationController
     end
   end
 
+  def update
+  end
+
+  def destroy
+  end
 
 end

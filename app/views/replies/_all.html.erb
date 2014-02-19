@@ -9,6 +9,10 @@
   <%= reply.author.name %>
   <%= reply.text %>
   <%= render 'likes/like', :post => reply %>
+
+  <% if reply.author == current_user %>
+    <%= render "edit_and_delete", :reply => reply %>
+  <% end %>
 <% end %>
 
 <form action="<%= action %>" method="POST">
