@@ -12,7 +12,7 @@
 
   <% if reply.author == current_user %>
     <%= link_to "Edit Reply", edit_reply_url(reply) %>
-    <%= button_to "Delete Reply", replies_url(reply), method: :delete %>
+    <%= button_to "Delete Reply", reply_url(reply), method: :delete %>
   <% end %>
 <% end %>
 

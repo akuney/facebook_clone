@@ -28,6 +28,7 @@ class RepliesController < ApplicationController
       @url = user_statuses_url(@reply.parent.author)
     end
 
+    @reply.destroy
     redirect_to @url
   end
 
