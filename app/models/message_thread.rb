@@ -1,5 +1,5 @@
 class MessageThread < ActiveRecord::Base
-  attr_accessible :creator_id, :title
+  attr_accessible :creator_id, :title, :recipient_ids
 
   belongs_to :creator, class_name: "User"
 
