@@ -2,9 +2,13 @@ class RepliesController < ApplicationController
 
   def create
     @reply = Comment.new(params[:comment])
-    @comment.save!
-    redirect_to user_statuses_url(@comment.recipient)
-    # We are on someone else's page, and we want to stay there.
+    @reply.save!
+
+    if @reply.parent_type == "Comment"
+      redirect_to user_statuses_url(@reply.parent.recipient)
+    elsif @reply.parent_type == "Status"
+      redirect_to user_statuses_url(@reply.parent.author)
+    end
   end
 
 

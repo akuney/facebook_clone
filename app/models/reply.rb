@@ -1,5 +1,5 @@
 class Reply < ActiveRecord::Base
-  attr_accessible :author_id, :text
+  attr_accessible :author_id, :text, :parent_id, :parent_type
 
   belongs_to :parent, polymorphic: true
   has_many :likes, as: :post
