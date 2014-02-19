@@ -39,8 +39,9 @@ class User < ActiveRecord::Base
   has_many :comments_liked, through: :likes, source: :post, source_type: "Comment"
   has_many :replies_liked, through: :likes, source: :post, source_type: "Reply"
 
-
-
+  has_many :user_message_threads, foreign_key: "recipient_id"
+  has_many :message_threads, through: :user_message_threads,
+  source: :message_thread
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
