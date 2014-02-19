@@ -1,3 +1,11 @@
 <!-- one message thread -->
 
-<%= link_to message_thread.title,  %>
+<%= link_to message_thread.title,
+message_thread_messages_url(message_thread) %>
+
+<% if message_thread.creator == current_user %>
+You and <%= message_thread.num_recipients %> others
+<% else %>
+You, <%= mesage_thread.creator %>, and
+<%= message_thread.num_recipients - 1 %> others
+<% end %>
