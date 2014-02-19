@@ -85,6 +85,10 @@ class User < ActiveRecord::Base
     self.friendships + self.inverse_friendships
   end
 
+  def all_message_threads
+    self.message_threads + self.message_threads_created
+  end
+
   def friendship_with(user)
     friendship = Friendship.where(user_id: self.id, friend_id: user.id) +
      Friendship.where(user_id: user.id, friend_id: self.id)

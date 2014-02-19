@@ -3,7 +3,7 @@ class MessageThreadsController < ApplicationController
   end
 
   def index
-    @message_threads = current_user.
+    @message_threads = current_user.all_message_threads
   end
 
 end
