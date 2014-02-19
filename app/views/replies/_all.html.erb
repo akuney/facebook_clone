@@ -14,10 +14,10 @@
 
 <form action="<%= action %>" method="POST">
   Reply
-  <textarea name="<%= class_name %>[text]"></textarea>
+  <textarea name="reply[text]"></textarea>
 
-  <input type="hidden" name="<%= class_name %>[author_id]"
+  <input type="hidden" name="reply[author_id]"
   value="<%= current_user.id %>">
-  <input type="hidden" name="<%= parent_id %>" value="<%= post %>">
-  <input type="hidden" name="<%= parent_type %>" value="<%= class_name %>">
+  <input type="hidden" name="reply[parent_id]" value="<%= post.id %>">
+  <input type="hidden" name="reply[parent_type]" value="<%= class_name %>">
 </form>
