@@ -29,7 +29,7 @@ FacebookClone::Application.routes.draw do
   end
 
   resources :message_threads, only: [:index, :new, :create] do
-    resources :messages, only: [:index, :new]
+    resources :messages, only: [:index, :create]
   end
 
 

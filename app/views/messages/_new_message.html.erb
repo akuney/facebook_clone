@@ -1,14 +1,17 @@
 <!-- new message (in existing thread) -->
 
-<form action="message_threads_url" method="POST">
+<form action="<%= message_thread_messages_url(message_thread) %>" method="POST">
+
   <input
      name="authenticity_token"
      type="hidden"
      value="<%= form_authenticity_token %>">
 
   <input type="hidden" name="message[author_id]" value="<%= current_user.id %>">
+  <input type="hidden" name="message[thread_id]" value="<%= message_thread.id %>">
 
   <textarea name="message[text]"></textarea>
 
   <input type="submit" value="Submit Reply">
+
 </form>
