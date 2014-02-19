@@ -1,10 +1,10 @@
 <section class='top-bar'>
   <%= current_user.name %>
 
-  <%= button_to "Friend Requests", pending_friendships_url, method: :get %>
-  <button>Messages</button>
+  <%= link_to "Friend Requests", pending_friendships_url %>
+  <%= link_to "Messages", message_threads_url %>
   <button>Notifications</button>
-  <%= button_to "My Page", user_url(current_user), method: :get %>
+  <%= link_to "My Page", user_url(current_user) %>
   <%= button_to "Sign Out", session_url, method: :delete %>
   Search:
   <input>

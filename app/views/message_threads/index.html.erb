@@ -1,7 +1,9 @@
 <!-- message thread index -->
 
-<%= @message_threads.each do |message_thread| %>
-<%= render "_message_thread", :message_thread => @message_thread %>
+<% unless @message_threads.empty? %>
+  <%= @message_threads.each do |message_thread| %>
+  <%= render "_message_thread", :message_thread => @message_thread %>
+  <% end %>
 <% end %>
 
-<%= link_to "Create New Thread", new_user_message_thread_url(current_user)%>
+<%= link_to "Create New Thread", new_message_thread_url %>

@@ -3,9 +3,15 @@
 <%= link_to message_thread.title,
 message_thread_messages_url(message_thread) %>
 
+<% num_recipients = message_thread.num_recipients %>
+
 <% if message_thread.creator == current_user %>
-You and <%= message_thread.num_recipients %> others
+    You and <%= num_recipients %> others
 <% else %>
-You, <%= mesage_thread.creator %>, and
-<%= message_thread.num_recipients - 1 %> others
+  <% if num_recipients > 0 %>
+    You, <%= message_thread.creator %>, and
+    <%= num_recipients - 1 %> others
+  <% else %>
+    You and <%= message_thread.creator %>
+  <% end %>
 <% end %>
