@@ -4,6 +4,7 @@ FacebookClone::Application.routes.draw do
     resources :statuses, only: [:index]
     resources :comments, only: [:index, :new]
     resources :profiles, only: [:show]
+    resources :mutual_friends, only: [:index]
   end
 
   resource :session, :only => [:create, :destroy, :new]
@@ -33,7 +34,7 @@ FacebookClone::Application.routes.draw do
   end
 
 
-  root to: "root#root"
+  root to: "users#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

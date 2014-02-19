@@ -1,0 +1,12 @@
+<!-- mutual friends index -->
+
+<% @user.all_friends.each do |friend| %>
+  <% if current_user.all_friends.include?(friend) %>
+
+    <p>
+    <img src="<%= friend.profile.photo_url %>">
+    <%= link_to friend.name, user_url(friend) %>
+    </p>
+
+  <% end %>
+<% end %>

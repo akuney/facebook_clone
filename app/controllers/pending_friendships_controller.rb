@@ -6,9 +6,9 @@ class PendingFriendshipsController < ApplicationController
   end
 
   def destroy
-    @pending_friendship = PendingFriendship.find(params[:pending_friendship])
+    @pending_friendship = PendingFriendship.find(params[:id])
     @pending_friendship.destroy
-    render :index
+    redirect_to pending_friendships_url
   end
 
   def index

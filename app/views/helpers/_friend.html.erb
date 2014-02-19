@@ -6,10 +6,10 @@
 </section>
 
 <section>
-  <%= button_to "Timeline", user_statuses_url(user), method: :get %>
-  <%= button_to "About", user_profile_url(user, user.profile), method: :get %>
-  <button >Photos</button>
-  <%= button_to "Friends", user_friendships_url(user), method: :get %>
+  <%= link_to "Timeline", user_statuses_url(user) %>
+  <%= link_to "About", user_profile_url(user, user.profile) %>
+  <%= link_to "Photos", button>
+  <%= link_to "Friends", user_friendships_url(user) %>
   <button >Message</button>
   <%= button_to "Unfriend",
   friendship_url(current_user.friendship_with(user).id), method: :delete %>

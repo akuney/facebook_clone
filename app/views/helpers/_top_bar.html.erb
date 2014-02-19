@@ -1,9 +1,13 @@
 <section class='top-bar'>
   <%= current_user.name %>
 
+  <%= link_to "Feed", root_url %>
+  <%= link_to "My Page", user_statuses_url(current_user) %>
   <%= link_to "Friend Requests", pending_friendships_url %>
+  <%= link_to "Friend Suggestions"%>
+  <%= link_to "Friends", user_friendships_url(current_user)%>
+  <%= link_to "Photos"%>
   <%= link_to "Messages", message_threads_url %>
-  <%= link_to "My Page", user_url(current_user) %>
   <%= button_to "Sign Out", session_url, method: :delete %>
   Search:
   <input>
