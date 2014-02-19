@@ -5,6 +5,8 @@
 <%= render 'likes/like', :post => comment %>
 
 <% if current_user == comment.author %>
-<%= button_to "Edit comment", edit_comment_url(comment), method: :get %>
+<%= link_to "Edit comment", edit_comment_url(comment) %>
 <%= button_to "Remove comment", comment_url(comment), method: :delete %>
 <% end %>
+
+<%= link_to "Write reply", new_%>
