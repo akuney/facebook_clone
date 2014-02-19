@@ -11,7 +11,7 @@
   <%= render 'likes/like', :post => reply %>
 
   <% if reply.author == current_user %>
-    <%= render "edit_and_delete", :reply => reply %>
+    <%= link_to "edit_and_delete", :reply => reply %>
   <% end %>
 <% end %>
 
