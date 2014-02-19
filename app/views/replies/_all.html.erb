@@ -1,15 +1,18 @@
-<% if (post.class.to_s == "Comment") %>
-  <% action= <%= new_comment_url(post) %>
-<% elsif (post.class.to_s == "Status") %>
-  <% action = <%= new_status_url(post)
+<% class_name = post.class.to_s %>
+<% if (class_name == "Comment") %>
+  <% action= <%= comment_url(post) %>
+  <% %>
+<% elsif (class_name == "Status") %>
+  <% action = <%= status_url(post)
 <% end %>
 
 <% post.replies.each do |reply| %>
   <%= reply.author.name %>
   <%= reply.text %>
-
-  <form action="<%= action %>" method="">
-
-  </form>
-
+  <%= render 'likes/like', :post => reply %>
 <% end %>
+
+<form action="<%= action %>" method="POST">
+  Reply
+  <textarea name="<%= class_name %>[text]"></textarea>
+</form>
