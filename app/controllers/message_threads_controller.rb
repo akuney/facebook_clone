@@ -14,7 +14,7 @@ class MessageThreadsController < ApplicationController
     @message.thread_id = @message_thread.id
     @message.save!
 
-    render :index
+    redirect_to message_threads_url
   end
 
 end

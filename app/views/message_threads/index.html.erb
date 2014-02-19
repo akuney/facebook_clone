@@ -1,8 +1,8 @@
 <!-- message thread index -->
 
-<% unless @message_threads.empty? %>
-  <%= @message_threads.each do |message_thread| %>
-  <%= render "_message_thread", :message_thread => @message_thread %>
+<% unless @message_threads.count == 0 %>
+  <% @message_threads.each do |message_thread| %>
+    <%= render "message_thread_partial", :message_thread => message_thread %>
   <% end %>
 <% end %>
 
