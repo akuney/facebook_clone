@@ -8,6 +8,6 @@
 
 <% @reqs_sent.each do |req| %>
 <%= render "sent_request",
-:user => req.friend %>
+:user => req.pending_friend %>
 <% end %>
 
