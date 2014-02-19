@@ -1,0 +1,11 @@
+<form action="<%= reply_url(@reply) %>" method="POST">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <input name="_method" type="hidden" value="PUT">
+
+  <textarea name="reply[text]"><%= @reply.text %></textarea>
+  <input type="submit" value="Submit">
+</form>

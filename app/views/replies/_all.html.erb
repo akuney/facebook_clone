@@ -11,7 +11,8 @@
   <%= render 'likes/like', :post => reply %>
 
   <% if reply.author == current_user %>
-    <%= link_to "edit_and_delete", :reply => reply %>
+    <%= link_to "Edit Reply", edit_reply_url(reply) %>
+    <%= button_to "Delete Reply", replies_url(reply), method: :delete %>
   <% end %>
 <% end %>
 
