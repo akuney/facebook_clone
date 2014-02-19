@@ -3,6 +3,7 @@
 <% unless @message_threads.count == 0 %>
   <% @message_threads.each do |message_thread| %>
     <%= render "message_thread_partial", :message_thread => message_thread %>
+    <br>
   <% end %>
 <% end %>
 

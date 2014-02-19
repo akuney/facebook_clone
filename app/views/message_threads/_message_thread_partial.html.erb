@@ -6,10 +6,10 @@
 
 <% if (message_thread.creator == current_user) %>
     You and <%= num_recipients %> others
-<% elsif (num_recipients > 0) %>
-    You, <%= message_thread.creator %>, and
+<% elsif (num_recipients > 1) %>
+    You, <%= message_thread.creator.name %>, and
     <%= num_recipients - 1 %> others
 <% else %>
-  You and <%= message_thread.creator %>
+  You and <%= message_thread.creator.name %>
 <% end %>
 
