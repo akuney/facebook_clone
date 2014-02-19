@@ -4,3 +4,5 @@
 <%= render 'message', :message => message %>
 <br>
 <% end %>
+
+<%= link_to "Reply", new_message_thread_message_url(@message_thread)%>
