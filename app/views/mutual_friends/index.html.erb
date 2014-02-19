@@ -2,6 +2,6 @@
 
 <% @user.all_friends.each do |friend| %>
   <% if current_user.all_friends.include?(friend) %>
-    <%= render 'helpers/pic_and_name'%>
+    <%= render 'helpers/pic_and_name', :user => friend %>
   <% end %>
 <% end %>

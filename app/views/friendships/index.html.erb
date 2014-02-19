@@ -11,15 +11,17 @@
     </div>
 
     <% if (current_user.all_friends.include?(friend))%>
-    <div class='link'>
-      <%= button_to "Unfriend",
-      friendship_url(@user.friendship_with(friend)), method: :delete %>
-    </div>
+      <div class='link'>
+        <%= button_to "Unfriend",
+        friendship_url(@user.friendship_with(friend)), method: :delete %>
+      </div>
     <% end %>
 
-    <div class='link'>
-      <%= link_to "Mutual Friends", user_mutual_friends_url(friend)%>
-    </div>
+    <% if (friend != current_user)%>
+      <div class='link'>
+        <%= link_to "Mutual Friends", user_mutual_friends_url(friend)%>
+      </div>
+    <% end %>
   </p>
 
 

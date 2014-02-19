@@ -6,13 +6,20 @@
 <% end %>
 
 <% post.replies.each do |reply| %>
-  <%= reply.author.name %>
+  <%= render 'helpers/pic_and_name', :user => reply.author %>
   <%= reply.text %>
   <%= render 'likes/like', :post => reply %>
 
   <% if reply.author == current_user %>
-    <%= link_to "Edit Reply", edit_reply_url(reply) %>
-    <%= button_to "Delete Reply", reply_url(reply), method: :delete %>
+    <ul class='links'>
+      <li>
+        <%= link_to "Edit Reply", edit_reply_url(reply) %>
+      </li>
+
+      <li>
+        <%= button_to "Delete Reply", reply_url(reply), method: :delete %>
+      </li>
+    </ul>
   <% end %>
 <% end %>
 
@@ -30,5 +37,7 @@
   <input type="hidden" name="reply[parent_id]" value="<%= post.id %>">
   <input type="hidden" name="reply[parent_type]" value="<%= class_name %>">
 
-  <input type="submit" value="Submit">
+  <div class='submit'>
+    <input type="submit" value="Submit">
+  </div>
 </form>
