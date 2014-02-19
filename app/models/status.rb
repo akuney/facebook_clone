@@ -1,7 +1,7 @@
 class Status < ActiveRecord::Base
   attr_accessible :author_id, :text
 
-  has_many :replies, as: :parent
+  has_many :replies, as: :parent, dependent: :destroy
   has_many :likes, as: :post, foreign_key: "post_id", dependent: :destroy
   has_many :likers, through: :likes, source: :liker
 
