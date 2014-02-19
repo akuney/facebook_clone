@@ -4,7 +4,6 @@ FacebookClone::Application.routes.draw do
     resources :statuses, only: [:index]
     resources :comments, only: [:index, :new]
     resources :profiles, only: [:show]
-    resources :message_threads, only: [:new]
   end
 
   resource :session, :only => [:create, :destroy, :new]
@@ -29,7 +28,7 @@ FacebookClone::Application.routes.draw do
     resources :likes, only: [:create, :destroy, :index]
   end
 
-  resources :message_threads, only: [:index]
+  resources :message_threads, only: [:index, :new]
 
 
 
