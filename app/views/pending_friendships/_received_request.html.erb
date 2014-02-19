@@ -1,5 +1,4 @@
-<img src="<%= user.profile.photo_url %>">
-<%= user.name %>
+<%= render 'helpers/pic_and_name'%>
 
 <form action="<%= friendships_url %>" method="POST">
   <input
@@ -11,8 +10,13 @@
   value="<%= pending_friendship.user_id %>">
   <input type="hidden" name="pending_friendship[pending_friend_id]"
   value="<%= pending_friendship.pending_friend_id %>">
-  <input type="submit" value="Accept Request">
+
+  <div class="submit">
+    <input type="submit" value="Accept Request">
+  </div>
 </form>
 
-<%= button_to "Reject Request",
-pending_friendship_url(pending_friendship), :method => :delete %>
+<div class="button">
+  <%= button_to "Reject Request",
+  pending_friendship_url(pending_friendship), :method => :delete %>
+</div>

@@ -1,3 +1,8 @@
-<img src="<%= message.author.profile.photo_url %>"></img>
-<%= message.author.name %>
-<%= message.text %>
+<section class="message">
+
+  <%= render 'helpers/pic_and_name', :user => message.author %>
+
+  <div class='text'>
+    <%= message.text %>
+  </div>
+</section>

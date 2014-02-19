@@ -11,8 +11,11 @@
 
   <p>
     <label>
+
+      <div class='input'>
         Thread Title:
-      <input name="message_thread[title]">
+        <input name="message_thread[title]">
+      </div>
     </label>
   </p>
 
@@ -20,9 +23,11 @@
     Recipients:
     <% current_user.all_friends.each do |friend| %>
       <!-- should refactor using searching -->
-      <input type="checkbox" name="message_thread[recipient_ids][]"
-      value="<%= friend.id %>">
-      <%= friend.name %>
+      <div class='checkbox'>
+        <input type="checkbox" name="message_thread[recipient_ids][]"
+        value="<%= friend.id %>">
+        <%= friend.name %>
+      </div>
 
     <% end %>
   </p>

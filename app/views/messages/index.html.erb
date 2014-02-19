@@ -1,8 +1,10 @@
 <!-- messages index (nested under a thread) -->
 
 <% @message_thread.messages.each do |message| %>
-<%= render 'message', :message => message %>
-<br>
+<p class='message'>
+  <%= render 'message', :message => message, :message_thread => @message_thread %>
+</p>
+
 <% end %>
 
 <%= render 'new_message', :message_thread => @message_thread %>

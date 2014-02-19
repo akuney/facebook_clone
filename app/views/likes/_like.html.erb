@@ -1,6 +1,10 @@
 <!-- Likes Index -->
 
-<%= post.num_likes %> likes
+<% if post.num_likes > 0 %>
+  <div class='link'>
+    <%= link_to "#{post.num_likes} likes"%>
+  </div>
+<% end %>
 
 <% if post.class.to_s == "Status" %>
 <% posts_liked = current_user.statuses_liked %>
@@ -21,10 +25,14 @@
     <input type="hidden" name="like[post_id]" value="<%= post.id %>">
     <input type="hidden" name="like[post_type]" value="<%= post.class.to_s %>">
 
-    <input type="submit" value="Like">
+    <div class='submit'>
+      <input type="submit" value="Like">
+    </div>
   </form>
 <% else %>
-  <%= button_to "Unlike",
-  status_like_url(post, Like.find_by_liker_and_post(current_user, post)),
-  method: :delete %>
+  <div class='link'>
+    <%= button_to "Unlike",
+    status_like_url(post, Like.find_by_liker_and_post(current_user, post)),
+    method: :delete %>
+  </div>
 <% end %>

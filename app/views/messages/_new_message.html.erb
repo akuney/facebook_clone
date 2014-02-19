@@ -10,8 +10,12 @@
   <input type="hidden" name="message[author_id]" value="<%= current_user.id %>">
   <input type="hidden" name="message[thread_id]" value="<%= message_thread.id %>">
 
-  <textarea name="message[text]"></textarea>
+  <div class='textarea'>
+    <textarea name="message[text]"></textarea>
+  </div>
 
-  <input type="submit" value="Submit Reply">
+  <div class='submit'>
+    <input type="submit" value="Submit Reply">
+  </div>
 
 </form>
