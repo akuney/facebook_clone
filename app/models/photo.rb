@@ -4,5 +4,5 @@ class Photo < ActiveRecord::Base
   belongs_to :uploader, class_name: "User"
   has_many :photo_taggings
   has_many :tagged_users, through: :photo_taggings, source: :user
-  has_one :comment
+  has_one :photo_comment
 end
