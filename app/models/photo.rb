@@ -3,5 +3,4 @@ class Photo < ActiveRecord::Base
 
   belongs_to :uploader, class_name: "User"
   has_many :tagged_users, class_name: "User"
-
 end

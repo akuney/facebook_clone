@@ -6,6 +6,7 @@ FacebookClone::Application.routes.draw do
     resources :profiles, only: [:show]
     resources :mutual_friends, only: [:index]
     resources :message_threads, only: [:new]
+    resources :photos, only: [:index]
   end
 
   resource :session, :only => [:create, :destroy, :new]
@@ -34,6 +35,7 @@ FacebookClone::Application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 
+  resources :photos, only: [:new, :create, :edit, :update, :destroy, :show]
 
   root to: "users#index"
 
