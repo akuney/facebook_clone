@@ -97,7 +97,7 @@ class User < ActiveRecord::Base
   end
 
   def photo
-    return "<img src='<%= user.profile.photo_url %>' width='80' height='80'></img>".html_safe
+    return "<img src= #{self.profile.photo_url} width='80' height='80'></img>".html_safe
   end
 
   private
