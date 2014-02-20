@@ -1,5 +1,5 @@
-<%= link_to "Uploaded Photos" %>
-<%= link_to "Tagged Photos" %>
+<%= link_to "Uploaded Photos", user_photos_url(user) %>
+<%= link_to "Tagged Photos", tagged_user_photos_url(user) %>
 
 <% if user == current_user %>
   <%= link_to "Create New Photo", new_photo_url %>
