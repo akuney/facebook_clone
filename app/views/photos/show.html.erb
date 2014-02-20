@@ -3,7 +3,9 @@
   <img src="<%= @photo.url %>" width="120" height="120">
 </div>
 
-<%= button_to "Remove Photo", photo_url(@photo), method: :delete %>
+<% if current_user == @photo.uploader %>
+  <%= button_to "Remove Photo", photo_url(@photo), method: :delete %>
+<% end %>
 
 <%= render "comments/show", :comment => @photo.photo_comment %>
 <%= render "replies/all", :post => @photo.photo_comment %>
