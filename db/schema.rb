@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140219162453) do
+ActiveRecord::Schema.define(:version => 20140220142236) do
 
   create_table "comments", :force => true do |t|
     t.integer  "author_id"
@@ -45,11 +45,13 @@ ActiveRecord::Schema.define(:version => 20140219162453) do
 
   create_table "messages", :force => true do |t|
     t.integer  "author_id"
-    t.integer  "thread_id"
     t.text     "text"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "message_thread_id"
   end
+
+  add_index "messages", ["message_thread_id"], :name => "index_messages_on_message_thread_id"
 
   create_table "pending_friendships", :force => true do |t|
     t.datetime "created_at",        :null => false

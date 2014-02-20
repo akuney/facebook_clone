@@ -30,7 +30,7 @@ FacebookClone::Application.routes.draw do
     resources :likes, only: [:create, :destroy, :index]
   end
 
-  resources :message_threads, only: [:index, :new, :create] do
+  resources :message_threads, only: [:index, :new, :create, :destroy] do
     resources :messages, only: [:index, :create]
   end
 

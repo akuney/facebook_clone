@@ -10,7 +10,7 @@
     You,
     <%= link_to message_thread.creator.name, user_statuses_url(message_thread.creator)%>,
     and
-    <%= num_recipients - 1 %> others
+    <%= link_to "#{num_recipients - 1} others" %>
 <% else %>
   You and <%= link_to message_thread.creator.name,
   user_statuses_url(message_thread.creator) %>
