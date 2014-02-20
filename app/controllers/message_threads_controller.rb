@@ -22,4 +22,10 @@ class MessageThreadsController < ApplicationController
     redirect_to message_threads_url
   end
 
+  def destroy
+    @message_thread = MessageThread.find(params[:id])
+    @message_thread.destroy
+    redirect_to message_threads_url
+  end
+
 end

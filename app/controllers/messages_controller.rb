@@ -6,6 +6,6 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(params[:message])
     @message.save!
-    redirect_to message_thread_messages_url(@message.thread_id)
+    redirect_to message_thread_messages_url(@message.message_thread_id)
   end
 end

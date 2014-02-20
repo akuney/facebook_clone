@@ -16,3 +16,4 @@
   user_statuses_url(message_thread.creator) %>
 <% end %>
 
+<%= button_to "Delete", message_thread_url(message_thread), method: :delete %>
