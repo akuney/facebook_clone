@@ -1,9 +1,6 @@
-<img src="<%= user.profile.photo_url %>"></img>
+<%= render 'helpers/pic_and_name', :user => user%>
+<%= user.email %>
 
-<section>
-  <%= link_to user.name, user_statuses_url(user) %>
-  <%= user.email %>
-</section>
 
 <section>
   <ul class="links">

@@ -1,7 +1,7 @@
 <!-- Comment show -->
 
 <div class='comment'>
-  <%= comment.author.name %>
+  <%= render 'helpers/pic_and_name', :user => comment.author %>
   <%= comment.text %>
   <%= render 'likes/like', :post => comment %>
 </div>
