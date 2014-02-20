@@ -2,7 +2,7 @@
 
 <% @user.photos_tagged_in.each do |photo| %>
 <div class='photo'>
-<%= link_to photo.url, photo_url(photo) %>
+<%= render 'photo', :photo => photo %>
 </div>
 <% end %>
 
