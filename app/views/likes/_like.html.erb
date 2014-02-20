@@ -12,6 +12,8 @@
 <% posts_liked = current_user.comments_liked %>
 <% elsif post.class.to_s == "Reply"%>
 <% posts_liked = current_user.replies_liked %>
+<% elsif post.class.to_s == "PhotoComment"%>
+<% posts_liked = current_user.photo_comments_liked %>
 <% end %>
 
 <% unless posts_liked.include?(post) %>

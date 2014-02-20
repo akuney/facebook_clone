@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   has_many :statuses_liked, through: :likes, source: :post, source_type: "Status"
   has_many :comments_liked, through: :likes, source: :post, source_type: "Comment"
   has_many :replies_liked, through: :likes, source: :post, source_type: "Reply"
+  has_many :photo_comments_liked, through: :likes, source: :post, source_type: "PhotoComment"
 
   has_many :user_message_threads, foreign_key: "recipient_id"
   has_many :message_threads, through: :user_message_threads,

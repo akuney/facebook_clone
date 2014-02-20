@@ -1,4 +1,4 @@
-<form action="photos_url" method="POST">
+<form action="<%= photos_url %>" method="POST">
   <input
      name="authenticity_token"
      type="hidden"
@@ -6,6 +6,21 @@
 
   <input type="hidden" name="photo[uploader_id]" value="<%= current_user.id %>">
 
-  <
+  <div class='text'>
+    URL:
+  </div>
+  <div class='input'>
+    <input name="photo[url]">
+  </div>
 
+  <div class='text'>
+    Comment:
+  </div>
+  <div class='textarea'>
+    <textarea name="photo_comment[text]"></textarea>
+  </div>
+
+  <div class='submit'>
+    <input type="submit" value="Submit Photo">
+  </div>
 </form>
