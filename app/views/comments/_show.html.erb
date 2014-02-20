@@ -7,16 +7,18 @@
 </div>
 
 <% if current_user == comment.author %>
-<div class='link'>
-  <% if comment.class.to_s == "PhotoComment"%>
-    <%= link_to "Edit Comment", edit_photo_comment_url(comment) %>
-  <% else %>
-    <%= link_to "Edit Comment", edit_comment_url(comment) %>
-  <% end %>
-</div>
+  <div class='link'>
+    <% if comment.class.to_s == "PhotoComment"%>
+      <%= link_to "Edit Comment", edit_photo_comment_url(comment) %>
+    <% elsif comment.class.to_s == "Comment" %>
+      <%= link_to "Edit Comment", edit_comment_url(comment) %>
+    <% end %>
+  </div>
 
-<div class='link'>
-  <%= button_to "Remove Comment", comment_url(comment), method: :delete %>
-</div>
+  <div class='link'>
+    <% if comment.class.to_s == "Comment"%>
+      <%= button_to "Remove Comment", comment_url(comment), method: :delete %>
+    <% end %>
+  </div>
 <% end %>
 
