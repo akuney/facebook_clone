@@ -1,18 +1,21 @@
 <!-- one message thread -->
+<% user = message_thread.creator %>
+
 
 <%= link_to message_thread.title, message_thread_messages_url(message_thread) %>
-
+<%= user.photo %>
 <% num_recipients = message_thread.num_recipients %>
 
-<% if (message_thread.creator == current_user) %>
+<% if (user == current_user) %>
+
     You and <%= link_to "#{num_recipients} others" %>
 <% elsif (num_recipients > 1) %>
     You,
-    <%= link_to message_thread.creator.name, user_statuses_url(message_thread.creator)%>,
+    <%= link_to user.name, user_statuses_url(user)%>,
     and
     <%= link_to "#{num_recipients - 1} others" %>
 <% else %>
-  You and <%= link_to message_thread.creator.name,
+  You and <%= link_to user.name,
   user_statuses_url(message_thread.creator) %>
 <% end %>
 
