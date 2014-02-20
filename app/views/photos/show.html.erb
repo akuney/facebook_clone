@@ -12,7 +12,7 @@
 <% @photo.tagged_users.each do |user| %>
   <%= link_to user.name, user_statuses_url(user)%>
   <% if (current_user == @photo.uploader) || (current_user == user)%>
-    <%= button_to "Untag" %>
+    <%= button_to "Untag"%>
   <% end %>
 <% end %>
 
@@ -20,3 +20,7 @@
   <%= render "comments/show", :comment => @photo.photo_comment %>
   <%= render "replies/all", :post => @photo.photo_comment %>
 <% end %>
+
+Tag More People!
+<%= render 'helpers/friends_checkbox', :name => 'photo[tagged_user_ids][]',
+:friends => @photo.untagged_friends(current_user) %>
