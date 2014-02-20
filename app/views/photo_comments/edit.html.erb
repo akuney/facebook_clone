@@ -1,0 +1,17 @@
+<%= @photo_comment.photo.url %>
+
+<form action="<%= photo_comment_url(@photo_comment) %>" method="POST">
+
+  <input name="_method" type="hidden"value="PUT">
+
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  Comment:
+  <textarea name="photo_comment[text]"><%= @photo_comment.text %></textarea>
+
+  <input type="submit" value="Update Comment">
+
+</form>
