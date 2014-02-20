@@ -1,0 +1,11 @@
+<form action="photos_url" method="POST">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="photo[uploader_id]" value="<%= current_user.id %>">
+
+
+
+</form>
