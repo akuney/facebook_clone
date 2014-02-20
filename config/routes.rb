@@ -41,7 +41,9 @@ FacebookClone::Application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 
-  resources :photos, only: [:new, :create, :destroy, :show]
+  resources :photos, only: [:new, :create, :destroy, :show] do
+    resources :photo_taggings, only: [:destroy]
+  end
 
   resources :photo_comments, only: [:edit, :update] do
     resources :replies, only: [:create]
