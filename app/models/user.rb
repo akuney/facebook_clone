@@ -43,7 +43,8 @@ class User < ActiveRecord::Base
   has_many :authored_messages, foreign_key: "author_id"
 
   has_many :photos_uploaded, class_name: "Photo", foreign_key: "uploader_id"
-  has_many :photos_tagged_in, class_name: "Photo"
+  has_many :photo_taggings
+  has_many :photos_tagged_in, through: :photo_taggings, source: :photo
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
