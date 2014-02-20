@@ -26,15 +26,11 @@ class User < ActiveRecord::Base
 
 
   has_many :statuses, foreign_key: "author_id"
-
   has_many :authored_comments, class_name: "Comment", foreign_key: "author_id"
   has_many :received_comments, class_name: "Comment", foreign_key: "recipient_id"
-
   has_many :replies, foreign_key: "author_id"
 
   has_many :likes, foreign_key: "liker_id"
-
-
   has_many :statuses_liked, through: :likes, source: :post, source_type: "Status"
   has_many :comments_liked, through: :likes, source: :post, source_type: "Comment"
   has_many :replies_liked, through: :likes, source: :post, source_type: "Reply"
@@ -45,6 +41,9 @@ class User < ActiveRecord::Base
   has_many :message_threads_created, class_name: "MessageThread",
   foreign_key: :creator_id
   has_many :authored_messages, foreign_key: "author_id"
+
+  has_many :photos_uploaded, class_name: "Photo", foreign_key: "uploader_id"
+  has_many :photos_tagged_in, class_name: "Photo"
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
