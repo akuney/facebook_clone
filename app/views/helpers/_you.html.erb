@@ -9,7 +9,7 @@
 <ul class="links">
   <li><%= link_to "Timeline", user_statuses_url(current_user) %></li>
   <li><%= link_to "About", user_profile_url(current_user, current_user.profile) %></li>
-  <li><%= link_to "Photos" %></li>
+  <li><%= link_to "Photos", user_photos_url(current_user) %></li>
   <li><%= link_to "Friends", user_friendships_url(current_user) %></li>
 </ul>
 
