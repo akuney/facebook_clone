@@ -22,14 +22,7 @@
       Recipients:
     </div>
 
-    <% current_user.all_friends.each do |friend| %>
-      <!-- should refactor using searching -->
-      <div class='checkbox'>
-        <input type="checkbox" name="message_thread[recipient_ids][]"
-        value="<%= friend.id %>">
-        <%= friend.name %>
-      </div>
-    <% end %>
+   <%= render 'helpers/friends_checkbox', :name => "message_thread[recipient_ids][]"%>
 
   <% else %>
     <input type='hidden' name="message_thread[recipient_ids][]"
