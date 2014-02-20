@@ -7,4 +7,12 @@ class PhotoTaggingsController < ApplicationController
 
     redirect_to photo_url(@photo)
   end
+
+  def create
+    @photo_tagging = PhotoTagging.new(params[:photo_tagging])
+    @photo_tagging.save!
+
+    redirect_to photo_url(@photo_tagging.photo_id)
+  end
+
 end

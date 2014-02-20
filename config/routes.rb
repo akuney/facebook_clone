@@ -48,7 +48,7 @@ FacebookClone::Application.routes.draw do
     resources :replies, only: [:create]
   end
 
-  resources :photo_taggings, only: [:destroy]
+  resources :photo_taggings, only: [:create, :destroy]
   root to: "users#index"
 
   # The priority is based upon order of creation:
