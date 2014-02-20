@@ -1,5 +1,4 @@
 <%= @photo.url %>
 
-
 <%= render "comments/show", :comment => @photo.comment, :user => @user %>
 <%= render "replies/all", :post => @photo.comment %>
