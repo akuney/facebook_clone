@@ -1,0 +1,5 @@
+<%= render 'photos_top_bar', :user => @user %>
+
+<% @user.photos_uploaded.each do |photo| %>
+<%= link_to photo.url, photos_url(photo) %>
+<% end %>
