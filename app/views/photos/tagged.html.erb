@@ -1,8 +1,8 @@
 <%= render 'photos_top_bar', :user => @user %>
 
 <% @user.photos_tagged_in.each do |photo| %>
-<div class='photo'>
-<%= render 'photo', :photo => photo %>
-</div>
+  <div class='photo'>
+  <%= render 'photo', :photo => photo %>
+  </div>
 <% end %>
 

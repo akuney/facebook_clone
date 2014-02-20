@@ -7,10 +7,12 @@
   <%= button_to "Remove Photo", photo_url(@photo), method: :delete %>
 <% end %>
 
+<%= render 'make_profile_pic', :photo => @photo %>
+
 <%= render "comments/show", :comment => @photo.photo_comment %>
 
 <% @photo.tagged_users.each do |user| %>
-<%= link_to user.name, user_statuses_url(user)%>
+  <%= link_to user.name, user_statuses_url(user)%>
 <% end %>
 
 <%= render "replies/all", :post => @photo.photo_comment %>

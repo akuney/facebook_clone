@@ -1,0 +1,15 @@
+<form action="<%= profile_url(current_user) %>" method="POST">
+  <input name="_method" type="hidden"
+  value="PUT">
+
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <input type="hidden" name="profile[image_url]" value="<%= photo.url %>">
+
+  <input type="submit" value="Make Profile Picture">
+
+
+</form>
