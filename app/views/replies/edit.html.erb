@@ -6,6 +6,11 @@
 
   <input name="_method" type="hidden" value="PUT">
 
-  <textarea name="reply[text]"><%= @reply.text %></textarea>
-  <input type="submit" value="Submit">
+  <div class='textarea'>
+    <textarea name="reply[text]"><%= @reply.text %></textarea>
+  </div>
+
+  <div class='submit'>
+    <input type="submit" value="Submit">
+  </div>
 </form>

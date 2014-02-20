@@ -1,11 +1,10 @@
 <section class='top-bar'>
-  <%= current_user.name %>
+  <%= render 'helpers/pic_and_name', :user => current_user %>
 
   <ul class='links'>
     <li><%= link_to "Feed", root_url %>
     <li><%= link_to "My Page", user_statuses_url(current_user) %></li>
     <li><%= link_to "Friend Requests", pending_friendships_url %></li>
-    <li><%= link_to "Friend Suggestions"%></li>
     <li><%= link_to "Friends", user_friendships_url(current_user)%></li>
     <li><%= link_to "Photos"%></li>
     <li><%= link_to "Messages", message_threads_url %></li>

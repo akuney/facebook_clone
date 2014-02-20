@@ -1,5 +1,10 @@
 class MessageThreadsController < ApplicationController
   def new
+    if params[:user_id]
+      @current_friend = User.find(params[:user_id])
+    else
+      @current_friend = nil
+    end
   end
 
   def index

@@ -13,7 +13,15 @@
 
   <input type="hidden" name="status[author_id]" value="<%= current_user.id %>">
 
-  What's On Your Mind?
-  <textarea name="status[text]"><%= status.text %></textarea>
-  <input type="submit" value="Submit">
+  <div class='text'>
+    What's On Your Mind?
+  </div>
+
+  <div class='textarea'>
+    <textarea name="status[text]"><%= status.text %></textarea>
+  </div>
+
+  <div class='submit'>
+    <input type="submit" value="Submit">
+  </div>
 </form>

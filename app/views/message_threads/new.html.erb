@@ -9,18 +9,19 @@
   <input type="hidden" name="message_thread[creator_id]"
   value="<%= current_user.id %>">
 
-  <p>
-    <label>
 
-      <div class='input'>
-        Thread Title:
-        <input name="message_thread[title]">
-      </div>
-    </label>
-  </p>
+  <label>
+    <div class='input'>
+      Thread Title:
+      <input name="message_thread[title]">
+    </div>
+  </label>
 
-  <p>
-    Recipients:
+  <% if @current_friend == nil %>
+    <div class='text'>
+      Recipients:
+    </div>
+
     <% current_user.all_friends.each do |friend| %>
       <!-- should refactor using searching -->
       <div class='checkbox'>
@@ -28,14 +29,24 @@
         value="<%= friend.id %>">
         <%= friend.name %>
       </div>
-
     <% end %>
-  </p>
+
+  <% else %>
+    <input type='hidden' name="message_thread[recipient_ids][]"
+    value="<%= @current_friend.id %>">
+  <% end %>
+
   <input type="hidden" name="message[author_id]" value="<%= current_user.id %>">
 
-  </p>
+  <div class="text">
     Message:
+  </div>
+
+  <div class='textarea'>
     <textarea name="message[text]"></textarea>
-  </p>
-  <input type="submit" value="Submit">
+  </div>
+
+  <div class='submit'>
+    <input type="submit" value="Submit">
+  </div>
 </form>

@@ -9,23 +9,27 @@
 
 <% unless (current_user.friends.include?(@user) == false)%>
   <% if (@user == current_user)%>
-  <%= link_to "Create new status", new_status_url %>
+    <div class='link'>
+      <%= link_to "Create new status", new_status_url %>
+    </div>
   <% else %>
-  <%= link_to "Create new comment", new_user_comment_url(@user) %>
+    <div class='link'>
+      <%= link_to "Create new comment", new_user_comment_url(@user) %>
+    </div>
   <% end %>
 
   <% @statuses.each do |status| %>
   <div class="statuses">
-  <%= render "show", :status => status,
-  :user => @user %>
-  <%= render "replies/all", :post => status %>
+    <%= render "show", :status => status,
+    :user => @user %>
+    <%= render "replies/all", :post => status %>
   </div>
   <% end %>
 
   <% @comments.each do |comment| %>
-  <div class="comments">
-  <%= render "comments/show", :comment => comment, :user => @user %>
-  <%= render "replies/all", :post => comment %>
-  </div>
+    <div class="comments">
+    <%= render "comments/show", :comment => comment, :user => @user %>
+    <%= render "replies/all", :post => comment %>
+    </div>
   <% end %>
 <% end %>
