@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140220153032) do
+ActiveRecord::Schema.define(:version => 20140220182906) do
 
   create_table "comments", :force => true do |t|
     t.integer  "author_id"
@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(:version => 20140220153032) do
   end
 
   create_table "photos", :force => true do |t|
-    t.string   "url"
     t.integer  "uploader_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.text     "url"
   end
 
   add_index "photos", ["uploader_id"], :name => "index_photos_on_uploader_id"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(:version => 20140220153032) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "owner_id"
-    t.string   "photo_url"
+    t.text     "photo_url"
   end
 
   add_index "profiles", ["owner_id"], :name => "index_profiles_on_owner_id"
