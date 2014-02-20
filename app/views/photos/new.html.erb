@@ -20,7 +20,8 @@
     <textarea name="photo_comment[text]"></textarea>
   </div>
 
-  <%= render 'helpers/friends_checkbox', :name => 'photo[tagged_user_ids][]' %>
+  <%= render 'helpers/friends_checkbox', :name => 'photo[tagged_user_ids][]',
+  :friends => current_user.all_friends %>
 
   <div class='submit'>
     <input type="submit" value="Submit Photo">

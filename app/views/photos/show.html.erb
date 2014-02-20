@@ -5,13 +5,14 @@
 
 <% if current_user == @photo.uploader %>
   <%= button_to "Remove Photo", photo_url(@photo), method: :delete %>
+
+  <% @photo.tagged_users.each do |user| %>
+    <%= link_to user.name, user_statuses_url(user)%>
+    <%= button_to "Untag" %>
+  <% end %>
 <% end %>
 
 <%= render 'make_profile_pic', :photo => @photo %>
-
-<% @photo.tagged_users.each do |user| %>
-  <%= link_to user.name, user_statuses_url(user)%>
-<% end %>
 
 <% if @photo.photo_comment %>
   <%= render "comments/show", :comment => @photo.photo_comment %>
