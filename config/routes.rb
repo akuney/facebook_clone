@@ -37,6 +37,8 @@ FacebookClone::Application.routes.draw do
 
   resources :photos, only: [:new, :create, :destroy, :show]
 
+  resources :photo_comments, only: [:edit, :update]
+
   root to: "users#index"
 
   # The priority is based upon order of creation:
