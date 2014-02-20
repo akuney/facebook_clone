@@ -6,6 +6,12 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     @profile.save!
+
+    @photo = Photo.new
+    @photo.url = @profile.photo_url
+    @photo.uploader_id = current_user.id
+    @photo.save!
+
     redirect_to user_profile_url(current_user, @profile)
   end
 
@@ -15,8 +21,17 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find(params[:id])
+    @old_url = @profile.photo_url
+
     @profile.update_attributes(params[:profile])
     @profile.save!
+
+    if (@old_url != @profile.photo_url)
+      @photo = Photo.new
+      @photo.url = @profile.photo_url
+      @photo.uploader_id = current_user.id
+      @photo.save!
+    end
 
     redirect_to user_profile_url(current_user, @profile)
   end

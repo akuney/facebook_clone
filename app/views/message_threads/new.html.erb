@@ -22,7 +22,8 @@
       Recipients:
     </div>
 
-   <%= render 'helpers/friends_checkbox', :name => "message_thread[recipient_ids][]"%>
+   <%= render 'helpers/friends_checkbox', :name => "message_thread[recipient_ids][]",
+   :friends => current_user.all_friends %>
 
   <% else %>
     <input type='hidden' name="message_thread[recipient_ids][]"
