@@ -26,6 +26,8 @@ class RepliesController < ApplicationController
       @url = user_statuses_url(@reply.parent.recipient)
     elsif @reply.parent_type == "Status"
       @url = user_statuses_url(@reply.parent.author)
+    elsif @reply.parent_type == "PhotoComment"
+      @url = photo_url(@reply.parent.photo)
     end
 
     @reply.destroy
@@ -37,6 +39,8 @@ class RepliesController < ApplicationController
       return user_statuses_url(@reply.parent.recipient)
     elsif @reply.parent_type == "Status"
       return user_statuses_url(@reply.parent.author)
+    elsif @reply.parent_type == "PhotoComment"
+      @url = photo_url(@reply.parent.photo)
     else
       return nil
     end

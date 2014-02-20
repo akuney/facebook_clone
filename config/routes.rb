@@ -37,7 +37,9 @@ FacebookClone::Application.routes.draw do
 
   resources :photos, only: [:new, :create, :destroy, :show]
 
-  resources :photo_comments, only: [:edit, :update]
+  resources :photo_comments, only: [:edit, :update] do
+    resources :replies, only: [:create]
+  end
 
   root to: "users#index"
 

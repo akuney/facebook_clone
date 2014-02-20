@@ -3,6 +3,8 @@
   <% action = comment_replies_url(post) %>
 <% elsif (class_name == "Status") %>
   <% action = status_replies_url(post) %>
+<% elsif (class_name == "PhotoComment")%>
+  <% action = photo_comment_replies_url(post)%>
 <% end %>
 
 <% post.replies.each do |reply| %>
