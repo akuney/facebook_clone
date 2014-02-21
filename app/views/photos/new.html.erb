@@ -1,29 +1,36 @@
-<form action="<%= photos_url %>" method="POST">
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+<form class='new-photo' action="<%= photos_url %>" method="POST">
+  <%= render 'helpers/auth_token'%>
 
-  <input type="hidden" name="photo[uploader_id]" value="<%= current_user.id %>">
+  <input type="hidden" name="photo[uploader_id]"
+  value="<%= current_user.id %>">
 
-  <div class='text'>
-    URL:
-  </div>
-  <div class='input'>
-    <input name="photo[url]">
-  </div>
-
-  <div class='text'>
-    Comment:
-  </div>
-  <div class='textarea'>
-    <textarea name="photo_comment[text]"></textarea>
+  <div class='url'>
+    <div class='text'>
+      URL:
+    </div>
+    <div class='input'>
+      <input name="photo[url]">
+    </div>
   </div>
 
-  <%= render 'helpers/friends_checkbox', :name => 'photo[tagged_user_ids][]',
-  :friends => current_user.all_friends %>
+  <div class='comment'>
+    <div class='text'>
+      Comment:
+    </div>
+    <div class='textarea'>
+      <textarea name="photo_comment[text]"></textarea>
+    </div>
+  </div>
 
-  <div class='submit'>
+  <div class='checkbox'>
+    <div class='text'>
+      Tagged Friends:
+    </div>
+    <%= render 'helpers/friends_checkbox', :name => 'photo[tagged_user_ids][]',
+    :friends => current_user.all_friends %>
+  </div>
+
+  <div class='submit link submit-link'>
     <input type="submit" value="Submit Photo">
   </div>
 </form>

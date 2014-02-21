@@ -1,29 +1,30 @@
 <!-- new message thread form -->
 
-<form action="<%= message_threads_url %>" method="POST">
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+<form class='new-message' action="<%= message_threads_url %>" method="POST">
+  <%= render 'helpers/auth_token'%>
 
   <input type="hidden" name="message_thread[creator_id]"
   value="<%= current_user.id %>">
 
-
-  <label>
-    <div class='input'>
+  <div class='title'>
+    <div class='text'>
       Thread Title:
+    </div>
+    <div class='input'>
       <input name="message_thread[title]">
     </div>
-  </label>
+  </div>
+
 
   <% if @current_friend == nil %>
+  <div class='recipients'>
     <div class='text'>
       Recipients:
     </div>
 
    <%= render 'helpers/friends_checkbox', :name => "message_thread[recipient_ids][]",
    :friends => current_user.all_friends %>
+ </div>
 
   <% else %>
     <input type='hidden' name="message_thread[recipient_ids][]"
@@ -33,15 +34,17 @@
   <input type="hidden" name="message[author_id]" value="<%= current_user.id %>">
   <input type="hidden" name="message[message_thread_id]" value="<%= nil %>">
 
-  <div class="text">
-    Message:
+  <div class='message'>
+    <div class="text">
+      Message:
+    </div>
+
+    <div class='textarea'>
+      <textarea name="message[text]"></textarea>
+    </div>
   </div>
 
-  <div class='textarea'>
-    <textarea name="message[text]"></textarea>
-  </div>
-
-  <div class='submit'>
+  <div class='submit link submit-link'>
     <input type="submit" value="Submit">
   </div>
 </form>

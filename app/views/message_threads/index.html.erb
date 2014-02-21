@@ -1,15 +1,22 @@
 <!-- message thread index -->
 
-<% unless @message_threads.count == 0 %>
-  <% @message_threads.each do |message_thread| %>
-    <div class='message-thread'>
-      <%= render "message_thread_partial", :message_thread => message_thread %>
-    </div>
-  <% end %>
-<% end %>
+<div class='message-threads'>
+  <% unless @message_threads.count == 0 %>
+    <% @message_threads.each do |message_thread| %>
 
-<p>
-<div class='link'>
-<%= link_to "Create New Thread", new_message_thread_url %>
-<div class='link'>
-</p>
+    <div class='message-thread group'>
+        <%= render "message_thread_partial", :message_thread => message_thread %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
+<div class='create-thread link'>
+  <%= link_to "Create New Thread", new_message_thread_url %>
+</div>
+
+
+
+
+

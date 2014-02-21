@@ -1,10 +1,15 @@
 <!-- messages index (nested under a thread) -->
 
-<% @message_thread.messages.each do |message| %>
-<p class='message'>
-  <%= render 'message', :message => message, :message_thread => @message_thread %>
-</p>
+<div class='messages'>
+  <% @message_thread.messages.each do |message| %>
+    <div class='message group'>
+      <%= render 'message', :message => message, :message_thread => @message_thread %>
+    </div>
+  <% end %>
+</div>
 
-<% end %>
 
+
+<div class='new_message'>
 <%= render 'new_message', :message_thread => @message_thread %>
+</div>

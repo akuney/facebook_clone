@@ -1,22 +1,19 @@
 <%= render 'helpers/pic_and_name', :user => user %>
 
 <form action="<%= friendships_url %>" method="POST">
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+  <%= render 'helpers/auth_token'%>
 
   <input type="hidden" name="pending_friendship[user_id]"
   value="<%= pending_friendship.user_id %>">
   <input type="hidden" name="pending_friendship[pending_friend_id]"
   value="<%= pending_friendship.pending_friend_id %>">
 
-  <div class="submit">
+  <div class="submit link submit-link">
     <input type="submit" value="Accept Request">
   </div>
 </form>
 
-<div class="button">
-  <%= button_to "Reject Request",
+<div class="submit link submit-link">
+  <%= link_to "Reject Request",
   pending_friendship_url(pending_friendship), :method => :delete %>
 </div>

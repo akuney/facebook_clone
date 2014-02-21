@@ -12,3 +12,303 @@
  *= require_tree .
  */
 
+/* basic stuff */
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+ul {
+  list-style: none;
+}
+
+li, .name, .text, input, button, a {
+  font-family: sans-serif;
+}
+
+.link > a, .link {
+  padding: 8px;
+  margin: 10px;
+  background-color: lightgray;
+}
+
+input, button, submit {
+  border: none;
+  background-color: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+input#text {
+  border: 1px solid black;
+}
+
+
+
+submit {
+  background-color: white;
+}
+
+.links {
+  float: right;
+}
+
+.links > .link {
+  float: left;
+}
+
+.submit-link {
+  float: left;
+  margin-left: 0;
+}
+
+.submit-link > input:hover {
+  cursor: pointer;
+}
+
+.submit-link:hover, a:hover, submit:hover {
+  cursor: pointer;
+  color: darkgray;
+}
+
+.group:after {
+  display: block;
+  content: "";
+
+  clear: both;
+}
+
+.pic-and-name {
+  float: left;
+}
+
+/* top bar */
+
+.top-bar > .pic-and-name {
+  float: left;
+}
+
+.top-bar > .pic-and-name > .pic {
+  float: left;
+}
+
+.top-bar > .pic-and-name > .name {
+  float: right;
+  padding-top: 38px;
+  padding-left: 20px;
+  font-size: 20px;
+}
+
+.top-bar > .links {
+  float: right;
+}
+
+.top-bar > .links > li {
+  float: left;
+  padding: 15px;
+  margin: 10px;
+  background-color: lightgray;
+}
+
+
+.top-bar > .links > li > a:hover {
+  color: darkgray;
+}
+
+.top-bar {
+  margin-bottom: 50px;
+}
+
+
+
+
+
+/* individual user bar */
+
+.user > .pic-and-name {
+  float: left;
+}
+
+.pic-and-name > .image {
+  float: left;
+}
+
+.pic-and-name > .info {
+  float: right;
+  margin-left: 20px;
+  margin-top: 26px;
+  font-family: sans-serif;
+}
+
+.user > .links {
+  float: right;
+}
+
+.user > .links > li, link {
+  float: left;
+}
+
+.user > .links > li, link,
+.user > .links > .mutual-friends,
+.user > .links > .add-friend
+ {
+  margin-top: 10px;
+  margin-left: 30px;
+  padding: 8px;
+  background-color: lightgray;
+}
+
+
+
+/* the below is specific to a non-friend */
+.user > .links > .add-friend {
+  float: left;
+  padding: 8px;
+}
+
+.add-friend:hover {
+  cursor: pointer;
+}
+
+
+.user > .links > .mutual-friends {
+  float: right;
+}
+
+/* messages */
+
+.message-thread > .message-header {
+  float: left;
+}
+
+.message-thread > .message-header > .title {
+  float: left;
+  margin-top: 10px;
+}
+
+.message-thread > .message-header > .photo {
+  float: left;
+  padding-left: 40px;
+}
+
+.message-thread > .message-header > .text {
+  float: right;
+  padding-left: 60px;
+  padding-top: 20px;
+}
+
+
+.message-thread > .delete {
+  float: right;
+}
+
+.create-thread {
+  margin-top: 20px;
+  float: left;
+}
+
+
+.new-message > .title,
+.new-message > .recipients,
+.new-message > .message {
+  padding-bottom: 20px;
+}
+
+.new-message > .title {
+  margin-bottom: 20px;
+}
+
+.new-message > .title > .input {
+  border: 1px solid black;
+  float: left;
+}
+
+.new-message > .recipients > .text {
+  padding-bottom: 4px;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+.message > .message-box {
+  float: left;
+  margin: 26px;
+  margin-left: 40px;
+}
+
+.message > .message-box > .text {
+  text-align: center;
+}
+/* stuff with friends */
+
+.friend > .photo, .friend > .link, .friend > .pic-and-name {
+  float: left;
+}
+
+.friend > .links > .link {
+  margin: 20px;
+}
+
+
+.sent-request > .text {
+  float: right;
+}
+
+.new-photo > .url, .new-photo > .comment, .new-photo > .checkbox {
+  margin-bottom: 15px;
+}
+
+.new-photo > .url > .input > input {
+  border: 1px solid gray;
+}
+
+.new-photo > .checkbox > .text {
+  margin-bottom: 4px;
+}
+
+/* home pages */
+
+.buttons {
+  display: block;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.sign-in {
+  display: block;
+  float: left;
+  margin-top: 100px;
+}
+
+.sign-in > .text {
+  margin-bottom: 10px;
+}
+.sign-in > form > .text-input > input {
+  border: 1px solid black;
+}
+
+
+.sign-up {
+  display: block;
+  float: left;
+  margin-top: 100px;
+}
+
+.sign-up > form > .text {
+  margin-bottom: 10px;
+}
+
+.sign-up > form > .text-input > input {
+  border: 1px solid black;
+}
+
+.comment {
+  margin-bottom: 20px;
+}
+
+.submit-reply {
+  float: left;
+}

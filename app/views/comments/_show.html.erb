@@ -1,24 +1,32 @@
 <!-- Comment show -->
 
-<div class='comment'>
+<div class='comment group'>
   <%= render 'helpers/pic_and_name', :user => comment.author %>
-  <%= comment.text %>
+  <div class='text'>
+    <%= comment.text %>
+  </div>
   <%= render 'likes/like', :post => comment %>
-</div>
+
 
 <% if current_user == comment.author %>
-  <div class='link'>
+
     <% if comment.class.to_s == "PhotoComment"%>
+    <div class='link submit-link'>
       <%= link_to "Edit Comment", edit_photo_comment_url(comment) %>
+    </div>
     <% elsif comment.class.to_s == "Comment" %>
+    <div class='link submit-link'>
       <%= link_to "Edit Comment", edit_comment_url(comment) %>
+    </div>
     <% end %>
-  </div>
 
-  <div class='link'>
+
+
     <% if comment.class.to_s == "Comment"%>
-      <%= button_to "Remove Comment", comment_url(comment), method: :delete %>
+    <div class='link submit-link'>
+      <%= link_to "Remove Comment", comment_url(comment), method: :delete %>
+    </div>
     <% end %>
-  </div>
-<% end %>
 
+<% end %>
+</div>

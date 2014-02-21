@@ -1,24 +1,34 @@
-<h1>Sign In</h1>
+<div class='sign-in'>
+  <div class='text'>
+    Sign In
+  </div>
 
-<form action="<%= session_url %>" method="post">
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+  <form action="<%= session_url %>" method="POST">
+    <%= render 'helpers/auth_token'%>
 
-  <label for="user_email">Email</label>
-  <input
-     id="user_email"
-     name="user[email]"
-     type="text">
-  <br>
+    <div class='text-input email'>
+      <div class='text'>
+        Email
+      </div>
+      <input
+         id="user_email"
+         name="user[email]"
+         type="text">
 
-  <label for="user_password">Password</label>
-  <input
-     id="user_password"
-     name="user[password]"
-     type="password">
-  <br>
+    </div>
 
-  <input type="submit" value="Log in">
-</form>
+    <div class='text-input password'>
+      <div class='text'>Password</div>
+      <input
+         id="user_password"
+         name="user[password]"
+         type="password">
+
+    </div>
+
+    <div class="submit link submit-link">
+      <input type="submit" value="Sign In">
+    </div>
+  </form>
+
+</div>

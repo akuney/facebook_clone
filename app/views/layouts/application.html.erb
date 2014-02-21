@@ -11,13 +11,15 @@
   <% if (signed_in? && current_user.profile)%>
       <%= render 'helpers/top_bar'%>
   <% elsif !signed_in? %>
-  <div class='link'>
-    <%= link_to "Sign In", new_session_url %>
-  </div>
+    <div class='buttons group'>
+      <div class='link submit-link'>
+        <%= link_to "Sign In", new_session_url %>
+      </div>
 
-  <div class='link'>
-    <%= link_to "Sign Up", new_user_url %>
-  </div>
+      <div class='link submit-link'>
+        <%= link_to "Sign Up", new_user_url %>
+      </div>
+    </div>
   <% end %>
 
 <%= yield %>

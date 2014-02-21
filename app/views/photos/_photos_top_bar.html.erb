@@ -1,6 +1,14 @@
-<%= link_to "Uploaded Photos", user_photos_url(user) %>
-<%= link_to "Tagged Photos", tagged_user_photos_url(user) %>
+<div class='links'>
+  <div class='link'>
+  <%= link_to "Uploaded Photos", user_photos_url(user) %>
+  </div>
+  <div class='link'>
+  <%= link_to "Tagged Photos", tagged_user_photos_url(user) %>
+  </div>
 
-<% if user == current_user %>
-  <%= link_to "Create New Photo", new_photo_url %>
-<% end %>
+  <% if user == current_user %>
+  <div class='link'>
+    <%= link_to "Create New Photo", new_photo_url %>
+  </div>
+  <% end %>
+</div>

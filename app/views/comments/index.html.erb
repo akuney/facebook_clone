@@ -6,7 +6,9 @@
 <% end %>
 
 <% unless (@user == current_user)%>
+<div class='link submit-link'>
 <%= link_to "Create new comment", new_comment_url %>
+</div>
 <% end %>
 
 <% @comments.each do |comment| %>

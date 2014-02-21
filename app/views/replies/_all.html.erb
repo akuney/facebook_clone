@@ -1,3 +1,5 @@
+<div class='replies'>
+
 <% class_name = post.class.to_s %>
 <% if (class_name == "Comment") %>
   <% action = comment_replies_url(post) %>
@@ -8,19 +10,20 @@
 <% end %>
 
 <% post.replies.each do |reply| %>
+
   <%= render 'helpers/pic_and_name', :user => reply.author %>
   <%= reply.text %>
   <%= render 'likes/like', :post => reply %>
 
   <% if reply.author == current_user %>
     <ul class='links'>
-      <li>
+      <div class='link'>
         <%= link_to "Edit Reply", edit_reply_url(reply) %>
-      </li>
+      </div>
 
-      <li>
-        <%= button_to "Delete Reply", reply_url(reply), method: :delete %>
-      </li>
+      <div class='link'>
+        <%= link_to "Delete Reply", reply_url(reply), method: :delete %>
+      </div>
     </ul>
   <% end %>
 <% end %>
@@ -31,7 +34,10 @@
      type="hidden"
      value="<%= form_authenticity_token %>">
 
+     <div class='text'>
   Reply
+</div>
+  <div class='group'>
   <textarea name="reply[text]"></textarea>
 
   <input type="hidden" name="reply[author_id]"
@@ -39,7 +45,10 @@
   <input type="hidden" name="reply[parent_id]" value="<%= post.id %>">
   <input type="hidden" name="reply[parent_type]" value="<%= class_name %>">
 
-  <div class='submit'>
+  <div class='submit-reply link'>
     <input type="submit" value="Submit">
   </div>
+</div>
 </form>
+
+</div>

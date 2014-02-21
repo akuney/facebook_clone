@@ -1,7 +1,10 @@
 <% friends.each do |friend| %>
-  <div class='checkbox'>
+  <div class='checkbox text'>
+
     <input type="checkbox" name="<%= name %>"
     value="<%= friend.id %>">
-    <%= friend.name %>
+
+      <%= friend.name %>
+
   </div>
 <% end %>

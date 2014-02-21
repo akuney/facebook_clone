@@ -1,18 +1,13 @@
 <!-- Friends index page -->
 
 <% @user.all_friends.each do |friend| %>
-  <p>
-    <div class="image">
-      <%= friend.photo %>
-    </div>
-
-    <div class="link">
-      <%= link_to friend.name, user_statuses_url(friend) %>
-    </div>
+  <div class='friend group'>
+    <%= render 'helpers/pic_and_name', :user => friend %>
 
     <% if (current_user.all_friends.include?(friend))%>
+    <div class='links'>
       <div class='link'>
-        <%= button_to "Unfriend",
+        <%= link_to "Unfriend",
         friendship_url(@user.friendship_with(friend)), method: :delete %>
       </div>
     <% end %>
@@ -22,7 +17,8 @@
         <%= link_to "Mutual Friends", user_mutual_friends_url(friend)%>
       </div>
     <% end %>
-  </p>
+  </div>
+</div>
 
 
 <% end %>

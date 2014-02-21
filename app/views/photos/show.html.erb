@@ -4,21 +4,14 @@
 </div>
 
 <% if current_user == @photo.uploader %>
-  <%= button_to "Remove Photo", photo_url(@photo), method: :delete %>
+  <div class='link submit-link'>
+    <%= link_to "Remove Photo", photo_url(@photo), method: :delete %>
+  </div>
 <% end %>
 
 <%= render 'make_profile_pic', :photo => @photo %>
 
-People tagged:
-
-<% @photo.tagged_users.each do |user| %>
-  <%= link_to user.name, user_statuses_url(user)%>
-  <% if (current_user == @photo.uploader) || (current_user == user)%>
-    <%= button_to "Untag",
-    photo_tagging_url(PhotoTagging.find_by_user_id_and_photo_id(user.id, @photo.id)),
-    method: :delete %>
-  <% end %>
-<% end %>
+<%= render 'people_tagged', :photo => @photo %>
 
 <% if @photo.photo_comment %>
   <%= render "comments/show", :comment => @photo.photo_comment %>
@@ -26,22 +19,5 @@ People tagged:
 <% end %>
 
 <% if (current_user == @photo.uploader) %>
-
-Tag More People!
-  <% @photo.untagged_friends(current_user).each do |user| %>
-    <%= link_to user.name, user_statuses_url(user)%>
-
-
-    <form action="<%= photo_taggings_url %>" method="POST">
-      <input
-         name="authenticity_token"
-         type="hidden"
-         value="<%= form_authenticity_token %>">
-
-      <input type="hidden" name="photo_tagging[photo_id]" value="<%= @photo.id %>">
-      <input type="hidden" name="photo_tagging[user_id]" value="<%= user.id %>">
-
-      <input type="submit" value="Tag">
-    </form>
-  <% end %>
+  <%= render 'tag_more_people', :photo => @photo %>
 <% end %>

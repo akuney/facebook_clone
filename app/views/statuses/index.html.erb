@@ -7,19 +7,19 @@
 <%= render "/helpers/not_friend", :user => @user %>
 <% end %>
 
-<% unless (current_user.friends.include?(@user) == false)%>
+<% if current_user.all_friends.include?(@user) || (@user == current_user)%>
   <% if (@user == current_user)%>
-    <div class='link'>
+    <div class='link submit-link'>
       <%= link_to "Create new status", new_status_url %>
     </div>
   <% else %>
-    <div class='link'>
+    <div class='link submit-link'>
       <%= link_to "Create new comment", new_user_comment_url(@user) %>
     </div>
   <% end %>
 
   <% @statuses.each do |status| %>
-  <div class="statuses">
+  <div class="status">
     <%= render "show", :status => status,
     :user => @user %>
     <%= render "replies/all", :post => status %>
@@ -27,7 +27,7 @@
   <% end %>
 
   <% @comments.each do |comment| %>
-    <div class="comments">
+    <div class="comment">
     <%= render "comments/show", :comment => comment, :user => @user %>
     <%= render "replies/all", :post => comment %>
     </div>

@@ -1,6 +1,9 @@
-<div class="image">
-  <%= user.photo %>
-</div>
-<div class="link">
-  <%= link_to user.name, user_statuses_url(user) %>
+<div class='pic-and-name'>
+  <div class="image">
+    <%= user.photo %>
+  </div>
+
+  <div class="info">
+    <%= link_to user.name, user_statuses_url(user) %>
+  </div>
 </div>

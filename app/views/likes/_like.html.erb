@@ -18,19 +18,22 @@
 
 <% unless posts_liked.include?(post) %>
   <form action="<%= status_likes_url(post.id) %>" method="POST">
-    <input
-       name="authenticity_token"
-       type="hidden"
-       value="<%= form_authenticity_token %>">
+    <%= render 'helpers/auth_token' %>
 
-    <input type="hidden" name="like[liker_id]" value="<%= current_user.id %>">
-    <input type="hidden" name="like[post_id]" value="<%= post.id %>">
-    <input type="hidden" name="like[post_type]" value="<%= post.class.to_s %>">
+    <input type="hidden" name="like[liker_id]"
+    value="<%= current_user.id %>">
 
-    <div class='submit'>
+    <input type="hidden" name="like[post_id]"
+    value="<%= post.id %>">
+
+    <input type="hidden" name="like[post_type]"
+    value="<%= post.class.to_s %>">
+
+    <div class='submit link submit-link'>
       <input type="submit" value="Like">
     </div>
   </form>
+
 <% else %>
   <div class='link'>
     <%= button_to "Unlike",

@@ -2,14 +2,11 @@
   <input name="_method" type="hidden"
   value="PUT">
 
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+  <%= render 'helpers/auth_token'%>
 
   <input type="hidden" name="profile[photo_url]" value="<%= photo.url %>">
 
-  <input type="submit" value="Make Profile Picture">
-
-
-</form>
+  <div class='submit link submit-link'>
+    <input type="submit" value="Make Profile Picture">
+  </div>
+</for
