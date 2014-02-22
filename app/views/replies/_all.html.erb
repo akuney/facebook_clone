@@ -1,4 +1,3 @@
-<div class='replies'>
 
 <% class_name = post.class.to_s %>
 <% if (class_name == "Comment") %>
@@ -10,45 +9,42 @@
 <% end %>
 
 <% post.replies.each do |reply| %>
-
+  <div class='reply group'>
   <%= render 'helpers/pic_and_name', :user => reply.author %>
-  <%= reply.text %>
-  <%= render 'likes/like', :post => reply %>
+  <div class="text"><%= reply.text %></div>
 
-  <% if reply.author == current_user %>
-    <ul class='links'>
-      <div class='link'>
-        <%= link_to "Edit Reply", edit_reply_url(reply) %>
-      </div>
+  <div class='links'>
+    <%= render 'likes/like', :post => reply %>
 
-      <div class='link'>
-        <%= link_to "Delete Reply", reply_url(reply), method: :delete %>
+    <% if reply.author == current_user %>
+
+        <div class='link'>
+          <%= link_to "Edit Reply", edit_reply_url(reply) %>
+        </div>
+
+        <div class='link'>
+          <%= link_to "Delete Reply", reply_url(reply), method: :delete %>
+        </div>
       </div>
-    </ul>
-  <% end %>
+    <% end %>
+  </div>
 <% end %>
 
+
+
 <form action="<%= action %>" method="POST">
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+  <%= render 'helpers/auth_token'%>
 
-     <div class='text'>
-  Reply
-</div>
-  <div class='group'>
-  <textarea name="reply[text]"></textarea>
+  <div class='new-reply group'>
+    <div class='text'>Reply</div>
+    <textarea name="reply[text]"></textarea>
 
-  <input type="hidden" name="reply[author_id]"
-  value="<%= current_user.id %>">
-  <input type="hidden" name="reply[parent_id]" value="<%= post.id %>">
-  <input type="hidden" name="reply[parent_type]" value="<%= class_name %>">
+    <input type="hidden" name="reply[author_id]"
+    value="<%= current_user.id %>">
+    <input type="hidden" name="reply[parent_id]" value="<%= post.id %>">
+    <input type="hidden" name="reply[parent_type]" value="<%= class_name %>">
 
-  <div class='submit-reply link'>
-    <input type="submit" value="Submit">
+    <div class='submit-link link submit'><input type="submit" value="Submit"></div>
   </div>
-</div>
 </form>
 
-</div>

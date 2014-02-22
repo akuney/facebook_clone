@@ -1,35 +1,18 @@
 <!-- status index -->
-<% if (current_user == @user) %>
-<%= render "/helpers/you", :user => @user %>
-<% elsif (current_user.all_friends.include?(@user))  %>
-<%= render "/helpers/friend", :user => @user %>
-<% else %>
-<%= render "/helpers/not_friend", :user => @user %>
-<% end %>
 
-<% if current_user.all_friends.include?(@user) || (@user == current_user)%>
-  <% if (@user == current_user)%>
-    <div class='link submit-link'>
-      <%= link_to "Create new status", new_status_url %>
-    </div>
-  <% else %>
-    <div class='link submit-link'>
-      <%= link_to "Create new comment", new_user_comment_url(@user) %>
-    </div>
-  <% end %>
+<%= render 'cases', :user => @user %>
 
-  <% @statuses.each do |status| %>
-  <div class="status">
+<%= render 'create_status_or_comment', :user => @user %>
+
+<% @statuses.each do |status| %>
+
     <%= render "show", :status => status,
     :user => @user %>
-    <%= render "replies/all", :post => status %>
-  </div>
-  <% end %>
 
-  <% @comments.each do |comment| %>
-    <div class="comment">
+    <%= render "replies/all", :post => status %>
+<% end %>
+
+<% @comments.each do |comment| %>
     <%= render "comments/show", :comment => comment, :user => @user %>
     <%= render "replies/all", :post => comment %>
-    </div>
-  <% end %>
 <% end %>

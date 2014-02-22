@@ -5,12 +5,17 @@
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
  *
+
+
+
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
  *= require_tree .
  */
+
+
 
 /* basic stuff */
 
@@ -20,7 +25,7 @@ a {
 }
 
 
-ul {
+ul, li {
   list-style: none;
 }
 
@@ -54,15 +59,15 @@ submit {
 
 .links {
   float: right;
+  display: inline-block;
 }
 
-.links > .link {
+.links > .link, .links > form > .link {
   float: left;
 }
 
 .submit-link {
   float: left;
-  margin-left: 0;
 }
 
 .submit-link > input:hover {
@@ -77,13 +82,15 @@ submit {
 .group:after {
   display: block;
   content: "";
-
   clear: both;
 }
 
 .pic-and-name {
   float: left;
 }
+
+
+
 
 /* top bar */
 
@@ -163,7 +170,7 @@ submit {
 
 
 
-/* the below is specific to a non-friend */
+/* non-friend */
 .user > .links > .add-friend {
   float: left;
   padding: 8px;
@@ -177,6 +184,8 @@ submit {
 .user > .links > .mutual-friends {
   float: right;
 }
+
+
 
 /* messages */
 
@@ -242,6 +251,9 @@ submit {
 .message > .message-box > .text {
   text-align: center;
 }
+
+
+
 /* stuff with friends */
 
 .friend > .photo, .friend > .link, .friend > .pic-and-name {
@@ -268,6 +280,36 @@ submit {
 .new-photo > .checkbox > .text {
   margin-bottom: 4px;
 }
+
+/* statuses, comments, replies */
+
+
+.status, .new-status, .reply, .new-reply {
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.reply {
+  font-size: 14px;
+}
+
+
+.status > .links, .comment > .links, .reply > .links {
+  float: right;
+  max-width: 70%;
+  min-width: 50%;
+}
+
+.status > .text, .reply > .text, .comment > .text {
+  float: left;
+}
+
+.status > .links > .link {
+  margin: 10px;
+}
+
+
 
 /* home pages */
 
@@ -307,6 +349,7 @@ submit {
 
 .comment {
   margin-bottom: 20px;
+
 }
 
 .submit-reply {

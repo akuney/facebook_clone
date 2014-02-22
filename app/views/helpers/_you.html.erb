@@ -1,27 +1,24 @@
 <div class="user group">
+
   <div class="pic-and-name">
     <div class="image">
       <%= user.photo %>
     </div>
 
     <div class='info'>
-      <div class='name text'>
-      <%= user.name %>
-      </div>
-      <div class='email text'>
-      <%= user.email %>
-      </div>
+      <div class='text'><%= user.name %></div>
+      <div class='text'><%= user.email %></div>
     </div>
   </div>
 
 
-  <ul class="links">
+  <div class="links">
     <li><%= link_to "Timeline", user_statuses_url(current_user) %></li>
     <li><%= link_to "About", user_profile_url(current_user, current_user.profile) %></li>
     <li><%= link_to "Photos", user_photos_url(current_user) %></li>
     <li><%= link_to "Friends", user_friendships_url(current_user) %></li>
     <li><%= link_to "Edit Profile", edit_profile_url(current_user)%></li>
-  </ul>
+  </div>
 
 </div>
 

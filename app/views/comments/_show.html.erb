@@ -2,31 +2,26 @@
 
 <div class='comment group'>
   <%= render 'helpers/pic_and_name', :user => comment.author %>
-  <div class='text'>
-    <%= comment.text %>
-  </div>
+  <div class='text'><%= comment.text %></div>
+
   <%= render 'likes/like', :post => comment %>
 
 
-<% if current_user == comment.author %>
+  <% if current_user == comment.author %>
+    <div class='links'>
+      <% if comment.class.to_s == "PhotoComment"%>
+        <div class='link submit-link'>
+          <%= link_to "Edit Comment", edit_photo_comment_url(comment) %>
+        </div>
+      <% elsif comment.class.to_s == "Comment" %>
+        <div class='link submit-link'>
+          <%= link_to "Edit Comment", edit_comment_url(comment) %>
+        </div>
 
-    <% if comment.class.to_s == "PhotoComment"%>
-    <div class='link submit-link'>
-      <%= link_to "Edit Comment", edit_photo_comment_url(comment) %>
+        <div class='link submit-link'>
+          <%= link_to "Remove Comment", comment_url(comment), method: :delete %>
+        </div>
+      <% end %>
     </div>
-    <% elsif comment.class.to_s == "Comment" %>
-    <div class='link submit-link'>
-      <%= link_to "Edit Comment", edit_comment_url(comment) %>
-    </div>
-    <% end %>
-
-
-
-    <% if comment.class.to_s == "Comment"%>
-    <div class='link submit-link'>
-      <%= link_to "Remove Comment", comment_url(comment), method: :delete %>
-    </div>
-    <% end %>
-
-<% end %>
+  <% end %>
 </div>
