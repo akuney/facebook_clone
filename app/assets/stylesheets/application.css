@@ -135,6 +135,9 @@ submit {
 
 /* individual user bar */
 
+.user {
+  margin-bottom: 30px;
+}
 .user > .pic-and-name {
   float: left;
 }
@@ -150,11 +153,9 @@ submit {
   font-family: sans-serif;
 }
 
-.user > .links {
-  float: right;
-}
 
-.user > .links > li, link {
+
+.user > .links > li {
   float: left;
 }
 
@@ -290,24 +291,36 @@ submit {
   margin-bottom: 30px;
 }
 
-.reply {
-  font-size: 14px;
+.new-status, .new-comment, .new-reply > .submit-link,  {
+  font-weight: bold;
+  margin-bottom: 40px;
 }
-
 
 .status > .links, .comment > .links, .reply > .links {
   float: right;
-  max-width: 70%;
-  min-width: 50%;
+  min-width: 80%;
 }
 
 .status > .text, .reply > .text, .comment > .text {
   float: left;
+  padding: 30px;
+  padding-top: 26px;
 }
 
-.status > .links > .link {
-  margin: 10px;
+.status > .pic-and-name, .reply > .pic-and-name, .comment > .pic-and-name {
+  margin-right: 20px;
+
 }
+
+.replies {
+  margin-left: 80px;
+}
+
+.status, .reply {
+  font-size: 17px;
+}
+
+
 
 
 

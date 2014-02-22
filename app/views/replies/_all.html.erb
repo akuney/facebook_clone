@@ -8,43 +8,44 @@
   <% action = photo_comment_replies_url(post)%>
 <% end %>
 
-<% post.replies.each do |reply| %>
-  <div class='reply group'>
-  <%= render 'helpers/pic_and_name', :user => reply.author %>
-  <div class="text"><%= reply.text %></div>
+<div class='replies'>
+  <% post.replies.each do |reply| %>
+    <div class='reply group'>
+    <%= render 'helpers/pic_and_name', :user => reply.author %>
+    <div class="text"><%= reply.text %></div>
 
-  <div class='links'>
-    <%= render 'likes/like', :post => reply %>
+    <div class='links'>
+      <%= render 'likes/like', :post => reply %>
 
-    <% if reply.author == current_user %>
+      <% if reply.author == current_user %>
 
-        <div class='link'>
-          <%= link_to "Edit Reply", edit_reply_url(reply) %>
+          <div class='link'>
+            <%= link_to "Edit Reply", edit_reply_url(reply) %>
+          </div>
+
+          <div class='link'>
+            <%= link_to "Delete Reply", reply_url(reply), method: :delete %>
+          </div>
         </div>
-
-        <div class='link'>
-          <%= link_to "Delete Reply", reply_url(reply), method: :delete %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+      <% end %>
+    </div>
+  <% end %>
 
 
 
-<form action="<%= action %>" method="POST">
-  <%= render 'helpers/auth_token'%>
+  <form action="<%= action %>" method="POST">
+    <%= render 'helpers/auth_token'%>
 
-  <div class='new-reply group'>
-    <div class='text'>Reply</div>
-    <textarea name="reply[text]"></textarea>
+    <div class='new-reply group'>
+      <textarea name="reply[text]"></textarea>
 
-    <input type="hidden" name="reply[author_id]"
-    value="<%= current_user.id %>">
-    <input type="hidden" name="reply[parent_id]" value="<%= post.id %>">
-    <input type="hidden" name="reply[parent_type]" value="<%= class_name %>">
+      <input type="hidden" name="reply[author_id]"
+      value="<%= current_user.id %>">
+      <input type="hidden" name="reply[parent_id]" value="<%= post.id %>">
+      <input type="hidden" name="reply[parent_type]" value="<%= class_name %>">
 
-    <div class='submit-link link submit'><input type="submit" value="Submit"></div>
-  </div>
-</form>
+      <div class='submit-link link submit'><input type="submit" value="Reply"></div>
+    </div>
+  </form>
+</div>
 
