@@ -1,65 +1,83 @@
+<link rel="stylesheet" href="../../assets/stylesheets/application.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <!-- Partial for creating and editing profiles -->
 
-<form action="<%= profile.persisted? ? profile_url(profile) : profiles_url %>"
+<form class='profile' action="<%= profile.persisted? ? profile_url(profile) : profiles_url %>"
   method="POST">
 
   <input name="_method" type="hidden"
   value="<%= profile.persisted? ? "PUT" : "POST"%>">
 
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+  <%= render 'helpers/auth_token'%>
 
-     <input type="hidden" name="profile[owner_id]"
-     value="<%= current_user.id %>">
-
-  <p>
-    <h3>Name</h3>
-  <label>
-    First Name
-    <input name="profile[first_name]" value="<%= profile.first_name %>">
-  </label>
-
-  <label>
-    Last Name
-    <input name="profile[last_name]" value="<%= profile.last_name%>">
-  </label>
-  </p>
-
-  <p>
-    <h3>Birthdate</h3>
-    Month
-  <select name="profile[birth_month]">
-    <option value="">
-    <% ["January", "February", "March", "April",
-    "May","June","July","August",
-    "September","October","November","December"].each do |month| %>
-    <option value="<%= month %>" <%= 'selected' if month == profile.birth_month %>> <%= month %>
-<% end %>
-  </select>
+  <input type="hidden" name="profile[owner_id]"
+  value="<%= current_user.id %>">
 
 
-  Day
-  <select name="profile[birth_day]">
-    <option value="">
-    <% (1..31).each do |day| %>
+  <div class='text heading'>Name</div>
+  <div class='names group'>
 
-      <option value="<%= day.to_s %>"
-        <%= 'selected' if day == profile.birth_day %>> <%= day %>
-        <% end %>
-  </select>
+    <div class='first-name'>
+      <div class='text'>
+        First Name
+      </div>
+      <div class='input'>
+        <input type='text' name="profile[first_name]" value="<%= profile.first_name %>">
+      </div>
+    </div>
 
-  Year
-  <select name="profile[birth_year]">
-    <option value="">
-    <% (2001.downto(1910)).each do |year| %>
+    <div class='last-name'>
+      <div class='text'>Last Name</div>
+      <div class='input text'>
+        <input name="profile[last_name]" value="<%= profile.last_name%>">
+      </div>
+    </div>
 
-      <option value="<%= year.to_s %>"
-        <%= 'selected' if year == profile.birth_year%>> <%= year %>
-        <% end %>
-  </select>
-</p>
+  </div>
+
+
+  <div class='birthdate'>
+    <div class='text heading'>Birthdate</div>
+
+    <div class='dates group'>
+      <div class='month'>
+        <div class='text'>Month</div>
+        <select name="profile[birth_month]">
+          <option value="">
+          <% ["January", "February", "March", "April",
+          "May","June","July","August",
+          "September","October","November","December"].each do |month| %>
+          <option value="<%= month %>" <%= 'selected' if month == profile.birth_month %>> <%= month %>
+            <% end %>
+        </select>
+      </div>
+
+
+      <div class='day'>
+        <div class='text'>Day</div>
+        <select name="profile[birth_day]">
+          <option value="">
+          <% (1..31).each do |day| %>
+
+            <option value="<%= day.to_s %>"
+              <%= 'selected' if day == profile.birth_day %>> <%= day %>
+              <% end %>
+        </select>
+      </div>
+
+      <div class='year'>
+
+        <div class='text'>Year</div>
+        <select name="profile[birth_year]">
+          <option value="">
+          <% (2001.downto(1910)).each do |year| %>
+
+            <option value="<%= year.to_s %>"
+              <%= 'selected' if year == profile.birth_year%>> <%= year %>
+              <% end %>
+        </select>
+      </div>
+    </div>
+  </div>
 
 <p>
   <h3>Gender</h3>

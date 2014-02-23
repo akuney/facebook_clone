@@ -19,6 +19,10 @@
 
 /* basic stuff */
 
+.bold {
+  font-weight: bold;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -285,7 +289,7 @@ submit {
 /* statuses, comments, replies */
 
 
-.status, .new-status, .reply, .new-reply {
+.status, .new-status, .reply, .new-reply, .comment, .new-comment {
   float: left;
   width: 100%;
   margin-bottom: 30px;
@@ -316,7 +320,7 @@ submit {
   margin-left: 80px;
 }
 
-.status, .reply {
+.status, .reply, .comment {
   font-size: 17px;
 }
 
@@ -367,4 +371,41 @@ submit {
 
 .submit-reply {
   float: left;
+}
+
+
+/* photos */
+
+
+
+.new-photo > .photo-comment {
+  margin-bottom: 20px;
+}
+
+/* profile creation and editing */
+
+.heading {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.first-name > .input, .last-name > .input {
+  border: 1px solid black;
+}
+
+.first-name {
+  float: left;
+  margin-right: 50px;
+}
+
+.last-name {
+  float: left;
+}
+
+.dates > .month, .dates > .day, .dates > .year {
+  float: left;
+  margin-right: 20px;
 }
