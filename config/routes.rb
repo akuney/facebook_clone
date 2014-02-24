@@ -48,6 +48,8 @@ FacebookClone::Application.routes.draw do
     resources :replies, only: [:create]
   end
 
+  resources :search_results, only: [:index, :new]
+
   resources :photo_taggings, only: [:create, :destroy]
   root to: "users#index"
 

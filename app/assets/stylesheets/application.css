@@ -121,8 +121,8 @@ submit {
 
 .top-bar > .links > li {
   float: left;
-  padding: 10px;
-  margin: 10px;
+  padding: 8px;
+  margin: 8px;
   background-color: lightgray;
 }
 
@@ -316,7 +316,10 @@ submit {
 }
 
 .status > .links, .comment > .links, .reply > .links {
-  float: right;
+  float: left;
+  min-width: 40%;
+  margin-top: 10px;
+  margin-left: 30px;
 }
 
 .status > .links > .link {
@@ -339,6 +342,7 @@ submit {
 
 .status, .reply, .comment {
   font-size: 17px;
+
 }
 
 .new-reply > textarea {
@@ -348,7 +352,8 @@ submit {
 }
 
 .likes {
-  width: 150px;
+  min-width: 300px;
+  max-width: 400px;
 }
 
 .likes > .links {
@@ -359,7 +364,6 @@ submit {
   float: left;
   margin: 10px;
   margin-top: 17px;
-
 }
 
 
@@ -422,6 +426,7 @@ submit {
 .photo-comment {
   margin-top: 40px;
 }
+
 
 .photos {
   width: 360px;
@@ -498,4 +503,15 @@ submit {
 
 .person-tagged > .link {
   float: left;
+}
+
+/* searching */
+
+.search > .search-form {
+  float: left;
+}
+
+.search > .search-form > .query > input {
+  margin-left: 10px;
+  border: 1px solid gray;
 }
