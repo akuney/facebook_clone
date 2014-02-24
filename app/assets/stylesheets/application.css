@@ -385,6 +385,7 @@ submit {
 
 .status, .reply, .comment {
   font-size: 17px;
+  border-bottom: 1px solid lightgray;
 }
 
 .new-reply > textarea {
