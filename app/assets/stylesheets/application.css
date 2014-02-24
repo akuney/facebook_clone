@@ -149,7 +149,9 @@ submit {
 /* individual user bar */
 
 .user {
-  margin-bottom: 30px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid black;
 }
 .user > .pic-and-name {
   float: left;
@@ -333,6 +335,11 @@ submit {
 
 /* statuses, comments, replies */
 
+.statuses, .comments {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
 
 .status, .new-status, .reply, .new-reply, .comment, .new-comment {
   float: left;
@@ -340,15 +347,21 @@ submit {
   padding: 20px;
 }
 
-.new-status, .new-comment, .new-reply > .submit-link,  {
-  font-weight: bold;
-  margin-bottom: 40px;
+.new-reply {
+
+  padding-top: 0;
+  padding-left: 0;
+  margin-left: 0;
+  margin-top: 30px;
+}
+
+.status, .comment {
+  padding-top: 25px;
+  border-top: 2px solid black;
 }
 
 .status > .links, .comment > .links, .reply > .links {
-  float: left;
   width: 100%;
-
 }
 
 .status > .links > .link {
@@ -367,17 +380,18 @@ submit {
 
 .replies {
   margin-left: 80px;
+
 }
 
 .status, .reply, .comment {
   font-size: 17px;
-
 }
 
 .new-reply > textarea {
+  margin-left: 20px;
+  margin-right: 20px;
   margin-top: 10px;
-  margin-left: 30px;
-  margin-bottom: 40px;
+  float: left;
 }
 
 .likes {
@@ -385,9 +399,6 @@ submit {
   max-width: 400px;
 }
 
-.likes > .links {
-  float: right;
-}
 
 .likes > .text {
   float: left;
@@ -445,10 +456,6 @@ submit {
 
 .new-photo > .new-photo-comment {
   margin-bottom: 20px;
-}
-
-.photo-comment {
-  margin-top: 40px;
 }
 
 
@@ -544,11 +551,15 @@ submit {
 }
 
 .people-tagged {
-  margin-bottom: 50px;
+  padding-bottom: 20px
 }
 
 .photo-comment > .text {
   margin-bottom: 20px;
+}
+
+.tag-more-people {
+  border-top: 2px solid black;
 }
 
 /* searching */

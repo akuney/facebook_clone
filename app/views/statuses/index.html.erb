@@ -1,18 +1,22 @@
 <!-- status index -->
 
+
+
 <%= render 'cases', :user => @user %>
 
 <%= render 'create_status_or_comment', :user => @user %>
 
-<% @statuses.each do |status| %>
-
-    <%= render "show", :status => status,
-    :user => @user %>
+<div class='statuses'>
+  <% @statuses.each do |status| %>
+    <%= render "show", :status => status, :user => @user %>
 
     <%= render "replies/all", :post => status %>
-<% end %>
+  <% end %>
+</div>
 
-<% @comments.each do |comment| %>
-    <%= render "comments/show", :comment => comment, :user => @user %>
-    <%= render "replies/all", :post => comment %>
-<% end %>
+<div class='comments'>
+  <% @comments.each do |comment| %>
+      <%= render "comments/show", :comment => comment, :user => @user %>
+      <%= render "replies/all", :post => comment %>
+  <% end %>
+</div>

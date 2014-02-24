@@ -1,25 +1,29 @@
 
 <div class='tag-more-people'>
+
+
   <div class='text heading'>Tag More People!</div>
+
   <% @photo.untagged_friends(current_user).each do |user| %>
-  <div class='untagged-friend group'>
-    <div class='username'>
-      <%= link_to user.name, user_statuses_url(user)%>
-    </div>
-
-    <form action="<%= photo_taggings_url %>" method="POST">
-      <%= render 'helpers/auth_token'%>
-
-      <input type="hidden" name="photo_tagging[photo_id]"
-      value="<%= @photo.id %>">
-
-      <input type="hidden" name="photo_tagging[user_id]"
-      value="<%= user.id %>">
-
-      <div class='link submit-link'>
-        <input type="submit" value="Tag">
+    <div class='untagged-friend group'>
+      <div class='username'>
+        <%= link_to user.name, user_statuses_url(user)%>
       </div>
-    </form>
-  </div>
+
+      <form action="<%= photo_taggings_url %>" method="POST">
+        <%= render 'helpers/auth_token'%>
+
+        <input type="hidden" name="photo_tagging[photo_id]"
+        value="<%= @photo.id %>">
+
+        <input type="hidden" name="photo_tagging[user_id]"
+        value="<%= user.id %>">
+
+        <div class='link submit-link'>
+          <input type="submit" value="Tag">
+        </div>
+      </form>
+    </div>
   <% end %>
+
 </div>

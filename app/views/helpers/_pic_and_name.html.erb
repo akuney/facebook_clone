@@ -1,6 +1,6 @@
 <div class='pic-and-name'>
   <div class="image">
-    <%= user.photo %>
+    <%= link_to user.photo, user_statuses_url(user) %>
   </div>
 
   <div class="info">
