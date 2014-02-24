@@ -1,6 +1,14 @@
+<% if @users.count == 0 %>
+<div class='text heading'>No Search Results</div>
+<% end %>
+
 <% @users.each do |user| %>
-<div class='user group'>
-  <%= render 'helpers/pic_and_name', :user => user %>
-</div>
+  <div class='user group'>
+    <% if current_user.all_friends.include?(user) %>
+      <%= render 'helpers/pic_and_name', :user => user%>
+    <% elsif user != current_user %>
+      <%= render 'helpers/not_friend', :user => user %>
+    <% end %>
+  </div>
 <% end %>
 

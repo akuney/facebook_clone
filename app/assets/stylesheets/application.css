@@ -40,6 +40,7 @@ li, .name, .text, input, button, a {
 .link {
   padding: 8px;
   margin: 10px;
+  margin-left: 0;
   background-color: lightgray;
 }
 
@@ -61,7 +62,8 @@ submit {
 }
 
 .links {
-  float: right;
+  float: left;
+  margin-top: 8px;
 }
 
 .links > .link, .links > form > .link {
@@ -116,13 +118,17 @@ submit {
 
 .top-bar > .links {
   float: right;
-  margin-top: 20px;
+  margin-top: 24px;
+  margin-left: 5px;
+  min-width: 70%;
+  position: absolute;
+  display: inline-block;
 }
 
 .top-bar > .links > li {
   float: left;
-  padding: 8px;
-  margin: 8px;
+  padding: 7px;
+  margin: 7px;
   background-color: lightgray;
 }
 
@@ -132,7 +138,8 @@ submit {
 }
 
 .top-bar {
-  margin-bottom: 50px;
+  padding-bottom: 50px;
+  border-bottom: 2px solid black;
 }
 
 
@@ -155,6 +162,7 @@ submit {
 .pic-and-name > .info {
   float: right;
   margin-left: 20px;
+  margin-right: 20px;
   margin-top: 26px;
   font-family: sans-serif;
 }
@@ -196,6 +204,17 @@ submit {
 
 /* messages */
 
+.message-threads {
+  padding-top: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid black;
+}
+
+.message-thread {
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .message-thread > .message-header {
   float: left;
 }
@@ -212,14 +231,12 @@ submit {
 
 .message-thread > .message-header > .text {
   float: right;
-  padding-left: 60px;
-  padding-top: 20px;
+  text-align: center;
+  padding: 20px;
+  padding-right: 10px;
 }
 
 
-.message-thread > .delete {
-  float: right;
-}
 
 .create-thread {
   margin-top: 20px;
@@ -272,13 +289,15 @@ submit {
   float: left;
 }
 
-.friend > .links > .link {
-  margin: 20px;
+
+.received-requests {
+  padding-top: 5px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid black;
 }
 
-
-.sent-request > .text {
-  float: right;
+.friends {
+  padding-top: 25px;
 }
 
 .sent-request {
@@ -301,13 +320,24 @@ submit {
   margin-bottom: 4px;
 }
 
+.edit-photo-comment > .textarea {
+  float: left;
+  width: 100%;
+
+}
+
+.edit-photo-comment > .textarea > textarea {
+  width: 20%;
+}
+
+
 /* statuses, comments, replies */
 
 
 .status, .new-status, .reply, .new-reply, .comment, .new-comment {
   float: left;
   width: 100%;
-  margin-bottom: 30px;
+  padding: 20px;
 }
 
 .new-status, .new-comment, .new-reply > .submit-link,  {
@@ -317,9 +347,8 @@ submit {
 
 .status > .links, .comment > .links, .reply > .links {
   float: left;
-  min-width: 40%;
-  margin-top: 10px;
-  margin-left: 30px;
+  width: 100%;
+
 }
 
 .status > .links > .link {
@@ -328,8 +357,8 @@ submit {
 
 .status > .text, .reply > .text, .comment > .text {
   float: left;
-  padding: 30px;
-  padding-top: 26px;
+  width: 100%;
+  background: beige;
 }
 
 .status > .pic-and-name, .reply > .pic-and-name, .comment > .pic-and-name {
@@ -405,11 +434,6 @@ submit {
   border: 1px solid black;
 }
 
-.comment {
-  margin-bottom: 20px;
-
-}
-
 .submit-reply {
   float: left;
 }
@@ -430,11 +454,20 @@ submit {
 
 .photos {
   width: 360px;
+
 }
 
 .photos > .photo {
   float: left;
 }
+
+.photo-links {
+  padding-top: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+
 
 /* profile creation and editing */
 
@@ -480,20 +513,21 @@ submit {
 
 /* showing photos */
 
+.photo-show {
+  padding-bottom: 50px;
+  padding-top: 50px;
+  border-bottom: 2px solid black;
+}
+
 .photo-show > .photo {
   float: left;
 }
 
 .photo-show > .links {
   float: left;
-  margin-left: 200px;
+  margin-left: 40px;
   min-width: 31%;
 }
-
-.photo-show > .links > .link {
-}
-
-
 
 .person-tagged > .username, .untagged-friend > .username {
   max-width: 20%;
@@ -505,14 +539,29 @@ submit {
   float: left;
 }
 
+.person-tagged > .username, .untagged-friend > .username {
+  margin-right: 20px;
+}
+
+.people-tagged {
+  margin-bottom: 50px;
+}
+
+.photo-comment > .text {
+  margin-bottom: 20px;
+}
+
 /* searching */
+
+.search {
+  padding-top: 30px;
+}
 
 .search > .search-form {
   float: left;
 }
 
 .search > .search-form > .query > input {
-  margin-left: 10px;
   border: 1px solid gray;
 }
 

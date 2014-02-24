@@ -1,7 +1,15 @@
 <!-- mutual friends index -->
 
+
+<% counter = 0 %>
+
 <% @user.all_friends.each do |friend| %>
   <% if current_user.all_friends.include?(friend) %>
     <%= render 'helpers/pic_and_name', :user => friend %>
+    <% counter += 1 %>
   <% end %>
+<% end %>
+
+<% if counter == 0 %>
+  <div class='text'>No Mutual Friends</div>
 <% end %>

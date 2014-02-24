@@ -1,17 +1,17 @@
 <%= render 'photos/photo', :photo => @photo_comment.photo %>
 
-<form action="<%= photo_comment_url(@photo_comment) %>" method="POST">
+<form class='edit-photo-comment' action="<%= photo_comment_url(@photo_comment) %>" method="POST">
 
   <input name="_method" type="hidden"value="PUT">
 
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+  <%= render 'helpers/auth_token'%>
 
-  Comment:
-  <textarea name="photo_comment[text]"><%= @photo_comment.text %></textarea>
+  <div class='text heading'>Comment:</div>
 
-  <input type="submit" value="Update Comment">
+  <div class='textarea'>
+    <textarea name="photo_comment[text]"><%= @photo_comment.text %></textarea>
+  </div>
+
+  <input type="submit" class="link submit-link" value="Update Comment">
 
 </form>
