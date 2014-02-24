@@ -1,15 +1,18 @@
-
-<div class='photo'>
-  <img src="<%= @photo.url %>" width="120" height="120">
-</div>
+<div class='photo-show group'>
+  <div class='photo'>
+    <img src="<%= @photo.url %>" width="120" height="120">
+  </div>
 
 <% if current_user == @photo.uploader %>
-  <div class='link submit-link'>
-    <%= link_to "Remove Photo", photo_url(@photo), method: :delete %>
-  </div>
+  <div class='links'>
+    <div class='link submit-link'>
+      <%= link_to "Remove Photo", photo_url(@photo), method: :delete %>
+    </div>
 <% end %>
 
-<%= render 'make_profile_pic', :photo => @photo %>
+  <%= render 'make_profile_pic', :photo => @photo %>
+  </div>
+</div>
 
 <%= render 'people_tagged', :photo => @photo %>
 
@@ -21,3 +24,4 @@
 <% if (current_user == @photo.uploader) %>
   <%= render 'tag_more_people', :photo => @photo %>
 <% end %>
+

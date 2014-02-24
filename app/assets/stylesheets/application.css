@@ -56,7 +56,6 @@ input#text {
 }
 
 
-
 submit {
   background-color: white;
 }
@@ -431,3 +430,29 @@ submit {
   margin-bottom: 20px;
 }
 
+
+/* showing photos */
+
+.photo-show > .photo {
+  float: left;
+}
+
+.photo-show > .links {
+  width: 30%;
+  float: right;
+}
+
+.photo-show > .form {
+  float: right;
+}
+
+.people-tagged > .username {
+  max-width: 20%;
+  float: left;
+  margin-top: 20px;
+}
+
+.people-tagged > .link {
+
+  float: left;
+}

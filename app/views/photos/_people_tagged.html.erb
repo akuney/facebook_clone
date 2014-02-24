@@ -1,11 +1,13 @@
+<div class='people-tagged group'>
 <% if photo.tagged_users.empty? == false %>
-  People tagged:
+  <div class='text heading'>People tagged:</div>
 <% end %>
 
 <% photo.tagged_users.each do |user| %>
-  <div class='link'>
+  <div class='username'>
     <%= link_to user.name, user_statuses_url(user)%>
   </div>
+
 
   <% if (current_user == photo.uploader) || (current_user == user)%>
   <div class='link'>
@@ -16,3 +18,4 @@
   <% end %>
 
 <% end %>
+</div>
