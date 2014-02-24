@@ -393,6 +393,14 @@ submit {
   margin-top: 40px;
 }
 
+.photos {
+  width: 360px;
+}
+
+.photos > .photo {
+  float: left;
+}
+
 /* profile creation and editing */
 
 .heading {
