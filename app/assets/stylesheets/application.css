@@ -74,7 +74,10 @@ submit {
 
 .submit-link > input:hover {
   cursor: pointer;
+  color: darkgray;
 }
+
+
 
 .submit-link:hover, a:hover, submit:hover {
   cursor: pointer;
