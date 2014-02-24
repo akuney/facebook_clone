@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include PgSearch
+
+
   attr_accessible :email, :password
   attr_reader :password
 
@@ -74,6 +77,13 @@ class User < ActiveRecord::Base
 
   def name
     self.profile.first_name + " " + self.profile.last_name
+  end
+
+  def first_name
+
+  end
+
+  def last_name
   end
 
 
