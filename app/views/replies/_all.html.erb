@@ -11,14 +11,13 @@
 <div class='replies'>
   <% post.replies.each do |reply| %>
     <div class='reply group'>
-    <%= render 'helpers/pic_and_name', :user => reply.author %>
-    <div class="text"><%= reply.text %></div>
+      <%= render 'helpers/pic_and_name', :user => reply.author %>
+      <div class="text"><%= reply.text %></div>
 
-    <div class='links'>
-      <%= render 'likes/like', :post => reply %>
+      <div class='links'>
+        <%= render 'likes/like', :post => reply %>
 
-      <% if reply.author == current_user %>
-
+        <% if reply.author == current_user %>
           <div class='link'>
             <%= link_to "Edit Reply", edit_reply_url(reply) %>
           </div>
@@ -26,8 +25,9 @@
           <div class='link'>
             <%= link_to "Delete Reply", reply_url(reply), method: :delete %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+
     </div>
   <% end %>
 
@@ -47,5 +47,6 @@
       <div class='submit-link link submit'><input type="submit" value="Reply"></div>
     </div>
   </form>
+
 </div>
 
