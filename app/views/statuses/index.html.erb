@@ -6,7 +6,7 @@
 
 <%= render 'create_status_or_comment', :user => @user %>
 
-<div class='statuses'>
+<div class='statuses group'>
   <% @statuses.each do |status| %>
     <%= render "show", :status => status, :user => @user %>
 
@@ -14,7 +14,7 @@
   <% end %>
 </div>
 
-<div class='comments'>
+<div class='comments group'>
   <% @comments.each do |comment| %>
       <%= render "comments/show", :comment => comment, :user => @user %>
       <%= render "replies/all", :post => comment %>

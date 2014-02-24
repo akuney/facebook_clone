@@ -5,9 +5,11 @@
   <div class='no-tagged-photos text heading'>No Tagged Photos</div>
 <% end %>
 
-<% @user.photos_tagged_in.each do |photo| %>
-  <div class='photo'>
-    <%= render 'photo', :photo => photo %>
-  </div>
-<% end %>
+<div class='tagged-photos group'>
+  <% @user.photos_tagged_in.each do |photo| %>
+    <div class='photo'>
+      <%= render 'photo', :photo => photo %>
+    </div>
+  <% end %>
+</div>
 

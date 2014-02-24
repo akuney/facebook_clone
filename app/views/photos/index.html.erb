@@ -1,3 +1,9 @@
+<% if current_user == @user %>
+  <%= render 'helpers/you', :user => current_user %>
+<% else %>
+  <%= render 'helpers/friend', :user => @user %>
+<% end %>
+
 <%= render 'photos_top_bar', :user => @user %>
 
 <div class='photos group'>

@@ -1,4 +1,9 @@
 <!-- Friends index page -->
+<% if current_user == @user %>
+  <%= render 'helpers/you', :user => current_user %>
+<% else %>
+  <%= render 'helpers/friend', :user => @user %>
+<% end %>
 
 <div class='friends'>
   <% @user.all_friends.each do |friend| %>

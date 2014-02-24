@@ -8,7 +8,7 @@
   <% action = photo_comment_replies_url(post)%>
 <% end %>
 
-<div class='replies'>
+<div class='replies group'>
   <% post.replies.each do |reply| %>
     <div class='reply group'>
       <%= render 'helpers/pic_and_name', :user => reply.author %>

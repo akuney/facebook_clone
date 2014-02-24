@@ -245,6 +245,9 @@ submit {
   float: left;
 }
 
+.new-message {
+  padding-top: 25px;
+}
 
 .new-message > .title,
 .new-message > .recipients,
@@ -308,6 +311,14 @@ submit {
 
 .received-request {
   width: 100%;
+}
+
+.mutual-friends {
+  padding-top: 25px;
+}
+
+.new-photo {
+  padding-top: 25px;
 }
 
 .new-photo > .url, .new-photo > .comment, .new-photo > .checkbox {
@@ -380,7 +391,6 @@ submit {
 
 .replies {
   margin-left: 80px;
-
 }
 
 .status, .reply, .comment {
@@ -460,12 +470,11 @@ submit {
 }
 
 
-.photos {
+.photos, .tagged-photos {
   width: 360px;
-
 }
 
-.photos > .photo {
+.photos > .photo, .tagged-photos > .photo {
   float: left;
 }
 
@@ -508,10 +517,14 @@ submit {
   margin-right: 20px;
 }
 
-.profile-edit > .info {
+.profile-show > .info {
   font-family: sans-serif;
   font-size: 18px;
   margin-bottom: 20px;
+}
+
+.profile-show {
+  padding-top: 25px;
 }
 
 .about-me {
