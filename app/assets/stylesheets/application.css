@@ -322,6 +322,12 @@ submit {
 
 .status, .reply, .comment {
   font-size: 17px;
+
+}
+
+.new-reply > textarea {
+  margin-top: 10px;
+  margin-left: 30px;
 }
 
 
