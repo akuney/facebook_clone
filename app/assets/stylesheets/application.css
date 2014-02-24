@@ -63,7 +63,6 @@ submit {
 
 .links {
   float: right;
-  display: inline-block;
 }
 
 .links > .link, .links > form > .link {
@@ -115,11 +114,12 @@ submit {
 
 .top-bar > .links {
   float: right;
+  margin-top: 20px;
 }
 
 .top-bar > .links > li {
   float: left;
-  padding: 15px;
+  padding: 10px;
   margin: 10px;
   background-color: lightgray;
 }
