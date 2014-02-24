@@ -17,8 +17,11 @@
 <%= render 'people_tagged', :photo => @photo %>
 
 <% if @photo.photo_comment %>
-  <%= render "comments/show", :comment => @photo.photo_comment %>
-  <%= render "replies/all", :post => @photo.photo_comment %>
+  <div class='photo-comment'>
+    <div class='text heading'>Discussion:</div>
+    <%= render "comments/show", :comment => @photo.photo_comment %>
+    <%= render "replies/all", :post => @photo.photo_comment %>
+  </div>
 <% end %>
 
 <% if (current_user == @photo.uploader) %>

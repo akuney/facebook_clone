@@ -385,8 +385,12 @@ submit {
 
 
 
-.new-photo > .photo-comment {
+.new-photo > .new-photo-comment {
   margin-bottom: 20px;
+}
+
+.photo-comment {
+  margin-top: 40px;
 }
 
 /* profile creation and editing */
@@ -438,21 +442,22 @@ submit {
 }
 
 .photo-show > .links {
-  width: 30%;
-  float: right;
+  float: left;
+  margin-left: 200px;
+  min-width: 31%;
 }
 
-.photo-show > .form {
-  float: right;
+.photo-show > .links > .link {
 }
 
-.people-tagged > .username {
+
+
+.person-tagged > .username, .untagged-friend > .username {
   max-width: 20%;
   float: left;
   margin-top: 20px;
 }
 
-.people-tagged > .link {
-
+.person-tagged > .link {
   float: left;
 }

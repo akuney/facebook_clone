@@ -1,9 +1,10 @@
-<div class='people-tagged group'>
+<div class='people-tagged'>
 <% if photo.tagged_users.empty? == false %>
   <div class='text heading'>People tagged:</div>
 <% end %>
 
 <% photo.tagged_users.each do |user| %>
+<div class='person-tagged group'>
   <div class='username'>
     <%= link_to user.name, user_statuses_url(user)%>
   </div>
@@ -16,6 +17,6 @@
     method: :delete %>
   </div>
   <% end %>
-
+</div>
 <% end %>
 </div>
