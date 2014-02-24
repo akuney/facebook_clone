@@ -9,11 +9,12 @@
   <div class='info'>
     <div>Name: <%= @profile.first_name %> <%= @profile.last_name %></div>
 
-    <div> <%= "Date of Birth: #{@profile.birth_month}" if @profile.birth_month %>
+    <div> <%= "Date of Birth: #{@profile.birth_month}" if
+      (@profile.birth_month != "" || @profile.birth_day != "" || @profile.birth_year != "")  %>
       <%= @profile.birth_day if @profile.birth_day %>
       <%= ", #{@profile.birth_year}" if @profile.birth_year != "" %></div>
 
-    <div> <%= "Gender: #{@profile.gender}" if @profile.gender %></div>
+    <div> <%= "Gender: #{@profile.gender}" if @profile.gender != ""%></div>
   </div>
 
   <div class='info'>
@@ -27,8 +28,8 @@
   </div>
 
   <div class='info'>
-    <div> <%= "Relationship Status: #{@profile.relationship_status}" if @profile.relationship_status %></div>
-    <div> <%= "Interested In: #{@profile.interested_in}" if @profile.interested_in %></div>
+    <div> <%= "Relationship Status: #{@profile.relationship_status}" if @profile.relationship_status != ""%></div>
+    <div> <%= "Interested In: #{@profile.interested_in}" if @profile.interested_in != ""%></div>
   </div>
 
   <div class='info'>

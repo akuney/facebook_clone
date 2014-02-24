@@ -8,6 +8,8 @@
   <input type="hidden" name="pending_friendship[pending_friend_id]"
   value="<%= pending_friendship.pending_friend_id %>">
 
+  <div class='links'>
+
   <div class="submit link submit-link">
     <input type="submit" value="Accept Request">
   </div>
@@ -16,4 +18,6 @@
 <div class="submit link submit-link">
   <%= link_to "Reject Request",
   pending_friendship_url(pending_friendship), :method => :delete %>
+</div>
+
 </div>

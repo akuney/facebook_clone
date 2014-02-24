@@ -37,7 +37,7 @@ li, .name, .text, input, button, a {
   font-family: sans-serif;
 }
 
-.link > a, .link {
+.link {
   padding: 8px;
   margin: 10px;
   background-color: lightgray;
@@ -244,9 +244,14 @@ submit {
   padding-bottom: 4px;
 }
 
+.new-message > .submit > input {
+  float: left;
+}
+
 .message {
   margin-bottom: 10px;
 }
+
 .message > .message-box {
   float: left;
   margin: 26px;
@@ -395,16 +400,19 @@ submit {
   width: 100%;
 }
 
-.first-name > .input, .last-name > .input {
+.first-name > .input, .last-name > .input,
+.job > input, .employer > input,
+.current-city > input, .home-city > input,
+.url > input {
   border: 1px solid black;
 }
 
-.first-name {
+.first-name, .job, .current-city, .relationship-status {
   float: left;
   margin-right: 50px;
 }
 
-.last-name {
+.last-name, .employer, .home-city, .interested-in {
   float: left;
 }
 
@@ -416,6 +424,10 @@ submit {
 .profile-edit > .info {
   font-family: sans-serif;
   font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.about-me {
   margin-bottom: 20px;
 }
 
