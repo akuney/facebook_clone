@@ -5,33 +5,35 @@
 <%= render "/helpers/friend", :user => @user %>
 <% end %>
 
-<p>
-Name: <%= @profile.first_name %> <%= @profile.last_name %>
-<br>
-Date of Birth: <%= @profile.birth_month %> <%= @profile.birth_day %>, <%= @profile.birth_year %>
-<br>
-Gender: <%= @profile.gender %>
-</p>
+<div class='profile-edit'>
+  <div class='info'>
+    <div>Name: <%= @profile.first_name %> <%= @profile.last_name %></div>
 
-<p>
-  Job: <%= @profile.job %>
-  <br>
-  Employer: <%= @profile.employer %>
-</p>
+    <div> <%= "Date of Birth: #{@profile.birth_month}" if @profile.birth_month %>
+      <%= @profile.birth_day if @profile.birth_day %>
+      <%= ", #{@profile.birth_year}" if @profile.birth_year != "" %></div>
 
-<p>
-  Current City: <%= @profile.current_city %>
-  <br>
-  Home City: <%= @profile.home_city %>
-</p>
+    <div> <%= "Gender: #{@profile.gender}" if @profile.gender %></div>
+  </div>
 
-<p>
-  Relationship Status: <%= @profile.relationship_status %>
-  <br>
-  Interested In: <%= @profile.interested_in %>
-</p>
+  <div class='info'>
+    <div> <%= "Job: #{@profile.job}" if @profile.job != ""%></div>
+    <div> <%= "Employer: #{@profile.employer}" if @profile.employer != "" %></div>
+  </div>
 
-<p>
-  About Me: <%= @profile.about_me %>
-</p>
+  <div class='info'>
+    <div><%= "Current City: #{@profile.current_city}" if @profile.current_city != "" %></div>
+    <div><%= "Home City: #{@profile.home_city}" if @profile.home_city != "" %></div>
+  </div>
+
+  <div class='info'>
+    <div> <%= "Relationship Status: #{@profile.relationship_status}" if @profile.relationship_status %></div>
+    <div> <%= "Interested In: #{@profile.interested_in}" if @profile.interested_in %></div>
+  </div>
+
+  <div class='info'>
+    <div> <%= "About Me: #{@profile.about_me}" if @profile.about_me != "" %></div>
+  </div>
+</div>
+
 
