@@ -14,12 +14,12 @@
 
   <div class='text'>
     <% if (user == current_user) %>
-        You and <%= link_to "#{num_recipients} others" %>
+        You and <%= num_recipients %> others
     <% elsif (num_recipients > 1) %>
         You,
         <%= link_to user.name, user_statuses_url(user)%>,
         and
-        <%= link_to "#{num_recipients - 1} others" %>
+        <%= num_recipients - 1 %> others
     <% else %>
       You and <%= link_to user.name,
       user_statuses_url(message_thread.creator) %>

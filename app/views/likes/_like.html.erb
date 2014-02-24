@@ -1,9 +1,9 @@
 <!-- Likes Index -->
+<div class='likes'>
 
 
-
-    <div class='link submit-link'>
-      <%= link_to "#{post.num_likes} likes"%>
+    <div class='text'>
+     <%= post.num_likes %> Likes
     </div>
 
 
@@ -36,10 +36,11 @@
     </form>
 
   <% else %>
-    <div class='link submit-link'>
+    <div class='unlike link submit-link'>
       <%= link_to "Unlike",
       status_like_url(post, Like.find_by_liker_and_post(current_user, post)),
       method: :delete %>
     </div>
   <% end %>
 
+</div>

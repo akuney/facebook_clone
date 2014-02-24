@@ -1,23 +1,25 @@
+<div class='received-request group'>
 <%= render 'helpers/pic_and_name', :user => user %>
 
-<form action="<%= friendships_url %>" method="POST">
-  <%= render 'helpers/auth_token'%>
+  <form action="<%= friendships_url %>" method="POST">
+    <%= render 'helpers/auth_token'%>
 
-  <input type="hidden" name="pending_friendship[user_id]"
-  value="<%= pending_friendship.user_id %>">
-  <input type="hidden" name="pending_friendship[pending_friend_id]"
-  value="<%= pending_friendship.pending_friend_id %>">
+    <input type="hidden" name="pending_friendship[user_id]"
+    value="<%= pending_friendship.user_id %>">
+    <input type="hidden" name="pending_friendship[pending_friend_id]"
+    value="<%= pending_friendship.pending_friend_id %>">
 
-  <div class='links'>
+    <div class='links'>
+
+    <div class="submit link submit-link">
+      <input type="submit" value="Accept Request">
+    </div>
+  </form>
 
   <div class="submit link submit-link">
-    <input type="submit" value="Accept Request">
+    <%= link_to "Reject Request",
+    pending_friendship_url(pending_friendship), :method => :delete %>
   </div>
-</form>
-
-<div class="submit link submit-link">
-  <%= link_to "Reject Request",
-  pending_friendship_url(pending_friendship), :method => :delete %>
 </div>
 
 </div>
