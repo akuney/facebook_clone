@@ -18,7 +18,7 @@
 $(document).ready(function() {
   $(".like-form").on("ajax:success", function(event, data) {
     console.log(data.post);
-    $(".num-likes").html("hi");
+    $(".num-likes").html(data.num_likes + " likes");
   });
 
 });

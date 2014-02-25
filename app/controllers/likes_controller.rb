@@ -3,9 +3,10 @@ class LikesController < ApplicationController
     @like = Like.new(params[:like])
     @like.save!
 
+    @post = @like.post.class.find(@like.post.id)
 
     if request.xhr?
-      render json: {post: @like.post}
+      render json: {post: @post, num_likes: @post.num_likes}
     else
       redirect_to :back
     end
