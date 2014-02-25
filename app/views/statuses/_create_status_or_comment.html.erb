@@ -1,10 +1,10 @@
 
 <div class='new-status group'>
   <% if (user == current_user)%>
-      <div class='link submit-link'><%= link_to "Create new status", new_status_url %>
+      <div class='link submit-link' data-remote='true'><%= link_to "Create new status", new_status_url %>
       </div>
   <% elsif current_user.all_friends.include?(user) %>
-      <div class='link submit-link'>
+      <div class='link submit-link' data-remote='true'>
         <%= link_to "Create new comment", new_user_comment_url(user) %>
       </div>
   <% end %>

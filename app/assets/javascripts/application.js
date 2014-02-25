@@ -29,8 +29,9 @@ $(document).ready(function() {
     $target.before(data);
   });
 
-  $(".delete-reply").on("ajax:success", function(event, data) {
+  $(".replies").on("ajax:success", ".delete-reply", function(event, data) {
     var $target = $(event.currentTarget).parent().parent();
+    console.log($target);
     $target.remove();
   });
 

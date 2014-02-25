@@ -11,7 +11,7 @@
       </div>
 
       <div class='delete-reply link' data-remote='true'>
-        <%= link_to "Delete Reply", reply_url(reply), method: :delete, remote: true %>
+        <%= link_to "Delete Reply", reply_url(reply.id), method: :delete, remote: true %>
       </div>
     <% end %>
   </div>

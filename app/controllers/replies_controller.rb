@@ -37,7 +37,7 @@ class RepliesController < ApplicationController
     @reply.destroy
 
     if request.xhr?
-      render json: {hi: "hi"}
+      render json: {hi: 'hi'}
     else
       redirect_to @url
     end
