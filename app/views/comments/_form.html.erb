@@ -6,20 +6,18 @@
   <input name="_method" type="hidden"
   value="<%= comment.persisted? ? "PUT" : "POST"%>">
 
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+  <%= render 'helpers/auth_token'%>
 
   <input type="hidden" name="comment[author_id]" value="<%= current_user.id %>">
   <input type="hidden" name="comment[recipient_id]" value="<%= user.id %>">
 
+
   <div class='textarea'>
-    Write Comment
     <textarea name="comment[text]"><%= comment.text %></textarea>
   </div>
 
-  <div class='submit'>
+
+  <div class='submit link submit-link'>
     <input type="submit" value="Submit">
   </div>
 </form>
