@@ -5,7 +5,7 @@ class RepliesController < ApplicationController
     @reply.save!
 
     if request.xhr?
-      render json: {hi: "hi"}
+      render partial: 'replies/reply', locals: {:reply => @reply}
     else
       redirect_to appropriate_url
     end

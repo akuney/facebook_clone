@@ -25,8 +25,8 @@ $(document).ready(function() {
   });
 
   $(".new-reply-form").on("ajax:success", function(event, data) {
-    var $target = $(event.currentTarget).parent();
-    console.log($target);
+    var $target = $(event.currentTarget);
+    $target.before(data);
   });
 
 });
