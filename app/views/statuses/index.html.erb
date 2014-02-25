@@ -8,7 +8,7 @@
 
 <div class='statuses group'>
   <% @statuses.each do |status| %>
-    <%= render "show", :status => status, :user => @user %>
+    <%= render "statuses/show", :status => status, :user => @user %>
 
     <%= render "replies/all", :post => status %>
   <% end %>

@@ -40,4 +40,11 @@ $(document).ready(function() {
     $target.prepend(data);
   });
 
+  $(".new-comment").on("ajax:success", function(event, data) {
+    var $target = $(event.currentTarget).parent().children('.comments');
+    $target.prepend(data);
+  });
+
+
+
 });

@@ -1,11 +1,11 @@
 
 
   <% if (user == current_user)%>
-  <div class='new-status group'>
-    <%= render 'statuses/form', :status => Status.new %>
-  </div>
+    <div class='new-status group'>
+      <%= render 'statuses/form', :status => Status.new %>
+    </div>
   <% elsif current_user.all_friends.include?(user) %>
-  <div class='new-comment group'>
-    <%= render 'comments/form', :comment => Comment.new, :user => user %>
-  </div>
+    <div class='new-comment group'>
+      <%= render 'comments/form', :comment => Comment.new, :user => user %>
+    </div>
   <% end %>

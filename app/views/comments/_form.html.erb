@@ -1,7 +1,7 @@
 <!-- New or Edit Comment -->
 
 <form action="<%= comment.persisted? ? comment_url(comment) : comments_url %>"
-  method="POST">
+  method="POST" data-remote='true'>
 
   <input name="_method" type="hidden"
   value="<%= comment.persisted? ? "PUT" : "POST"%>">

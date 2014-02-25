@@ -15,7 +15,12 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment])
     @comment.save!
-    redirect_to user_statuses_url(@comment.recipient)
+
+    if request.xhr?
+      render partial: 'comments/show', locals: {:comment => @comment}
+    else
+      redirect_to user_statuses_url(@comment.recipient)
+    end
     # We are on someone else's page, and we want to stay there.
   end
 
