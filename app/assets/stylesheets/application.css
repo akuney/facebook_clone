@@ -336,7 +336,6 @@ submit {
 .edit-photo-comment > .textarea {
   float: left;
   width: 100%;
-
 }
 
 .edit-photo-comment > .textarea > textarea {
@@ -347,8 +346,8 @@ submit {
 /* statuses, comments, replies */
 
 .statuses, .comments {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 

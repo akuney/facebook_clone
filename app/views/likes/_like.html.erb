@@ -2,11 +2,6 @@
 <div class='likes'>
 
 
-    <div class='text'>
-     <%= post.num_likes %> Likes
-    </div>
-
-
   <% if post.class.to_s == "Status" %>
     <% posts_liked = current_user.statuses_liked %>
   <% elsif post.class.to_s == "Comment"%>
@@ -17,30 +12,13 @@
     <% posts_liked = current_user.photo_comments_liked %>
   <% end %>
 
+  <%= render 'likes/num_likes', :num_likes => post.num_likes %>
+
   <% unless posts_liked.include?(post) %>
-    <form action="<%= status_likes_url(post.id) %>" method="POST">
-      <%= render 'helpers/auth_token' %>
-
-      <input type="hidden" name="like[liker_id]"
-      value="<%= current_user.id %>">
-
-      <input type="hidden" name="like[post_id]"
-      value="<%= post.id %>">
-
-      <input type="hidden" name="like[post_type]"
-      value="<%= post.class.to_s %>">
-
-      <div class='like link submit-link'>
-        <input type="submit" value="Like">
-      </div>
-    </form>
-
+    <%= render 'likes/like_button', :post => post %>
   <% else %>
-    <div class='unlike link submit-link'>
-      <%= link_to "Unlike",
-      status_like_url(post, Like.find_by_liker_and_post(current_user, post)),
-      method: :delete %>
-    </div>
+    <%= render 'likes/unlike_button', :post => post %>
   <% end %>
 
 </div>
+

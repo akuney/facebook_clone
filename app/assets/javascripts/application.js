@@ -13,3 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function() {
+  $(".like-form").on("ajax:success", function(event, data) {
+    console.log(data.post);
+    $(".num-likes").html("hi");
+  });
+
+});
