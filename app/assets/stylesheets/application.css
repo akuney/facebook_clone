@@ -19,6 +19,10 @@
 
 /* basic stuff */
 
+.invisible {
+  display: none;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -595,6 +599,3 @@ submit {
 
 /* toggling likes */
 
-.invisible {
-  display: none;
-}

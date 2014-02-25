@@ -53,6 +53,7 @@ FacebookClone::Application.routes.draw do
   resources :photo_taggings, only: [:create, :destroy]
   root to: "users#index"
 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

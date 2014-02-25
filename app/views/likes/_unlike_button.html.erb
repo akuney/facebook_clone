@@ -1,6 +1,8 @@
 <div class='<%= visibility %> unlike-button link submit-link' id='unlike-button'
   data-remote='true'>
+
   <%= link_to "Unlike",
-  status_like_url(post.id, Like.find_by_liker_and_post(current_user, post)),
+  status_like_url(post.id, post.class.to_s),
   method: :delete, remote: true %>
+
 </div>
