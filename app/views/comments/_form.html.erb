@@ -18,6 +18,6 @@
 
 
   <div class='submit link submit-link'>
-    <input type="submit" value="Submit">
+    <input type="submit" value="<%= comment.persisted? ? "Update Comment" : "Create Comment"%>">
   </div>
 </form>

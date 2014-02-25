@@ -24,6 +24,7 @@ $(document).ready(function() {
     $target.children('.unlike-button').eq(0).toggleClass("invisible");
   });
 
+
   $(".new-reply-form").on("ajax:success", function(event, data) {
     var $target = $(event.currentTarget);
     $target.before(data);
@@ -35,16 +36,21 @@ $(document).ready(function() {
     $target.remove();
   });
 
+
   $(".new-status").on("ajax:success", function(event, data) {
-    var $target = $(event.currentTarget).parent().children('.statuses');
-    $target.prepend(data);
+    var $target = $(event.currentTarget);
+    var $statuses = $target.parent().children('.statuses');
+    $statuses.prepend(data);
+
+    var $form = $target.children('form').eq(0)
+    var $textarea = $form.children('.textarea').eq(0).children('textarea');
+    $textarea.val('');
   });
 
   $(".new-comment").on("ajax:success", function(event, data) {
     var $target = $(event.currentTarget).parent().children('.comments');
     $target.prepend(data);
   });
-
 
 
 });
