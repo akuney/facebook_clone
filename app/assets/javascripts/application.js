@@ -24,6 +24,14 @@ $(document).ready(function() {
     $target.children('.unlike-button').eq(0).toggleClass("invisible");
   });
 
+  $(".photo-comment").on("ajax:success", ".likes", function(event, data) {
+    var $target = $(event.currentTarget);
+
+    $target.children('.num-likes').eq(0).html(data.num_likes + " likes");
+    $target.children('.like-form').eq(0).toggleClass("invisible");
+    $target.children('.unlike-button').eq(0).toggleClass("invisible");
+  });
+
 
   $(".new-reply-form").on("ajax:success", function(event, data) {
     var $target = $(event.currentTarget);
