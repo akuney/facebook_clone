@@ -35,4 +35,9 @@ $(document).ready(function() {
     $target.remove();
   });
 
+  $(".new-status").on("ajax:success", function(event, data) {
+    var $target = $(event.currentTarget).parent().children('.statuses');
+    $target.prepend(data);
+  });
+
 });

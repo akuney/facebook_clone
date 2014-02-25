@@ -16,7 +16,12 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(params[:status])
     @status.save!
-    redirect_to user_statuses_url(current_user)
+
+    if request.xhr?
+      render partial: 'statuses/show', locals: {:status => @status}
+    else
+      redirect_to user_statuses_url(current_user)
+    end
   end
 
   def destroy

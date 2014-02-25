@@ -1,27 +1,20 @@
 <!-- new or edit status -->
 
 <form action="<%= status.persisted? ? status_url(status) : statuses_url %>"
-  method="POST">
+  method="POST" data-remote="true">
 
   <input name="_method" type="hidden"
   value="<%= status.persisted? ? "PUT" : "POST"%>">
 
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+  <%= render 'helpers/auth_token'%>
 
   <input type="hidden" name="status[author_id]" value="<%= current_user.id %>">
-
-  <div class='text'>
-    What's On Your Mind?
-  </div>
 
   <div class='textarea'>
     <textarea name="status[text]"><%= status.text %></textarea>
   </div>
 
   <div class='submit link submit-link'>
-    <input type="submit" value="Submit">
+    <input type="submit" value="<%= status.persisted? ? 'Update Status' : 'Create Status' %>">
   </div>
 </form>
