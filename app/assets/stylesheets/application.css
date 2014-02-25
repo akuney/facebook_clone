@@ -592,3 +592,9 @@ submit {
 .user {
   width: 100%;
 }
+
+/* toggling likes */
+
+.invisible {
+  display: none;
+}

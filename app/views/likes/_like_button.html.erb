@@ -1,4 +1,4 @@
-<form class='like-form' data-remote="true" action="<%= status_likes_url(post.id) %>" method="POST">
+<form class='<%= visibility %> like-form' data-remote="true" action="<%= status_likes_url(post.id) %>" method="POST">
   <%= render 'helpers/auth_token' %>
 
   <input type="hidden" name="like[liker_id]"

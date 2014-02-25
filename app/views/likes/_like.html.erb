@@ -1,6 +1,5 @@
 <!-- Likes Index -->
-<div class='likes'>
-
+<div class='likes' data-remote='true'>
 
   <% if post.class.to_s == "Status" %>
     <% posts_liked = current_user.statuses_liked %>
@@ -14,11 +13,15 @@
 
   <%= render 'likes/num_likes', :num_likes => post.num_likes %>
 
+
+
   <% unless posts_liked.include?(post) %>
-    <%= render 'likes/like_button', :post => post %>
+    <%= render 'likes/like_button', :post => post, :visibility => nil %>
+    <%= render 'likes/unlike_button', :post => post, :visibility => "invisible"%>
   <% else %>
-    <%= render 'likes/unlike_button', :post => post %>
+    <%= render 'likes/unlike_button', :post => post, :visibility => nil %>
+    <%= render 'likes/like_button', :post => post, :visibility => "invisible"%>
   <% end %>
 
-</div>
 
+</div>

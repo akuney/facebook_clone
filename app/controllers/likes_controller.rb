@@ -13,13 +13,19 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find(params[:id])
-    @like.destroy
+    @like = Like.find(params[:id]) || nil
 
-    if request.xhr?
-      render json: "hi"
+    if @like
+      @post = @like.post.class.find(@like.post.id)
+      @like.destroy
+
+      if request.xhr?
+        render json: {post: @post, num_likes: @post.num_likes}
+      else
+        redirect_to :back
+      end
     else
-      redirect_to :back
+      render json: "error"
     end
   end
 

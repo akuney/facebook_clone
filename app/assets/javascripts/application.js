@@ -16,9 +16,12 @@
 
 
 $(document).ready(function() {
-  $(".like-form").on("ajax:success", function(event, data) {
-    console.log(data.post);
-    $(".num-likes").html(data.num_likes + " likes");
+  $(".likes").on("ajax:success", function(event, data) {
+    var $parent = $(event.currentTarget);
+
+    $parent.children('.num-likes').eq(0).html(data.num_likes + " likes");
+    $parent.children('.like-form').eq(0).toggleClass("invisible");
+    $parent.children('.unlike-button').eq(0).toggleClass("invisible");
   });
 
 });

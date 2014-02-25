@@ -5,6 +5,6 @@ class Like < ActiveRecord::Base
   belongs_to :liker, class_name: "User", foreign_key: "liker_id"
 
   def self.find_by_liker_and_post(liker, post)
-    Like.where(liker_id: liker.id, post_id: post.id).first || []
+    Like.where(liker_id: liker.id, post_id: post.id, post_type: post.class.to_s).first || []
   end
 end
