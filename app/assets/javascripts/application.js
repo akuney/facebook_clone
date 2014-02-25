@@ -16,7 +16,7 @@
 
 
 $(document).ready(function() {
-  $(".likes").on("ajax:success", function(event, data) {
+  $(".wall").on("ajax:success", ".likes", function(event, data) {
     var $target = $(event.currentTarget);
 
     $target.children('.num-likes').eq(0).html(data.num_likes + " likes");

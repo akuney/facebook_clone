@@ -1,6 +1,6 @@
 <!-- status index -->
 
-
+<div class='wall'>
 
 <%= render 'cases', :user => @user %>
 
@@ -19,4 +19,6 @@
       <%= render "comments/show", :comment => comment, :user => @user %>
       <%= render "replies/all", :post => comment %>
   <% end %>
+</div>
+
 </div>
