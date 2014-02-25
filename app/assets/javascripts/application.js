@@ -28,11 +28,13 @@ $(document).ready(function() {
   $(".new-reply-form").on("ajax:success", function(event, data) {
     var $target = $(event.currentTarget);
     $target.before(data);
+
+    var $textarea = $target.children('.new-reply').eq(0).children('textarea');
+    $textarea.val('');
   });
 
   $(".replies").on("ajax:success", ".delete-reply", function(event, data) {
     var $target = $(event.currentTarget).parent().parent();
-    console.log($target);
     $target.remove();
   });
 
@@ -48,8 +50,13 @@ $(document).ready(function() {
   });
 
   $(".new-comment").on("ajax:success", function(event, data) {
-    var $target = $(event.currentTarget).parent().children('.comments');
-    $target.prepend(data);
+    var $target = $(event.currentTarget)
+    var $comments = $target.parent().children('.comments');
+    $comments.prepend(data);
+
+    var $form = $target.children('form').eq(0)
+    var $textarea = $form.children('.textarea').eq(0).children('textarea');
+    $textarea.val('');
   });
 
 
