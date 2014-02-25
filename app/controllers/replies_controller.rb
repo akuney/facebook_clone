@@ -4,7 +4,11 @@ class RepliesController < ApplicationController
     @reply = Reply.new(params[:reply])
     @reply.save!
 
-    redirect_to appropriate_url
+    if request.xhr?
+      render json: {hi: "hi"}
+    else
+      redirect_to appropriate_url
+    end
   end
 
   def edit

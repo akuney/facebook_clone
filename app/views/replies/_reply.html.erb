@@ -1,0 +1,18 @@
+<div class='reply group'>
+  <%= render 'helpers/pic_and_name', :user => reply.author %>
+  <div class="text"><%= reply.text %></div>
+
+  <div class='links'>
+    <%= render 'likes/like', :post => reply %>
+
+    <% if reply.author == current_user %>
+      <div class='link'>
+        <%= link_to "Edit Reply", edit_reply_url(reply) %>
+      </div>
+
+      <div class='link'>
+        <%= link_to "Delete Reply", reply_url(reply), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+</div>

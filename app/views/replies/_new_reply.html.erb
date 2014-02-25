@@ -1,0 +1,14 @@
+<form class='new-reply-form' action="<%= action %>" method="POST" data-remote="true">
+  <%= render 'helpers/auth_token'%>
+
+  <div class='new-reply group'>
+    <textarea name="reply[text]"></textarea>
+
+    <input type="hidden" name="reply[author_id]"
+    value="<%= current_user.id %>">
+    <input type="hidden" name="reply[parent_id]" value="<%= post.id %>">
+    <input type="hidden" name="reply[parent_type]" value="<%= class_name %>">
+
+    <div class='submit-link link submit'><input type="submit" value="Reply"></div>
+  </div>
+</form>

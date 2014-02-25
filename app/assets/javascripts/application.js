@@ -17,11 +17,16 @@
 
 $(document).ready(function() {
   $(".likes").on("ajax:success", function(event, data) {
-    var $parent = $(event.currentTarget);
+    var $target = $(event.currentTarget);
 
-    $parent.children('.num-likes').eq(0).html(data.num_likes + " likes");
-    $parent.children('.like-form').eq(0).toggleClass("invisible");
-    $parent.children('.unlike-button').eq(0).toggleClass("invisible");
+    $target.children('.num-likes').eq(0).html(data.num_likes + " likes");
+    $target.children('.like-form').eq(0).toggleClass("invisible");
+    $target.children('.unlike-button').eq(0).toggleClass("invisible");
+  });
+
+  $(".new-reply-form").on("ajax:success", function(event, data) {
+    var $target = $(event.currentTarget).parent();
+    console.log($target);
   });
 
 });
