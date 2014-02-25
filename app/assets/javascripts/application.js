@@ -29,4 +29,9 @@ $(document).ready(function() {
     $target.before(data);
   });
 
+  $(".delete-reply").on("ajax:success", function(event, data) {
+    var $target = $(event.currentTarget).parent().parent();
+    $target.remove();
+  });
+
 });

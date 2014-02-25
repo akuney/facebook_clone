@@ -35,7 +35,12 @@ class RepliesController < ApplicationController
     end
 
     @reply.destroy
-    redirect_to @url
+
+    if request.xhr?
+      render json: {hi: "hi"}
+    else
+      redirect_to @url
+    end
   end
 
   def appropriate_url
