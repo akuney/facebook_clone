@@ -111,4 +111,14 @@ $(document).ready(function() {
     var $target = $(event.target);
     $target.parent().parent().remove();
   });
+
+  $(".received-request").on("ajax:success", ".accept-form", function(event, data) {
+    var $target = $(event.target);
+    $target.parent().remove();
+  });
+
+  $(".received-request").on("ajax:success", ".reject-request", function(event, data) {
+    var $target = $(event.target);
+    $target.parent().parent().remove();
+  });
 });

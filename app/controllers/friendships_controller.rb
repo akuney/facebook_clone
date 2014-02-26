@@ -9,7 +9,11 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.new(user_id: @user_id, friend_id: @friend_id)
     @friendship.save!
 
-    redirect_to pending_friendships_url
+    if request.xhr?
+      render json: {hi: 'hi'}
+    else
+      redirect_to pending_friendships_url
+    end
   end
 
   def destroy
