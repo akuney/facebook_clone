@@ -616,6 +616,12 @@ form > .text-input > input {
   padding: 5px;
 }
 
+.top-bar > .search {
+  position: absolute;
+  top: 75px;
+  left: 800px;
+  float: right;
+}
 
 /* toggling likes */
 

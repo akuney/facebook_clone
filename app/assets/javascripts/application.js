@@ -91,5 +91,11 @@ $(document).ready(function() {
     $peopleTagged.append(data);
   });
 
+  // searching
 
+  $(".top-bar").on("ajax:success", ".new-search", function(event, data) {
+    var $target = $(event.target);
+    var $topBar = $target.parent().parent().parent();
+    $topBar.append(data);
+  });
 });
