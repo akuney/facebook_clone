@@ -70,23 +70,24 @@ $(document).ready(function() {
 
   // refactor those previous two at some point?
 
-  $(".people-tagged").on("ajax:success", function(event, data) {
-    var $target = $(event.currentTarget);
-    var $personTagged = $target.children('.person-tagged').eq(0);
-    $personTagged.remove();
-
+  $(".photo-info").on("ajax:success", ".people-tagged", function(event, data) {
+    var $target = $(event.target);
+    var $personTagged = $target.parent().parent();
     var $tagMorePeople =
-    $target.parent().children('.tag-more-people').eq(0);
+    $personTagged.parent().parent().children('.tag-more-people');
+
+    $personTagged.remove();
     $tagMorePeople.append(data);
   });
 
-  $(".tag-more-people").on("ajax:success", function(event, data) {
-    var $target = $(event.currentTarget);
-    var $untaggedFriend = $target.children('.untagged-friend').eq(0);
-    $untaggedFriend.remove();
-
+  $(".photo-info").on("ajax:success", ".tag-more-people", function(event, data) {
+    var $target = $(event.target);
+    var $untaggedFriend = $target.parent();
     var $peopleTagged =
-    $target.parent().children('.people-tagged').eq(0);
+    $untaggedFriend.parent().parent().children('.people-tagged');
+    console.log($peopleTagged);
+
+    $untaggedFriend.remove();
     $peopleTagged.append(data);
   });
 });
