@@ -1,8 +1,8 @@
 <div class='sent-request group'>
   <%= render 'helpers/pic_and_name', :user => user %>
 
-  <div class='link'>
+  <div class='link revoke-request'>
   <%= link_to "Revoke Request",
-  pending_friendship_url(pending_friendship), :method => :delete %>
+  pending_friendship_url(pending_friendship), :method => :delete, remote: true %>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <div class='received-request group'>
   <%= render 'helpers/pic_and_name', :user => user %>
 
-  <form action="<%= friendships_url %>" method="POST">
+  <form action="<%= friendships_url %>" method="POST" data-remote="true">
     <%= render 'helpers/auth_token'%>
 
     <input type="hidden" name="pending_friendship[user_id]"
@@ -10,13 +10,13 @@
     value="<%= pending_friendship.pending_friend_id %>">
 
 
-    <div class="submit link submit-link">
+    <div class="accept-request link submit-link">
       <input type="submit" value="Accept Request">
     </div>
   </form>
 
-  <div class="submit link submit-link">
+  <div class="reject-request link submit-link">
     <%= link_to "Reject Request",
-    pending_friendship_url(pending_friendship), :method => :delete %>
+    pending_friendship_url(pending_friendship), :method => :delete, remote: true %>
   </div>
 </div>

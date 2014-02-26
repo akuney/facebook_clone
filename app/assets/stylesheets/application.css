@@ -248,8 +248,6 @@ submit {
   padding-right: 10px;
 }
 
-
-
 .create-thread {
   margin-top: 20px;
   float: left;
@@ -494,6 +492,8 @@ form > .text-input > input {
 
 .photos, .tagged-photos {
   width: 360px;
+  margin-left: 10px;
+  margin-top: 150px;
 }
 
 .photos > .photo, .tagged-photos > .photo {

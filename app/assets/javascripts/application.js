@@ -99,11 +99,16 @@ $(document).ready(function() {
     $topBar.append(data);
   });
 
-  $(".search-results").on("ajax:success", ".add-friend", function(event, data) {
+  $(".not-friend").on("ajax:success", ".add-friend", function(event, data) {
     var $target = $(event.target);
 
     var $parent = $target.parent();
     $parent.html("<div class='links'></div>");
     $parent.append(data);
+  });
+
+  $(".sent-request").on("ajax:success", ".revoke-request", function(event, data) {
+    var $target = $(event.target);
+    $target.parent().parent().remove();
   });
 });
