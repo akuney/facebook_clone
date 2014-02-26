@@ -1,24 +1,4 @@
-<div class="user group">
-
-<%= render 'helpers/pic_and_name', :user => user %>
-
-<div class='links'>
-  <form class='add-friend' action="<%= pending_friendships_url %>" method="POST">
-    <%= render 'helpers/auth_token'%>
-
-    <input type="hidden" name="pending_friendship[user_id]"
-    value="<%= current_user.id %>">
-    <input type="hidden" name="pending_friendship[pending_friend_id]"
-    value="<%= user.id %>">
-
-    <div class="submit-link submit">
-      <input type="submit" value="Add Friend">
-    </div>
-  </form>
-
-  <div class="mutual-friends">
-    <%= link_to "Mutual Friends", user_mutual_friends_url(user) %>
-  </div>
-</div>
-
+<div class="user not-friend group">
+  <%= render 'helpers/pic_and_name', :user => user %>
+  <%= render 'helpers/not_friend/links', :user => user %>
 </div>
