@@ -437,11 +437,28 @@ submit {
   margin-top: 100px;
 }
 
-.sign-in > .text {
-  margin-bottom: 10px;
+.email, .password {
+  padding: 15px;
+  margin-bottom: 25px;
+
+  border: 1px solid darkgray;
 }
+
+.email > .text, .password > .text {
+  padding-bottom: 12px;
+}
+
+.email > input, .password > input {
+  padding: 2px;
+}
+
 .sign-in > form > .text-input > input {
   border: 1px solid black;
+}
+
+.sign-in > form > .submit {
+  padding: 13px;
+  font-size: 18px;
 }
 
 

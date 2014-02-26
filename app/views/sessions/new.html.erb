@@ -1,29 +1,16 @@
 <div class='sign-in'>
-  <div class='text'>
-    Sign In
-  </div>
 
   <form action="<%= session_url %>" method="POST">
     <%= render 'helpers/auth_token'%>
 
     <div class='text-input email'>
-      <div class='text'>
-        Email
-      </div>
-      <input
-         id="user_email"
-         name="user[email]"
-         type="text">
-
+      <div class='text'>Email</div>
+      <input name="user[email]" type="text">
     </div>
 
     <div class='text-input password'>
       <div class='text'>Password</div>
-      <input
-         id="user_password"
-         name="user[password]"
-         type="password">
-
+      <input name="user[password]" type="password">
     </div>
 
     <div class="submit link submit-link">
