@@ -19,7 +19,12 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship = Friendship.find(params[:id])
     @friendship.destroy
-    redirect_to pending_friendships_url
+
+    if request.xhr?
+      render json: {hi: 'hi'}
+    else
+      redirect_to user_statuses_url(current_user)
+    end
   end
 
   def index

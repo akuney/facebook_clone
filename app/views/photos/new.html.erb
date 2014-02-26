@@ -4,6 +4,7 @@
   <input type="hidden" name="photo[uploader_id]"
   value="<%= current_user.id %>">
 
+  <%= render 'photos/photos_top_bar', :user => current_user %>
   <%= render 'photos/new/url'%>
   <%= render 'photos/new/comment'%>
   <%= render 'photos/new/tagged_friends'%>

@@ -1,4 +1,4 @@
-<div class='link'>
+<div class='link unfriend'>
   <%= link_to "Unfriend",
-  friendship_url(user.friendship_with(friend)), method: :delete %>
+  friendship_url(user.friendship_with(friend)), method: :delete, remote: true %>
 </div>

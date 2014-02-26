@@ -4,6 +4,13 @@ class MessageThreadsController < ApplicationController
       @current_friend = User.find(params[:user_id])
     else
       @current_friend = nil
+
+      if request.xhr?
+        render partial: 'message_threads/new/new', locals: {}
+      else
+
+        render :new
+      end
     end
   end
 

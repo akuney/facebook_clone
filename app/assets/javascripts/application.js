@@ -121,4 +121,19 @@ $(document).ready(function() {
     var $target = $(event.target);
     $target.parent().parent().remove();
   });
+
+  $('.friend').on("ajax:success", ".unfriend", function(event, data) {
+    var $target = $(event.target);
+    $target.closest('.friend').remove();
+  });
+
+  $('.message-threads').on("ajax:success", ".create-thread", function(event, data) {
+    var $target = $(event.target);
+    var $messageThreads = $target.closest('.message-threads');
+    var $link = $target.parent();
+
+    $link.remove();
+    console.log(data);
+    $messageThreads.append(data);
+  });
 });

@@ -1,7 +1,3 @@
-<!-- new message thread form -->
-<% if @current_friend %>
-<%= render 'helpers/friend', :user => @current_friend %>
-<% end %>
 
 <form class='new-message' action="<%= message_threads_url %>" method="POST">
   <%= render 'helpers/auth_token'%>
@@ -11,12 +7,8 @@
 
   <%= render 'message_threads/new/title' %>
 
-  <% if @current_friend == nil %>
-    <%= render 'message_threads/new/recipients'%>
-  <% else %>
-    <input type='hidden' name="message_thread[recipient_ids][]"
-    value="<%= @current_friend.id %>">
-  <% end %>
+
+  <%= render 'message_threads/new/recipients'%>
 
   <input type="hidden" name="message[author_id]" value="<%= current_user.id %>">
   <input type="hidden" name="message[message_thread_id]" value="<%= nil %>">
