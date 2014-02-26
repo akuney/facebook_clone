@@ -104,6 +104,15 @@ class User < ActiveRecord::Base
     return friendship.first
   end
 
+  def pending_friendship_with(user)
+    pending_friendship = PendingFriendship.where(user_id: self.id,
+    pending_friend_id: user.id) +
+    PendingFriendship.where(user_id: user.id,
+    pending_friend_id: self.id)
+
+    return pending_friendship.first
+  end
+
   def photo
     return "<img src= #{self.profile.photo_url} width='80' height='80'></img>".html_safe
   end

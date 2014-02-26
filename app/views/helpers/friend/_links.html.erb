@@ -14,7 +14,7 @@
   <li>
     <%= link_to "Message", new_user_message_thread_url(user) %>
   </li>
-  <li>
+  <li class='unfriend'>
     <%= link_to "Unfriend",
     friendship_url(current_user.friendship_with(user).id), method: :delete %>
   </li>

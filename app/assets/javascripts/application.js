@@ -90,4 +90,6 @@ $(document).ready(function() {
     $untaggedFriend.remove();
     $peopleTagged.append(data);
   });
+
+
 });

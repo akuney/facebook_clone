@@ -1,11 +1,14 @@
 <div class='links'>
+
+
   <% if current_user.all_pending_friends.include?(user) %>
-    <div class='link pending'>Pending</div>
-  <% else %>
     <%= render 'helpers/not_friend/requested', :user => user %>
+  <% else %>
+    <%= render 'helpers/not_friend/add_friend', :user => user %>
+    <div class="mutual-friends">
+      <%= link_to "Mutual Friends", user_mutual_friends_url(user) %>
+    </div>
   <% end %>
 
-  <div class="mutual-friends">
-    <%= link_to "Mutual Friends", user_mutual_friends_url(user) %>
-  </div>
+
 </div>

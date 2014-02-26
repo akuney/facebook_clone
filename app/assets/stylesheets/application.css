@@ -37,14 +37,14 @@ ul, li {
   list-style: none;
 }
 
-li, .name, .text, input, button, a {
+li, .name, .text, input, button, a, .link {
   font-family: sans-serif;
 }
 
 .link {
   padding: 8px;
   margin: 10px;
-  margin-left: 0;
+
   background-color: lightgray;
 }
 
@@ -72,6 +72,7 @@ submit {
 
 .links > .link, .links > form > .link {
   float: left;
+  text-align: center;
 }
 
 .submit-link {
@@ -98,6 +99,7 @@ submit {
 
 .pic-and-name {
   float: left;
+  width: 300px;
 }
 
 
@@ -114,7 +116,7 @@ submit {
 }
 
 .top-bar > .pic-and-name > .name {
-  float: right;
+  float: left;
   padding-top: 38px;
   padding-left: 20px;
   font-size: 20px;
@@ -170,7 +172,7 @@ submit {
 }
 
 .pic-and-name > .info {
-  float: right;
+  float: left;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 26px;
@@ -618,5 +620,6 @@ form > .text-input > input {
 /* toggling likes */
 
 .pending {
-  background: yellow;
+  background: white;
+  padding-left: 20px;
 }
