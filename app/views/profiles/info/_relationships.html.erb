@@ -1,0 +1,25 @@
+<div class='relationships group'>
+  <div class='text heading'>Relationships</div>
+
+  <div class='relationship-status'>
+    <div class='text'>Relationship Status</div>
+    <select name="profile[relationship_status]">
+      <option value="">
+        <% ["Single", "In a Relationship", "Engaged", "Married",
+        "Divorced", "Widowed", "Other"].each do |status| %>
+          <option value="<%= status %>" <%= 'selected' if status == profile.relationship_status %>> <%= status %>
+        <% end%>
+    </select>
+  </div>
+
+  <div class='interested-in'>
+    <div class='text'>Interested In</div>
+    <select name="profile[interested_in]">
+      <option value="">
+      <% ["Women", "Men", "Men and Women", "Other"].each do |gender| %>
+      <option value="<%= gender %>" <%= 'selected' if gender == profile.interested_in%>> <%= gender %>
+      <% end%>
+    </select>
+  </div>
+
+</div>

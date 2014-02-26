@@ -14,88 +14,14 @@
 
   <%= render 'profiles/info/name', :profile => profile %>
   <%= render 'profiles/info/birthdate', :profile => profile %>
+  <%= render 'profiles/info/gender', :profile => profile %>
+  <%= render 'profiles/info/employment', :profile => profile %>
+  <%= render 'profiles/info/geography', :profile => profile %>
+  <%= render 'profiles/info/relationships', :profile => profile %>
+  <%= render 'profiles/info/profile_picture', :profile => profile %>
+  <%= render 'profiles/info/about_me', :profile => profile %>
 
+  <input type="submit" class='link submit-link'
+  value="<%= profile.persisted? ? 'Edit my profile!' : 'Create my profile!'%>">
+</form>
 
-<div class='gender'>
-  <div class='text heading'>Gender</div>
-  <select name="profile[gender]">
-    <option value="">
-    <% ["Female", "Male", "Other"].each do |gender| %>
-    <option value="<%= gender %>" <%= 'selected' if gender == profile.gender%>> <%= gender %>
-    <% end%>
-  </select>
-</div>
-
-<div class='employment group'>
-  <div class='text heading'>Employment Info</div>
-  <div class='job'>
-    <div class='text'>Job</div>
-    <input name="profile[job]" value="<%= profile.job %>">
-  </div>
-  <div class='employer'>
-   <div class='text'>Employer</div>
-  <input name="profile[employer]" value="<%= profile.employer %>">
-  </div>
-</div>
-
-</div>
-
-<div class='geography group'>
-  <div class='text heading'>Geography</div>
-  <div class='current-city'>
-    <div class='text'>Current City</div>
-    <input name="profile[current_city]" value="<%= profile.current_city%>">
-  </div>
-
-
-  <div class='home-city'>
-
-    <div class='text'>Home City</div>
-    <input name="profile[home_city]" value="<%= profile.home_city%>">
-
-  </div>
-</div>
-
-<div class='relationships group'>
-  <div class='text heading'>Relationships</div>
-
-  <div class='relationship-status'>
-    <div class='text'>Relationship Status</div>
-    <select name="profile[relationship_status]">
-      <option value="">
-        <% ["Single", "In a Relationship", "Engaged", "Married",
-        "Divorced", "Widowed", "Other"].each do |status| %>
-          <option value="<%= status %>" <%= 'selected' if status == profile.relationship_status %>> <%= status %>
-        <% end%>
-    </select>
-  </div>
-
-  <div class='interested-in'>
-    <div class='text'>Interested In</div>
-    <select name="profile[interested_in]">
-      <option value="">
-      <% ["Women", "Men", "Men and Women", "Other"].each do |gender| %>
-      <option value="<%= gender %>" <%= 'selected' if gender == profile.interested_in%>> <%= gender %>
-      <% end%>
-    </select>
-  </div>
-
-</div>
-
-<div class='profile-picture'>
-  <div class='text heading'>Profile Picture</div>
-  <div class='url'>
-    <div class='text'>URL</div>
-    <input name="profile[photo_url]" value="<%= profile.photo_url %>">
-  </div>
-</div>
-
-<div class='about-me'>
-  <div class='text heading'>About me</div>
-  <textarea name="profile[about_me]"><%= profile.about_me %></textarea>
-</div>
-
-<input type="submit" class='link submit-link' value=
-"<%= profile.persisted? ? 'Edit my profile!' : 'Create my profile!'%>">
-
-</div>

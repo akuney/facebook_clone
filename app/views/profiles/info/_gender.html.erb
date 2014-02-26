@@ -1,0 +1,9 @@
+<div class='gender'>
+  <div class='text heading'>Gender</div>
+  <select name="profile[gender]">
+    <option value="">
+    <% ["Female", "Male", "Other"].each do |gender| %>
+    <option value="<%= gender %>" <%= 'selected' if gender == profile.gender%>> <%= gender %>
+    <% end%>
+  </select>
+</div>

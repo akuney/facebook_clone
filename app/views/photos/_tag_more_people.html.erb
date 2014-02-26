@@ -5,5 +5,4 @@
   <% photo.untagged_friends(current_user).each do |user| %>
     <%= render 'untagged_friend', :user => user, :photo => photo %>
   <% end %>
-
 </div>
