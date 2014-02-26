@@ -577,7 +577,7 @@ form > .text-input > input {
 }
 
 .people-tagged {
-  padding-bottom: 20px
+  padding-bottom: 10px;
 }
 
 .photo-comment > .text {

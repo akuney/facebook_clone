@@ -1,6 +1,8 @@
 <div class='people-tagged'>
   <% if photo.tagged_users.empty? == false %>
     <div class='text heading'>People tagged:</div>
+  <% else %>
+    <div class='text heading'>No Users Tagged</div>
   <% end %>
 
   <% photo.tagged_users.each do |user| %>

@@ -1,0 +1,11 @@
+<div class='day'>
+  <div class='text'>Day</div>
+  <select name="profile[birth_day]">
+    <option value="">
+    <% (1..31).each do |day| %>
+
+      <option value="<%= day.to_s %>"
+        <%= 'selected' if day == profile.birth_day %>> <%= day %>
+        <% end %>
+  </select>
+</div>

@@ -1,0 +1,12 @@
+<div class='year'>
+
+  <div class='text'>Year</div>
+  <select name="profile[birth_year]">
+    <option value="">
+    <% (2001.downto(1910)).each do |year| %>
+
+      <option value="<%= year.to_s %>"
+        <%= 'selected' if year == profile.birth_year%>> <%= year %>
+        <% end %>
+  </select>
+</div>

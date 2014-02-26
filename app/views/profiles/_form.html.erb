@@ -12,72 +12,9 @@
   <input type="hidden" name="profile[owner_id]"
   value="<%= current_user.id %>">
 
+  <%= render 'profiles/info/name', :profile => profile %>
+  <%= render 'profiles/info/birthdate', :profile => profile %>
 
-  <div class='text heading'>Name</div>
-  <div class='names group'>
-
-    <div class='first-name'>
-      <div class='text'>
-        First Name
-      </div>
-      <div class='input'>
-        <input type='text' name="profile[first_name]" value="<%= profile.first_name %>">
-      </div>
-    </div>
-
-    <div class='last-name'>
-      <div class='text'>Last Name</div>
-      <div class='input text'>
-        <input name="profile[last_name]" value="<%= profile.last_name%>">
-      </div>
-    </div>
-
-  </div>
-
-
-  <div class='birthdate'>
-    <div class='text heading'>Birthdate</div>
-
-    <div class='dates group'>
-      <div class='month'>
-        <div class='text'>Month</div>
-        <select name="profile[birth_month]">
-          <option value="">
-          <% ["January", "February", "March", "April",
-          "May","June","July","August",
-          "September","October","November","December"].each do |month| %>
-          <option value="<%= month %>" <%= 'selected' if month == profile.birth_month %>> <%= month %>
-            <% end %>
-        </select>
-      </div>
-
-
-      <div class='day'>
-        <div class='text'>Day</div>
-        <select name="profile[birth_day]">
-          <option value="">
-          <% (1..31).each do |day| %>
-
-            <option value="<%= day.to_s %>"
-              <%= 'selected' if day == profile.birth_day %>> <%= day %>
-              <% end %>
-        </select>
-      </div>
-
-      <div class='year'>
-
-        <div class='text'>Year</div>
-        <select name="profile[birth_year]">
-          <option value="">
-          <% (2001.downto(1910)).each do |year| %>
-
-            <option value="<%= year.to_s %>"
-              <%= 'selected' if year == profile.birth_year%>> <%= year %>
-              <% end %>
-        </select>
-      </div>
-    </div>
-  </div>
 
 <div class='gender'>
   <div class='text heading'>Gender</div>
