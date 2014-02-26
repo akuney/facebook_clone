@@ -7,9 +7,7 @@
 
 <div class='tagged-photos group'>
   <% @user.photos_tagged_in.each do |photo| %>
-    <div class='photo'>
-      <%= render 'photo', :photo => photo %>
-    </div>
+    <%= render 'photo', :photo => photo %>
   <% end %>
 </div>
 
