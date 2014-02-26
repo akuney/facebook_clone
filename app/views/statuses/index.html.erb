@@ -2,23 +2,22 @@
 
 <div class='wall'>
 
-<%= render 'cases', :user => @user %>
+  <%= render 'cases', :user => @user %>
 
-<%= render 'create_status_or_comment', :user => @user %>
+  <%= render 'create_status_or_comment', :user => @user %>
 
-<div class='statuses group'>
-  <% @statuses.each do |status| %>
-    <%= render "statuses/show", :status => status, :user => @user %>
+  <div class='statuses group'>
+    <% @statuses.each do |status| %>
+      <%= render "statuses/show", :status => status, :user => @user %>
+      <%= render "replies/all", :post => status %>
+    <% end %>
+  </div>
 
-    <%= render "replies/all", :post => status %>
-  <% end %>
-</div>
-
-<div class='comments group'>
-  <% @comments.each do |comment| %>
+  <div class='comments group'>
+    <% @comments.each do |comment| %>
       <%= render "comments/show", :comment => comment, :user => @user %>
       <%= render "replies/all", :post => comment %>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
 </div>

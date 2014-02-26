@@ -1,4 +1,15 @@
 <div class='info'>
-  <div> <%= "Relationship Status: #{@profile.relationship_status}" if @profile.relationship_status != ""%></div>
-  <div> <%= "Interested In: #{@profile.interested_in}" if @profile.interested_in != ""%></div>
+  <div>
+    <% if profile.relationship_status != "" %>
+      Relationship Status:
+      <%= profile.relationship_status %>
+    <% end %>
+  </div>
+
+  <div>
+    <% if profile.interested_in != "" %>
+      Interested In:
+      <%= profile.interested_in %>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,13 @@
+<% if comment.class.to_s == "PhotoComment"%>
+  <div class='link submit-link'>
+    <%= link_to "Edit Comment", edit_photo_comment_url(comment) %>
+  </div>
+<% elsif comment.class.to_s == "Comment" %>
+  <div class='link submit-link'>
+    <%= link_to "Edit Comment", edit_comment_url(comment) %>
+  </div>
+
+  <div class='link submit-link'>
+    <%= link_to "Delete Comment", comment_url(comment), method: :delete %>
+  </div>
+<% end %>

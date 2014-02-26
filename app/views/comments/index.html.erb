@@ -1,17 +1,17 @@
 <!-- comment index -->
 <% if (current_user == @user) %>
-<%= render "/helpers/you", :user => @user %>
+  <%= render "/helpers/you", :user => @user %>
 <% else %>
-<%= render "/helpers/friend", :user => @user %>
+  <%= render "/helpers/friend", :user => @user %>
 <% end %>
 
 <% unless (@user == current_user)%>
-<div class='link submit-link'>
-<%= link_to "Create new comment", new_comment_url %>
-</div>
+  <div class='link submit-link'>
+    <%= link_to "Create new comment", new_comment_url %>
+  </div>
 <% end %>
 
 <% @comments.each do |comment| %>
-<%= render "show", :comment => comment,
-:user => @user %>
+  <%= render "show", :comment => comment,
+  :user => @user %>
 <% end %>

@@ -3,26 +3,11 @@
 <div class='comment group'>
   <%= render 'helpers/pic_and_name', :user => comment.author %>
   <div class='text'><%= comment.text %></div>
-<div class='links'>
-  <%= render 'likes/like', :post => comment %>
+  <div class='links'>
+    <%= render 'likes/like', :post => comment %>
 
-
-  <% if current_user == comment.author %>
-
-      <% if comment.class.to_s == "PhotoComment"%>
-        <div class='link submit-link'>
-          <%= link_to "Edit Comment", edit_photo_comment_url(comment) %>
-        </div>
-      <% elsif comment.class.to_s == "Comment" %>
-        <div class='link submit-link'>
-          <%= link_to "Edit Comment", edit_comment_url(comment) %>
-        </div>
-
-        <div class='link submit-link'>
-          <%= link_to "Delete Comment", comment_url(comment), method: :delete %>
-        </div>
-      <% end %>
-  <% end %>
-
+    <% if current_user == comment.author %>
+      <%= render 'comments/buttons', :comment => comment %>
+    <% end %>
   </div>
 </div>

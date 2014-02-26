@@ -1,5 +1,5 @@
 <div class='received-request group'>
-<%= render 'helpers/pic_and_name', :user => user %>
+  <%= render 'helpers/pic_and_name', :user => user %>
 
   <form action="<%= friendships_url %>" method="POST">
     <%= render 'helpers/auth_token'%>
@@ -8,7 +8,6 @@
     value="<%= pending_friendship.user_id %>">
     <input type="hidden" name="pending_friendship[pending_friend_id]"
     value="<%= pending_friendship.pending_friend_id %>">
-
 
 
     <div class="submit link submit-link">
@@ -20,6 +19,4 @@
     <%= link_to "Reject Request",
     pending_friendship_url(pending_friendship), :method => :delete %>
   </div>
-
-
 </div>
