@@ -9,16 +9,18 @@
   <% end %>
 </div>
 
-<%= render 'people_tagged', :photo => @photo %>
+<div class='photo-info'>
+  <%= render 'people_tagged', :photo => @photo %>
 
-<% if @photo.photo_comment %>
-  <div class='photo-comment group'>
-    <%= render "comments/show", :comment => @photo.photo_comment %>
-    <%= render "replies/all", :post => @photo.photo_comment %>
-  </div>
-<% end %>
+  <% if @photo.photo_comment %>
+    <div class='photo-comment group'>
+      <%= render "comments/show", :comment => @photo.photo_comment %>
+      <%= render "replies/all", :post => @photo.photo_comment %>
+    </div>
+  <% end %>
 
-<% if (current_user == @photo.uploader) %>
-  <%= render 'tag_more_people', :photo => @photo %>
-<% end %>
+  <% if (current_user == @photo.uploader) %>
+    <%= render 'tag_more_people', :photo => @photo %>
+  <% end %>
+</div>
 

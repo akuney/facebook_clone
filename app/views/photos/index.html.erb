@@ -7,9 +7,9 @@
 <%= render 'photos_top_bar', :user => @user %>
 
 <div class='photos group'>
-<% @user.photos_uploaded.each do |photo| %>
+  <% @user.photos_uploaded.each do |photo| %>
     <div class='photo'>
       <%= render 'photo', :photo => photo %>
     </div>
-<% end %>
+  <% end %>
 </div>

@@ -58,7 +58,7 @@ $(document).ready(function() {
   });
 
   $(".new-comment").on("ajax:success", function(event, data) {
-    var $target = $(event.currentTarget)
+    var $target = $(event.currentTarget);
     var $comments = $target.parent().children('.comments');
     $comments.prepend(data);
 
@@ -67,7 +67,16 @@ $(document).ready(function() {
     $textarea.val('');
   });
 
+
   // refactor those previous two at some point?
 
+  $(".people-tagged").on("ajax:success", function(event, data) {
+    var $target = $(event.currentTarget);
+    var $personTagged = $target.children('.person-tagged').eq(0);
+    $personTagged.remove();
 
+    var $tagMorePeople =
+    $target.parent().children('.tag-more-people').eq(0);
+    $tagMorePeople.append(data);
+  });
 });
