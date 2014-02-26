@@ -1,0 +1,13 @@
+<div class='friend group'>
+  <%= render 'helpers/pic_and_name', :user => friend %>
+
+  <div class='links'>
+    <% if (current_user.all_friends.include?(friend))%>
+      <%= render 'unfriend_button', :user => user, :friend => friend %>
+    <% end %>
+
+    <% if (friend != current_user)%>
+      <%= render 'add_friend_button', :friend => friend %>
+    <% end %>
+  </div>
+</div>
