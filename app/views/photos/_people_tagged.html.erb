@@ -4,16 +4,6 @@
   <% end %>
 
   <% photo.tagged_users.each do |user| %>
-
-    <div class='person-tagged group'>
-
-      <%= render 'helpers/just_name', :user => user %>
-
-      <% if (current_user == photo.uploader) || (current_user == user)%>
-        <%= render 'untag', :user => user, :photo => photo %>
-      <% end %>
-
-    </div>
-
+    <%= render 'person_tagged', :user => user, :photo => photo %>
   <% end %>
 </div>

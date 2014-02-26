@@ -79,4 +79,14 @@ $(document).ready(function() {
     $target.parent().children('.tag-more-people').eq(0);
     $tagMorePeople.append(data);
   });
+
+  $(".tag-more-people").on("ajax:success", function(event, data) {
+    var $target = $(event.currentTarget);
+    var $untaggedFriend = $target.children('.untagged-friend').eq(0);
+    $untaggedFriend.remove();
+
+    var $peopleTagged =
+    $target.parent().children('.people-tagged').eq(0);
+    $peopleTagged.append(data);
+  });
 });

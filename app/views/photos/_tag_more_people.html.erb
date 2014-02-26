@@ -2,8 +2,8 @@
 <div class='tag-more-people'>
   <div class='text heading'>Tag More People!</div>
 
-  <% @photo.untagged_friends(current_user).each do |user| %>
-    <%= render 'untagged_friend', :user => user, :photo => @photo %>
+  <% photo.untagged_friends(current_user).each do |user| %>
+    <%= render 'untagged_friend', :user => user, :photo => photo %>
   <% end %>
 
 </div>

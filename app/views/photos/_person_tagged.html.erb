@@ -1,0 +1,7 @@
+<div class='person-tagged group'>
+  <%= render 'helpers/just_name', :user => user %>
+
+  <% if (current_user == photo.uploader) || (current_user == user)%>
+    <%= render 'photos/untag', :user => user, :photo => photo %>
+  <% end %>
+</div>
