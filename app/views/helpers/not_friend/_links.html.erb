@@ -1,16 +1,9 @@
 <div class='links'>
-  <form class='add-friend' action="<%= pending_friendships_url %>" method="POST">
-    <%= render 'helpers/auth_token'%>
-
-    <input type="hidden" name="pending_friendship[user_id]"
-    value="<%= current_user.id %>">
-    <input type="hidden" name="pending_friendship[pending_friend_id]"
-    value="<%= user.id %>">
-
-    <div class="submit-link submit">
-      <input type="submit" value="Add Friend">
-    </div>
-  </form>
+  <% if current_user.all_pending_friends.include?(user) %>
+    <div class='link pending'>Pending</div>
+  <% else %>
+    <%= render 'helpers/not_friend/requested', :user => user %>
+  <% end %>
 
   <div class="mutual-friends">
     <%= link_to "Mutual Friends", user_mutual_friends_url(user) %>

@@ -1,0 +1,12 @@
+<form class='add-friend' action="<%= pending_friendships_url %>" method="POST">
+  <%= render 'helpers/auth_token'%>
+
+  <input type="hidden" name="pending_friendship[user_id]"
+  value="<%= current_user.id %>">
+  <input type="hidden" name="pending_friendship[pending_friend_id]"
+  value="<%= user.id %>">
+
+  <div class="submit-link submit">
+    <input type="submit" value="Add Friend">
+  </div>
+</form>

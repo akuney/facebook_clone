@@ -617,3 +617,6 @@ form > .text-input > input {
 
 /* toggling likes */
 
+.pending {
+  background: yellow;
+}

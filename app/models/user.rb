@@ -79,16 +79,14 @@ class User < ActiveRecord::Base
     self.profile.first_name + " " + self.profile.last_name
   end
 
-  def first_name
-
-  end
-
-  def last_name
-  end
 
 
   def all_friends
     self.friends + self.inverse_friends
+  end
+
+  def all_pending_friends
+    self.pending_friends + self.inverse_pending_friends
   end
 
   def all_friendships
