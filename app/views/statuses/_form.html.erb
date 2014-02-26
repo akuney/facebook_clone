@@ -1,11 +1,12 @@
 <!-- new or edit status -->
 
-<form action="<%= status.persisted? ? status_url(status) : statuses_url %>"
-  method="POST" data-remote="true">
-  <%= render 'helpers/auth_token'%>
+<form class='status-form' action="<%= status.persisted? ? status_url(status) : statuses_url %>"
+  method="POST" <%= 'data-remote= "true"' unless status.persisted? %>">
 
   <input name="_method" type="hidden"
   value="<%= status.persisted? ? "PUT" : "POST"%>">
+
+  <%= render 'helpers/auth_token'%>
 
   <input type="hidden" name="status[author_id]" value="<%= current_user.id %>">
 

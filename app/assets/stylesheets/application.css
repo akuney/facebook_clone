@@ -386,6 +386,15 @@ submit {
   border-top: 2px solid black;
 }
 
+.status-form {
+  padding-top: 25px;
+  border-top: 0;
+}
+
+.status-form > .textarea {
+  margin-left: 10px;
+}
+
 .status > .links, .comment > .links, .reply > .links {
   width: 100%;
 }
