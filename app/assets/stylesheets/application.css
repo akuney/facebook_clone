@@ -70,7 +70,7 @@ submit {
   margin-top: 8px;
 }
 
-.links > .link, .links > form > .link {
+.links > .link, .links > form > .link, .link {
   float: left;
   text-align: center;
 }
@@ -619,7 +619,12 @@ form > .text-input > input {
 
 /* toggling likes */
 
-.pending {
+.pending, .result > .link {
   background: white;
   padding-left: 20px;
 }
+
+.result > .link {
+  padding-top: 15px;
+}
+

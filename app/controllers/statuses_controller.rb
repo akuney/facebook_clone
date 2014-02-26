@@ -6,8 +6,14 @@ class StatusesController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @statuses = @user.statuses
-    @comments = @user.received_comments
+
+    if current_user.all_friends.include?(@user) || current_user == @user
+      @statuses = @user.statuses
+      @comments = @user.received_comments
+    else
+      @statuses = []
+      @comments = []
+    end
   end
 
   def show
