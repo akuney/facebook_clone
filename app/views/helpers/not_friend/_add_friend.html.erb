@@ -1,4 +1,6 @@
-<form class='add-friend' action="<%= pending_friendships_url %>" method="POST">
+<form class='add-friend' action="<%= pending_friendships_url %>" method="POST"
+  data-remote='true'>
+
   <%= render 'helpers/auth_token'%>
 
   <input type="hidden" name="pending_friendship[user_id]"

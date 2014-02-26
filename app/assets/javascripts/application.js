@@ -98,4 +98,12 @@ $(document).ready(function() {
     var $topBar = $target.parent().parent().parent();
     $topBar.append(data);
   });
+
+  $(".search-results").on("ajax:success", ".add-friend", function(event, data) {
+    var $target = $(event.target);
+
+    var $parent = $target.parent();
+    $parent.html("<div class='links'></div>");
+    $parent.append(data);
+  });
 });

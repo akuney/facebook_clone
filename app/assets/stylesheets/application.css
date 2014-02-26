@@ -319,8 +319,16 @@ submit {
   width: 100%;
 }
 
+.sent-request > .link {
+  margin-top: 16px;
+}
+
 .received-request {
   width: 100%;
+}
+
+.received-request > .link, .received-request > form > .link {
+  margin-top: 20px;
 }
 
 .mutual-friends {
