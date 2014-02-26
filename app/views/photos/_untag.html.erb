@@ -1,0 +1,5 @@
+<div class='link'>
+  <%= link_to "Untag",
+  photo_tagging_url(PhotoTagging.find_by_user_id_and_photo_id(user.id, photo.id)),
+  method: :delete %>
+</div>

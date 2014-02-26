@@ -4,19 +4,18 @@
   <% end %>
 
   <% photo.tagged_users.each do |user| %>
+
     <div class='person-tagged group'>
+
       <div class='username'>
         <%= link_to user.name, user_statuses_url(user)%>
       </div>
 
-
       <% if (current_user == photo.uploader) || (current_user == user)%>
-        <div class='link'>
-          <%= link_to "Untag",
-          photo_tagging_url(PhotoTagging.find_by_user_id_and_photo_id(user.id, photo.id)),
-          method: :delete %>
-        </div>
+        <%= render 'untag', :user => user, :photo => photo %>
       <% end %>
+
     </div>
+
   <% end %>
 </div>
