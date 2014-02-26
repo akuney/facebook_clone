@@ -148,8 +148,6 @@ submit {
 
 
 
-
-
 /* individual user bar */
 
 .user {
@@ -159,6 +157,12 @@ submit {
 }
 .user > .pic-and-name {
   float: left;
+}
+
+.result > .not-friend {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .pic-and-name > .image {
@@ -601,6 +605,15 @@ form > .text-input > input {
 .user {
   width: 100%;
 }
+
+.search-results {
+  padding-top: 25px;
+}
+
+.result {
+  padding: 5px;
+}
+
 
 /* toggling likes */
 

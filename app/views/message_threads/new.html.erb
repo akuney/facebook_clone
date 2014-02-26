@@ -6,26 +6,10 @@
   <input type="hidden" name="message_thread[creator_id]"
   value="<%= current_user.id %>">
 
-  <div class='title'>
-    <div class='text'>
-      Thread Title:
-    </div>
-    <div class='input'>
-      <input name="message_thread[title]">
-    </div>
-  </div>
-
+  <%= render 'message_threads/new/title' %>
 
   <% if @current_friend == nil %>
-  <div class='recipients'>
-    <div class='text'>
-      Recipients:
-    </div>
-
-   <%= render 'helpers/friends_checkbox', :name => "message_thread[recipient_ids][]",
-   :friends => current_user.all_friends %>
- </div>
-
+    <%= render 'message_threads/new/recipients'%>
   <% else %>
     <input type='hidden' name="message_thread[recipient_ids][]"
     value="<%= @current_friend.id %>">
@@ -34,15 +18,7 @@
   <input type="hidden" name="message[author_id]" value="<%= current_user.id %>">
   <input type="hidden" name="message[message_thread_id]" value="<%= nil %>">
 
-  <div class='message'>
-    <div class="text">
-      Message:
-    </div>
-
-    <div class='textarea'>
-      <textarea name="message[text]"></textarea>
-    </div>
-  </div>
+  <%= render 'message_threads/new/message'%>
 
   <div class='submit link submit-link'>
     <input type="submit" value="Submit">

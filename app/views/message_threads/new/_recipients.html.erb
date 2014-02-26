@@ -1,0 +1,8 @@
+<div class='recipients'>
+  <div class='text'>
+    Recipients:
+  </div>
+
+  <%= render 'helpers/friends_checkbox', :name => "message_thread[recipient_ids][]",
+  :friends => current_user.all_friends %>
+</div>
