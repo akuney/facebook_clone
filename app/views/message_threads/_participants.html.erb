@@ -1,0 +1,14 @@
+<div class='text'>
+  <% num_recipients = message_thread.num_recipients %>
+  <% if (user == current_user) %>
+      You and <%= num_recipients %> others
+  <% elsif (num_recipients > 1) %>
+      You,
+      <%= link_to user.name, user_statuses_url(user)%>,
+      and
+      <%= num_recipients - 1 %> others
+  <% else %>
+    You and <%= link_to user.name,
+    user_statuses_url(message_thread.creator) %>
+  <% end %>
+</div>

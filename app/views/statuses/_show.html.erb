@@ -6,7 +6,7 @@
   <div class='text'><%= status.text %></div>
 
   <div class='links'>
-    <%= render 'likes/like', :post => status %>
+    <%= render 'likes/like', :post => status, :user => status.author %>
 
     <% if (current_user == status.author) %>
       <div class='link submit-link'>
