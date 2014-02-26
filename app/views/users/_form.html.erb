@@ -2,42 +2,26 @@
 <% method = "post" %>
 <% message = 'Sign Up' %>
 
+<div class='sign-up'>
 
+  <form action="<%= action %>" method="POST">
+    <input name="_method" type="hidden" value="<%= method %>">
+    <%= render 'helpers/auth_token'%>
 
-<form action="<%= action %>" method="post">
-  <input
-     name="_method"
-     type="hidden"
-     value="<%= method %>">
-
-  <%= render 'helpers/auth_token'%>
-
-
-    <div class='text'>Sign Up </div>
-
-    <div class='text-input'>
-
-    <div class='text'>
-      Email
+    <div class='text-input email'>
+      <div class='text'>Email</div>
+      <input name="user[email]" type="text">
     </div>
 
-      <input
-         id="user_email"
-         name="user[email]"
-         type="text">
+    <div class='text-input password'>
+      <div class='text'>Password</div>
+      <input name="user[password]" type="password">
+     </div>
+
+    <div class='submit link submit-link'>
+      <input type="submit" value="<%= message %>">
     </div>
 
-  <div class='text-input'>
-    <div class='text'>Password</div>
+  </form>
 
-    <input
-       id="user_password"
-       name="user[password]"
-       type="password">
-   </div>
-
-     <div class='submit link submit-link'>
-  <input type="submit" value="<%= message %>">
-    </div>
-
-</form>
+</div>

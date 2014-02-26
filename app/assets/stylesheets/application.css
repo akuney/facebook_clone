@@ -431,7 +431,7 @@ submit {
   margin-bottom: 20px;
 }
 
-.sign-in {
+.sign-in, .sign-up {
   display: block;
   float: left;
   margin-top: 100px;
@@ -452,29 +452,17 @@ submit {
   padding: 2px;
 }
 
-.sign-in > form > .text-input > input {
+form > .text-input > input {
   border: 1px solid black;
 }
 
-.sign-in > form > .submit {
+.sign-in > form > .submit, .sign-up > form > .submit {
   padding: 13px;
   font-size: 18px;
 }
 
 
-.sign-up {
-  display: block;
-  float: left;
-  margin-top: 100px;
-}
 
-.sign-up > form > .text {
-  margin-bottom: 10px;
-}
-
-.sign-up > form > .text-input > input {
-  border: 1px solid black;
-}
 
 .submit-reply {
   float: left;
