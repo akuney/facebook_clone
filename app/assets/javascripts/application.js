@@ -67,5 +67,7 @@ $(document).ready(function() {
     $textarea.val('');
   });
 
+  // refactor those previous two at some point?
+
 
 });

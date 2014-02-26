@@ -1,24 +1,18 @@
 <div class='photo-show group'>
-  <div class='photo'>
-    <img src="<%= @photo.url %>" width="120" height="120">
-  </div>
+  <%= render 'photo', :photo => @photo %>
 
-<% if current_user == @photo.uploader %>
-  <div class='links'>
-    <div class='link submit-link'>
-      <%= link_to "Remove Photo", photo_url(@photo), method: :delete %>
+  <% if current_user == @photo.uploader %>
+    <div class='links'>
+      <%= render 'remove_photo', :photo => @photo %>
+      <%= render 'make_profile_pic', :photo => @photo %>
     </div>
-<% end %>
-
-  <%= render 'make_profile_pic', :photo => @photo %>
-  </div>
+  <% end %>
 </div>
 
 <%= render 'people_tagged', :photo => @photo %>
 
 <% if @photo.photo_comment %>
   <div class='photo-comment group'>
-
     <%= render "comments/show", :comment => @photo.photo_comment %>
     <%= render "replies/all", :post => @photo.photo_comment %>
   </div>
