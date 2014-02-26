@@ -1,0 +1,7 @@
+<div class='checkbox'>
+  <div class='text'>
+    Tagged Friends:
+  </div>
+  <%= render 'helpers/friends_checkbox', :name => 'photo[tagged_user_ids][]',
+  :friends => current_user.all_friends %>
+</div>

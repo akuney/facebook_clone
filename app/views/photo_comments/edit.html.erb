@@ -1,9 +1,7 @@
 <%= render 'photos/photo', :photo => @photo_comment.photo %>
 
 <form class='edit-photo-comment' action="<%= photo_comment_url(@photo_comment) %>" method="POST">
-
   <input name="_method" type="hidden"value="PUT">
-
   <%= render 'helpers/auth_token'%>
 
   <div class='text heading'>Comment:</div>
@@ -13,5 +11,4 @@
   </div>
 
   <input type="submit" class="link submit-link" value="Update Comment">
-
 </form>

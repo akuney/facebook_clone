@@ -4,29 +4,9 @@
   <input type="hidden" name="photo[uploader_id]"
   value="<%= current_user.id %>">
 
-  <div class='url'>
-    <div class='text'>
-      URL:
-    </div>
-    <div class='input'>
-      <input name="photo[url]">
-    </div>
-  </div>
-
-  <div class='new-photo-comment'>
-    <div class='text'>Comment:</div>
-    <div class='textarea'>
-      <textarea name="photo_comment[text]"></textarea>
-    </div>
-  </div>
-
-  <div class='checkbox'>
-    <div class='text'>
-      Tagged Friends:
-    </div>
-    <%= render 'helpers/friends_checkbox', :name => 'photo[tagged_user_ids][]',
-    :friends => current_user.all_friends %>
-  </div>
+  <%= render 'photos/new/url'%>
+  <%= render 'photos/new/comment'%>
+  <%= render 'photos/new/tagged_friends'%>
 
   <div class='link submit-link'>
     <input type="submit" value="Submit Photo">

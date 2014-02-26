@@ -1,0 +1,7 @@
+<div class='sent-requests'>
+  <div class='text heading'>Sent Requests:</div>
+  <% @reqs_sent.each do |req| %>
+    <%= render "sent_request",
+    :user => req.pending_friend %>
+  <% end %>
+</div>

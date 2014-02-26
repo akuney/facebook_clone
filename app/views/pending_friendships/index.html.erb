@@ -1,21 +1,10 @@
 <!-- Index of Pending Friendships -->
 
 <div class='friend-requests'>
-  <div class='received-requests'>
-<div class='text heading'>Received Requests:</div>
-<% @reqs_received.each do |req| %>
-  <%= render "received_request",
-  :pending_friendship => req,
-  :user => req.user %>
-<% end %>
-</div>
+  <%= render 'received_requests',
+  :reqs_received => @reqs_received %>
 
-<div class='sent-requests'>
-<div class='text heading'>Sent Requests:</div>
-<% @reqs_sent.each do |req| %>
-  <%= render "sent_request",
-  :user => req.pending_friend %>
-<% end %>
-</div>
+  <%= render 'sent_requests',
+  :reqs_sent => @reqs_sent %>
 
 </div>
