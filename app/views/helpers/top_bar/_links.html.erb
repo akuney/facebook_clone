@@ -1,0 +1,9 @@
+<ul class='links'>
+  <li><%= link_to "My Page", user_statuses_url(current_user) %></li>
+  <li><%= link_to "Friend Requests", pending_friendships_url %></li>
+  <li><%= link_to "Friends", user_friendships_url(current_user)%></li>
+  <li><%= link_to "Photos", user_photos_url(current_user)%></li>
+  <li><%= link_to "Messages", message_threads_url %></li>
+  <li><%= link_to "Search", new_search_result_url %></li>
+  <li><%= link_to "Sign Out", session_url, method: :delete %></li>
+</ul>
