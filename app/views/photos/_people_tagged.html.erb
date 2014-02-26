@@ -7,9 +7,7 @@
 
     <div class='person-tagged group'>
 
-      <div class='username'>
-        <%= link_to user.name, user_statuses_url(user)%>
-      </div>
+      <%= render 'helpers/just_name', :user => user %>
 
       <% if (current_user == photo.uploader) || (current_user == user)%>
         <%= render 'untag', :user => user, :photo => photo %>

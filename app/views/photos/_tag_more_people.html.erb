@@ -1,14 +1,10 @@
 
 <div class='tag-more-people'>
-
-
   <div class='text heading'>Tag More People!</div>
 
   <% @photo.untagged_friends(current_user).each do |user| %>
     <div class='untagged-friend group'>
-      <div class='username'>
-        <%= link_to user.name, user_statuses_url(user)%>
-      </div>
+      <%= render 'helpers/just_name', :user => user %>
 
       <form action="<%= photo_taggings_url %>" method="POST">
         <%= render 'helpers/auth_token'%>
