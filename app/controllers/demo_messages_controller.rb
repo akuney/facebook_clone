@@ -1,0 +1,2 @@
+class DemoMessagesController < ApplicationController
+end

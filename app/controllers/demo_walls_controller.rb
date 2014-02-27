@@ -1,0 +1,2 @@
+class DemoWallsController < ApplicationController
+end

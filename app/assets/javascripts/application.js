@@ -179,4 +179,6 @@ $(document).ready(function() {
     var $target = $(event.target);
     $target.parent().parent().html(data);
   });
+
+  // need: demo wall, demo messages, demo photos
 });

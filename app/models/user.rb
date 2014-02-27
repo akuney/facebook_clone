@@ -12,15 +12,15 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
-  has_one :profile, foreign_key: :owner_id
+  has_one :profile, foreign_key: :owner_id, dependent: :destroy
 
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, :through => :friendships
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id", dependent: :destroy
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   # got this from a RailsCast
 
-  has_many :pending_friendships
+  has_many :pending_friendships, dependent: :destroy
   has_many :pending_friends, :through => :pending_friendships
   has_many :inverse_pending_friendships,
   :class_name => "PendingFriendship", :foreign_key => "pending_friend_id"
@@ -45,8 +45,8 @@ class User < ActiveRecord::Base
   foreign_key: :creator_id
   has_many :authored_messages, foreign_key: "author_id"
 
-  has_many :photos_uploaded, class_name: "Photo", foreign_key: "uploader_id"
-  has_many :photo_taggings
+  has_many :photos_uploaded, class_name: "Photo", foreign_key: "uploader_id", dependent: :destroy
+  has_many :photo_taggings, dependent: :destroy
   has_many :photos_tagged_in, through: :photo_taggings, source: :photo
 
   def self.find_by_credentials(email, password)
