@@ -123,6 +123,7 @@ submit {
   padding-top: 38px;
   padding-left: 20px;
   font-size: 20px;
+  min-width: 40%;
 }
 
 .top-bar > .links {
@@ -696,9 +697,10 @@ form > .text-input > input {
 }
 
 .notifications-link {
+  position: absolute;
   width: 100%;
   float: left;
-  position: absolute;
+
   top: 285px;
   left: 28px;
 }
