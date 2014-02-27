@@ -4,15 +4,15 @@
   <% if reply.parent.author == current_user %>
     your
   <% else %>
-    <%= link_to reply.parent.author.name %>'s
+    <%= link_to reply.parent.author.name, user_statuses_url(reply.parent.author) %>'s
   <% end %>
 
   <% if reply.parent_type == "Status" %>
-    <%= link_to "status" %>:
+    status:
   <% elsif reply.parent_type == "Comment"%>
-    <%= link_to "comment" %>:
+    comment:
   <% elsif reply.parent_type == "PhotoComment" %>
-    <%= link_to "photo"%>:
+    <%= link_to "photo", photo_url(reply.parent.photo)%>:
   <% end %>
 
   <div class='notification-body'>
