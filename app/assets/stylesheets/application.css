@@ -662,6 +662,19 @@ form > .text-input > input {
   margin-top: 20px;
 }
 
+.notification > .text {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.notification > a {
+  color: gray;
+}
+
+.notification > a:hover {
+  color: darkgray;
+}
+
 .notification-body {
   width: 100%;
   font-size: 15px;

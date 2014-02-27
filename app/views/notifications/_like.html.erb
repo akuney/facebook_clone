@@ -8,7 +8,7 @@
     <% if like.post.author == current_user %>
       your <%= link_to 'comment' %>:
     <% else %>
-      <%= like.post.author.name %>'s <%= link_to 'comment'%>:
+      <%= link_to like.post.author.name %>'s <%= link_to 'comment'%>:
     <% end %>
   <% elsif like.post_type == 'PhotoComment'%>
     your <%= link_to 'photo'%>:

@@ -8,6 +8,13 @@
     <% notification_class = notification.class.to_s %>
 
     <div class='notification'>
+      <% unless (notification_class == 'Like' && notification.liker == current_user) %>
+        <div class='text'>
+          <%= notification.created_at.to_date.to_formatted_s(:long)%>
+        </div>
+      <% end %>
+      <!-- quick fix for the one time we don't actually want a notification -->
+
       <% if notification_class == 'Like' %>
         <%= render 'notifications/like', :like => notification %>
       <% elsif notification_class == 'Comment'%>
@@ -15,7 +22,9 @@
       <% elsif notification_class == 'Reply'%>
         <%= render 'notifications/reply', :reply => notification %>
       <% elsif notification_class == 'Photo'%>
+        <%= render 'notifications/photo', :photo => notification %>
       <% elsif notification_class == 'Friendship'%>
+        <%= render 'notifications/friendship', :friendship => notification %>
       <% end %>
     </div>
   <% end %>
