@@ -482,7 +482,7 @@ form > .text-input > input {
   border: 1px solid black;
 }
 
-.sign-in > form > .submit, .sign-up > form > .submit {
+.sign-in > form > .submit, .sign-up > form > .submit, .sign-in > .submit, .sign-up > .submit {
   padding: 13px;
   font-size: 18px;
 }
@@ -524,6 +524,9 @@ form > .text-input > input {
 
 /* profile creation and editing */
 
+.profile-page-body {
+  margin-left: 10px;
+}
 .heading {
   font-size: 20px;
   font-weight: bold;

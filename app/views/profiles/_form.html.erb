@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../assets/stylesheets/application.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
 <!-- Partial for creating and editing profiles -->
 
 <form class='profile' action="<%= profile.persisted? ? profile_url(profile) : profiles_url %>"
@@ -12,16 +12,19 @@
   <input type="hidden" name="profile[owner_id]"
   value="<%= current_user.id %>">
 
-  <%= render 'profiles/info/name', :profile => profile %>
-  <%= render 'profiles/info/birthdate', :profile => profile %>
-  <%= render 'profiles/info/gender', :profile => profile %>
-  <%= render 'profiles/info/employment', :profile => profile %>
-  <%= render 'profiles/info/geography', :profile => profile %>
-  <%= render 'profiles/info/relationships', :profile => profile %>
-  <%= render 'profiles/info/profile_picture', :profile => profile %>
-  <%= render 'profiles/info/about_me', :profile => profile %>
+  <div class='profile-page-body'>
+    <%= render 'profiles/info/name', :profile => profile %>
+    <%= render 'profiles/info/birthdate', :profile => profile %>
+    <%= render 'profiles/info/gender', :profile => profile %>
+    <%= render 'profiles/info/employment', :profile => profile %>
+    <%= render 'profiles/info/geography', :profile => profile %>
+    <%= render 'profiles/info/relationships', :profile => profile %>
+    <%= render 'profiles/info/profile_picture', :profile => profile %>
+    <%= render 'profiles/info/about_me', :profile => profile %>
+  </div>
 
   <input type="submit" class='link submit-link'
   value="<%= profile.persisted? ? 'Edit my profile!' : 'Create my profile!'%>">
 </form>
+
 

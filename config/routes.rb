@@ -51,7 +51,8 @@ FacebookClone::Application.routes.draw do
   resources :search_results, only: [:index, :new]
 
   resources :photo_taggings, only: [:create, :destroy]
-  root to: "users#index"
+
+  root to: "session#new"
 
   resources :notifications, only: :index
 

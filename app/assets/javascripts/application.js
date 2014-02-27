@@ -136,4 +136,42 @@ $(document).ready(function() {
     console.log(data);
     $messageThreads.append(data);
   });
+
+  $('.sign-up').on("ajax:success", ".demo-sign-in", function(event, data) {
+    var $target = $(event.target);
+    var $signIn = $target.parent().parent();
+
+    var $email = $signIn.children('form').children('.email');
+    var $password = $signIn.children('form').children('.password');
+
+    $email.children().eq(1).attr('value', 'demo@demo.demo');
+    $password.children().eq(1).attr('value', 'password');
+  });
+
+  $('.new-profile').on("ajax:success", ".demo-profile", function(event, data) {
+    var $target = $(event.target);
+    var $newProfile = $target.parent().parent();
+
+    $newProfile.find(".first-name").find("input").attr('value', 'Jeff');
+    $newProfile.find(".last-name").find("input").attr('value', 'Doe');
+
+    $newProfile.find(".month").find('option').eq(1).attr('selected', true);
+    $newProfile.find(".day").find('option').eq(2).attr('selected', true);
+    $newProfile.find(".year").find('option').eq(10).attr('selected', true);
+
+    $newProfile.find(".gender").find('option').eq(2).attr('selected', true);
+
+    $newProfile.find(".job").find("input").attr('value', 'Being a Demo User');
+    $newProfile.find(".employer").find("input").attr('value', 'Demos, Inc.');
+
+    $newProfile.find(".current-city").find("input").attr('value', 'Demo City, USA');
+    $newProfile.find(".home-city").find("input").attr('value', 'Demo City, Canada');
+
+    $newProfile.find(".relationship-status").find("option").eq(2).attr('selected', true);
+    $newProfile.find(".interested-in").find("option").eq(2).attr('selected', true);
+
+    $newProfile.find(".url").find("input").attr('value', 'http://4.bp.blogspot.com/-w1HZpMGIl5c/TvSbvmpzgeI/AAAAAAAAFzw/JZtvOCZJBFk/s400/0511-1007-0820-1338_Lost_confused_man_clipart_image.jpg');
+
+    $newProfile.find(".about-me").find("textarea").append("I'm Jeff Doe, you all know me!");
+  });
 });
