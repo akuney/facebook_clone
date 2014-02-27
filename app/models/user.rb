@@ -117,6 +117,47 @@ class User < ActiveRecord::Base
     return "<img src= #{self.profile.photo_url} width='80' height='80'></img>".html_safe
   end
 
+
+
+  # notifications
+
+  def recent_accepted_requests
+    self.friendships.where(created_at: (Time.now - 604800)..(Time.now))
+  end
+
+  def recent_uploaded_photo_activities
+    activities = []
+
+    self.photos_uploaded.each do |uploaded_photo|
+      activities += uploaded_photo.recent_activities
+    end
+
+    activities
+  end
+
+  def recent_tagged_photo_activities
+    activities = []
+
+    self.photos_tagged_in.each do |tagged_photo|
+      activites += tagged_photo.recent_activities
+    end
+
+    activities
+  end
+
+  def recent_post_activities
+    activities = []
+    posts = self.statuses + self.authored_comments + self.received_comments
+
+    posts.each do |post|
+      activities += post.recent_activities
+    end
+
+    activities
+  end
+
+
+
   private
 
   def ensure_session_token

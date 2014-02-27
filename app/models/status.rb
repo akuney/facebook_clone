@@ -10,4 +10,6 @@ class Status < ActiveRecord::Base
   def num_likes
     self.likes.count
   end
+
+
 end
