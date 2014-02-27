@@ -9,4 +9,6 @@ class Like < ActiveRecord::Base
   def self.find_by_liker_and_post(liker, post_id, post_type)
     Like.where(liker_id: liker.id, post_id: post_id, post_type: post_type).first || []
   end
+
+
 end

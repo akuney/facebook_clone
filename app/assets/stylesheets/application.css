@@ -19,6 +19,9 @@
 
 /* basic stuff */
 
+.gray {
+  color: gray;
+}
 .invisible {
   display: none;
 }
@@ -652,3 +655,15 @@ form > .text-input > input {
   padding-top: 15px;
 }
 
+/*notifications*/
+.notification {
+  font-family: sans-serif;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.notification-body {
+  width: 100%;
+  font-size: 15px;
+  margin-top: 10px;
+}

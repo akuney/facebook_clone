@@ -3,9 +3,14 @@
 <div class='notifications'>
   <% notifications = current_user.recent_activities %>
 
+
   <% notifications.each do |notification| %>
+    <% notification_class = notification.class.to_s %>
+
     <div class='notification'>
-      <%= notification.notification_message %>
+      <% if notification_class == 'Like' %>
+        <%= render 'notifications/like/message', :like => notification %>
+      <% end %>
     </div>
   <% end %>
 
