@@ -177,6 +177,6 @@ $(document).ready(function() {
 
   $('.friends-index').on("ajax:success", ".demo-friend", function(event, data) {
     var $target = $(event.target);
-    console.log($target);
+    $target.parent().parent().html(data);
   });
 });

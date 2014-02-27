@@ -6,12 +6,14 @@
     <%= render 'helpers/friend', :user => @user %>
   <% end %>
 
-  <% if @user.all_friends.count == 0 %>
-    <div class='text heading'>No Friends Yet</div>
-    <div class='link demo demo-friend'>
-      <a data-remote="true" data-method="post" href="<%= demo_friends_url %>">Make Some Friends</a>
-    </div>
-  <% end %>
+  <div class='no-friends'>
+    <% if @user.all_friends.count == 0 %>
+      <div class='text heading'>No Friends Yet</div>
+      <div class='link demo demo-friend'>
+        <a data-remote="true" data-method="post" href="<%= demo_friends_url %>">Make Some Friends</a>
+      </div>
+    <% end %>
+  </div>
 
 
 
