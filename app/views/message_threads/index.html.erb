@@ -1,4 +1,7 @@
 <!-- message thread index -->
+
+<%= render 'helpers/you', :user => current_user %>
+
 <div class='message-threads group'>
   <% unless @message_threads.count == 0 %>
     <% @message_threads.each do |message_thread| %>
