@@ -1,0 +1,12 @@
+<!-- notifications -->
+
+<div class='notifications'>
+  <% notifications = current_user.recent_activities %>
+
+  <% notifications.each do |notification| %>
+    <div class='notification'>
+      <%= notification.notification_message %>
+    </div>
+  <% end %>
+
+</div>
