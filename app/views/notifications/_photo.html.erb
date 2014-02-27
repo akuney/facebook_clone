@@ -1,1 +1,8 @@
-<%= link_to photo.uploader.name %> tagged you in a <%= link_to 'photo'%>
+<%= link_to photo.uploader.name, user_statuses_url(photo.uploader) %>
+ tagged you in a <%= link_to 'photo', photo_url(photo)%>
+
+<div class='notification-photo'>
+  <a href="<%= photo_url(photo) %>">
+    <img src="<%= photo.url %>" width="80" height="80">
+  </a>
+</div>

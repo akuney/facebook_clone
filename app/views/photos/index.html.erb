@@ -10,4 +10,8 @@
   <% @user.photos_uploaded.each do |photo| %>
     <%= render 'photo', :photo => photo %>
   <% end %>
+
+  <% if @user.photos_uploaded.count == 0 %>
+  <div class='text heading'>No Uploaded Photos</div>
+  <% end %>
 </div>

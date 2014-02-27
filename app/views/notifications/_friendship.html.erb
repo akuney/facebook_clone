@@ -1,1 +1,5 @@
-<%= link_to friendship.friend.name %> accepted your friend request.
+<%= link_to friendship.friend.name, user_statuses_url(friendship.friend) %> accepted your friend request.
+
+<div class="notification-photo">
+  <%= friendship.friend.photo %>
+</div>

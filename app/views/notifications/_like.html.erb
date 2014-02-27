@@ -1,20 +1,34 @@
 <% unless like.liker == current_user %>
-    <%= link_to like.liker.name %>
+    <%= link_to like.liker.name, user_statuses_url(like.liker)%>
   likes
 
   <% if like.post_type == 'Status'%>
-    your <%= link_to 'status' %>:
+    your status:
   <% elsif like.post_type == 'Comment' %>
     <% if like.post.author == current_user %>
-      your <%= link_to 'comment' %>:
+      your comment:
     <% else %>
-      <%= link_to like.post.author.name %>'s <%= link_to 'comment'%>:
+      <%= link_to like.post.author.name, user_statuses_url(like.post.author) %>'s comment:
     <% end %>
   <% elsif like.post_type == 'PhotoComment'%>
-    your <%= link_to 'photo'%>:
+    <% if like.post.photo.uploader == current_user %>
+      your <%= link_to 'photo', photo_url(like.post.photo)%>:
+    <% else %>
+      a <%= link_to 'photo', photo_url(like.post.photo)%> you were tagged in:
+    <% end %>
   <% end %>
 
   <div class='notification-body'>
     <%= like.post.text %>
+  </div>
+
+  <div class='notification-photo'>
+    <% if like.post_type == 'PhotoComment'%>
+      <a href="<%= photo_url(like.post.photo) %>">
+        <img src="<%= like.post.photo.url %>" width="80" height="80">
+      </a>
+    <% else %>
+      <%= like.liker.photo %>
+    <% end %>
   </div>
 <% end %>

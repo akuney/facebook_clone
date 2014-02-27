@@ -1,6 +1,11 @@
 <!-- Comment Notification -->
 
-<%= link_to comment.author.name %> wrote on your <%= link_to 'wall' %>:
+<%= link_to comment.author.name, user_statuses_url(comment.author) %> wrote on your
+<%= link_to 'wall', user_statuses_url(current_user)%>:
 <div class='notification-body'>
   <%= comment.text %>
+</div>
+
+<div class='notification-photo'>
+  <%= comment.author.photo %>
 </div>

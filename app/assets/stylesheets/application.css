@@ -558,6 +558,10 @@ form > .text-input > input {
   margin-bottom: 20px;
 }
 
+.profile-show > .info > div {
+  margin-bottom: 2px;
+}
+
 .profile-show {
   padding-top: 25px;
 }
@@ -660,12 +664,15 @@ form > .text-input > input {
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .notification {
+  position: relative;
   font-family: sans-serif;
   font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 2px solid black;
+  min-height: 74px;
 }
 
 .notification > .text {
@@ -682,6 +689,7 @@ form > .text-input > input {
 }
 
 .notification-body {
+  max-width: 500px;
   width: 100%;
   font-size: 15px;
   margin-top: 10px;
@@ -700,4 +708,10 @@ form > .text-input > input {
   padding: 8px;
   background: green;
   font-size: 12px;
+}
+
+.notification-photo {
+  position: absolute;
+  top: 5px;
+  left: 50%;
 }
