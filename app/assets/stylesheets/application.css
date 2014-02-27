@@ -732,3 +732,11 @@ form > .text-input > input {
 .demo-friend {
   margin-left: 0;
 }
+
+.demo-delete {
+  position: absolute;
+  top: 150px;
+  left: 500px;
+  padding: 20px;
+  background: red;
+}
