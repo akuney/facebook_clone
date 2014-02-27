@@ -399,8 +399,13 @@ submit {
   width: 100%;
 }
 
-.status > .links > .link {
+.status > .links > .link, .status > .links > .text, .comment > .links > .text {
   float: left;
+}
+
+.status > .links > .text, .comment > .links > .text {
+  margin-top: 17px;
+  padding-right: 20px;
 }
 
 .status > .text, .reply > .text, .comment > .text {
@@ -429,10 +434,6 @@ submit {
   float: left;
 }
 
-.likes {
-  min-width: 300px;
-  max-width: 400px;
-}
 
 
 .likes > .text {

@@ -5,7 +5,10 @@
 
   <div class='text'><%= status.text %></div>
 
-  <div class='links'>
+  <div class='links group'>
+    <div class='text'>
+      <%= status.updated_at.to_date.to_formatted_s(:long)%>
+    </div>
     <%= render 'likes/like', :post => status, :user => status.author %>
 
     <% if (current_user == status.author) %>

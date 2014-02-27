@@ -2,8 +2,13 @@
 
 <div class='comment group'>
   <%= render 'helpers/pic_and_name', :user => comment.author %>
+
   <div class='text'><%= comment.text %></div>
-  <div class='links'>
+  <div class='links group'>
+    <div class='text'>
+      <%= comment.updated_at.to_date.to_formatted_s(:long)%>
+    </div>
+
     <%= render 'likes/like', :post => comment %>
 
     <% if current_user == comment.author %>
