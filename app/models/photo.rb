@@ -19,4 +19,11 @@ class Photo < ActiveRecord::Base
 
     untagged_friends
   end
+
+  def recent_activities
+    replies = self.photo_comment.replies.where(created_at: (Time.now - 604800)..(Time.now))
+    likes = self.photo_comment.likes.where(created_at: (Time.now - 604800)..(Time.now))
+
+    return replies + likes
+  end
 end

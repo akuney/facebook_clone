@@ -125,6 +125,10 @@ class User < ActiveRecord::Base
     self.friendships.where(created_at: (Time.now - 604800)..(Time.now))
   end
 
+  def recent_tagged_photos
+    self.photos_tagged_in.where(created_at: (Time.now - 604800)..(Time.now))
+  end
+
   def recent_uploaded_photo_activities
     activities = []
 
