@@ -4,7 +4,7 @@
   <div> <%= "Date of Birth: #{profile.birth_month}" if
     (profile.birth_month != "" || profile.birth_day != "" || profile.birth_year != "")  %>
     <%= profile.birth_day if profile.birth_day %>
-    <%= ", #{profile.birth_year}" if profile.birth_year != "" %></div>
+    <%= ",#{profile.birth_year}" if profile.birth_year != "" %></div>
 
   <div> <%= "Gender: #{profile.gender}" if profile.gender != ""%></div>
 </div>
