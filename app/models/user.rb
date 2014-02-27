@@ -160,7 +160,7 @@ class User < ActiveRecord::Base
     posts = self.statuses + self.authored_comments + self.received_comments
 
     posts.each do |post|
-      activities += post.recent_activities
+      activities += post.recent_activities unless post.recent_activities.empty?
     end
 
     activities

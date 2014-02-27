@@ -9,7 +9,9 @@
 
     <div class='notification'>
       <% if notification_class == 'Like' %>
-        <%= render 'notifications/like/message', :like => notification %>
+        <%= render 'notifications/like', :like => notification %>
+      <% elsif notification_class == 'Comment'%>
+        <%= render 'notifications/comment', :comment => notification %>
       <% end %>
     </div>
   <% end %>
