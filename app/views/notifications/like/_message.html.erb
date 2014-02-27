@@ -1,19 +1,19 @@
 <!-- like notification message -->
 
 <% unless like.liker == current_user %>
-    <%= like.liker.name %>
+    <a class='gray'><%= like.liker.name %></a>
   likes
 
   <% if like.post_type == 'Status'%>
     your <a class='gray'>status</a>:
   <% elsif like.post_type == 'Comment' %>
     <% if like.post.author == current_user %>
-      your comment:
+      your <a class='gray'>comment</a>:
     <% else %>
-      <%= like.post.author %>'s comment:
+      <%= like.post.author.name %>'s <a class='gray'>comment</a>:
     <% end %>
   <% elsif like.post_type == 'PhotoComment'%>
-    your photo:
+    your <a class='gray'>photo</a>:
   <% end %>
 
   <div class='notification-body'>

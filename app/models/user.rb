@@ -137,7 +137,7 @@ class User < ActiveRecord::Base
     activities = []
 
     self.photos_uploaded.each do |uploaded_photo|
-      activities += uploaded_photo.recent_activities
+      activities += uploaded_photo.recent_activities unless uploaded_photo.recent_activities.empty?
     end
 
     activities
@@ -147,7 +147,9 @@ class User < ActiveRecord::Base
     activities = []
 
     self.photos_tagged_in.each do |tagged_photo|
-      activites += tagged_photo.recent_activities
+      unless tagged_photo.recent_activities.empty?
+        activities += tagged_photo.recent_activities
+      end
     end
 
     activities
