@@ -656,10 +656,16 @@ form > .text-input > input {
 }
 
 /*notifications*/
+.notifications {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .notification {
   font-family: sans-serif;
   font-size: 18px;
-  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
 }
 
 .notification > .text {
