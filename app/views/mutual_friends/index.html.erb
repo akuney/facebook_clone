@@ -6,7 +6,9 @@
 
   <% @user.all_friends.each do |friend| %>
     <% if current_user.all_friends.include?(friend) %>
+    <div class='mutual-friend group'>
       <%= render 'helpers/pic_and_name', :user => friend %>
+    </div>
       <% counter += 1 %>
     <% end %>
   <% end %>
