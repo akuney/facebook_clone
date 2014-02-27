@@ -686,3 +686,18 @@ form > .text-input > input {
   font-size: 15px;
   margin-top: 10px;
 }
+
+.notifications-link {
+  width: 100%;
+  float: left;
+  position: absolute;
+  top: 285px;
+  left: 28px;
+}
+
+.notifications-link > a {
+  color: white;
+  padding: 8px;
+  background: green;
+  font-size: 12px;
+}
