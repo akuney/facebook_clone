@@ -1,7 +1,10 @@
 <!-- Index of Pending Friendships -->
 
 <%= render 'helpers/you', :user => current_user %>
-<div class='friend-requests'>
+
+
+<div class='friend-requests group'>
+
   <%= render 'received_requests',
   :reqs_received => @reqs_received %>
 

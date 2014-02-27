@@ -3,11 +3,11 @@
 
   <div class='links'>
     <% if (current_user.all_friends.include?(friend))%>
-      <%= render 'unfriend_button', :user => user, :friend => friend %>
+      <%= render 'friendships/unfriend_button', :user => user, :friend => friend %>
     <% end %>
 
     <% if (friend != current_user)%>
-      <%= render 'add_friend_button', :friend => friend %>
+      <%= render 'friendships/add_friend_button', :friend => friend %>
     <% end %>
   </div>
 </div>

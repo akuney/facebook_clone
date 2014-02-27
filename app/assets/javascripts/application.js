@@ -174,4 +174,9 @@ $(document).ready(function() {
 
     $newProfile.find(".about-me").find("textarea").append("I'm Jeff Doe, you all know me!");
   });
+
+  $('.friends-index').on("ajax:success", ".demo-friend", function(event, data) {
+    var $target = $(event.target);
+    console.log($target);
+  });
 });

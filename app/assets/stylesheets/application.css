@@ -311,6 +311,7 @@ submit {
   padding-top: 5px;
   padding-bottom: 25px;
   border-bottom: 2px solid black;
+  width: 100%;
 }
 
 .friends {
@@ -719,4 +720,10 @@ form > .text-input > input {
   position: absolute;
   top: 5px;
   left: 50%;
+}
+
+/* demos */
+
+.demo-friend {
+  margin-left: 0;
 }

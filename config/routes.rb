@@ -56,6 +56,8 @@ FacebookClone::Application.routes.draw do
 
   resources :notifications, only: :index
 
+  resources :demo_friends, only: :create
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

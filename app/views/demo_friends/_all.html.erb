@@ -1,0 +1,7 @@
+<!-- Demo friends partial -->
+
+<div class='friends'>
+  <% user.all_friends.each do |friend| %>
+    <%= render 'friendships/friend', :friend => friend, :user => user %>
+  <% end %>
+</div>
