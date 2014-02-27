@@ -12,6 +12,10 @@
         <%= render 'notifications/like', :like => notification %>
       <% elsif notification_class == 'Comment'%>
         <%= render 'notifications/comment', :comment => notification %>
+      <% elsif notification_class == 'Reply'%>
+        <%= render 'notifications/reply', :reply => notification %>
+      <% elsif notification_class == 'Photo'%>
+      <% elsif notification_class == 'Friendship'%>
       <% end %>
     </div>
   <% end %>

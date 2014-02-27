@@ -1,0 +1,21 @@
+<% unless reply.author == current_user %>
+  <%= link_to reply.author.name %> replied to
+
+  <% if reply.parent.author == current_user %>
+    your
+  <% else %>
+    <%= link_to reply.parent.author.name %>'s
+  <% end %>
+
+  <% if reply.parent_type == "Status" %>
+    <%= link_to "status" %>:
+  <% elsif reply.parent_type == "Comment"%>
+    <%= link_to "comment" %>:
+  <% elsif reply.parent_type == "PhotoComment" %>
+    <%= link_to "photo"%>:
+  <% end %>
+
+  <div class='notification-body'>
+    <%= reply.parent.text %>
+  </div>
+<% end %>

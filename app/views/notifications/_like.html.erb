@@ -1,17 +1,17 @@
 <% unless like.liker == current_user %>
-    <a class='gray'><%= like.liker.name %></a>
+    <%= link_to like.liker.name %>
   likes
 
   <% if like.post_type == 'Status'%>
-    your <a class='gray'>status</a>:
+    your <%= link_to 'status' %>:
   <% elsif like.post_type == 'Comment' %>
     <% if like.post.author == current_user %>
-      your <a class='gray'>comment</a>:
+      your <%= link_to 'comment' %>:
     <% else %>
-      <%= like.post.author.name %>'s <a class='gray'>comment</a>:
+      <%= like.post.author.name %>'s <%= link_to 'comment'%>:
     <% end %>
   <% elsif like.post_type == 'PhotoComment'%>
-    your <a class='gray'>photo</a>:
+    your <%= link_to 'photo'%>:
   <% end %>
 
   <div class='notification-body'>
