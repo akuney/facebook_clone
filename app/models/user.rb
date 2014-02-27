@@ -129,6 +129,10 @@ class User < ActiveRecord::Base
     self.photos_tagged_in.where(created_at: (Time.now - 604800)..(Time.now))
   end
 
+  def recent_received_comments
+    self.received_comments.where(created_at: (Time.now - 604800)..(Time.now))
+  end
+
   def recent_uploaded_photo_activities
     activities = []
 
@@ -158,6 +162,14 @@ class User < ActiveRecord::Base
     end
 
     activities
+  end
+
+  def recent_activities
+    activities = self.recent_accepted_requests + self.recent_tagged_photos +
+    self.recent_received_comments + self.recent_uploaded_photo_activities +
+    self.recent_tagged_photo_activities + self.recent_post_activities
+
+    return activities.sort{|act1, act2| act2.created_at <=> act1.created_at}
   end
 
 

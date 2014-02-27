@@ -11,5 +11,8 @@ class Status < ActiveRecord::Base
     self.likes.count
   end
 
-
+  def recent_activities
+    self.replies.where(created_at: (Time.now - 604800)..(Time.now)) +
+    self.likes.where(created_at: (Time.now - 604800)..(Time.now))
+  end
 end
