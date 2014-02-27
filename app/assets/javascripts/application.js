@@ -180,5 +180,12 @@ $(document).ready(function() {
     $target.parent().parent().html(data);
   });
 
-  // need: demo wall, demo messages, demo photos
+  $('.new-photo').on("ajax:success", ".demo-photo-form", function(event, data) {
+    var $target = $(event.target);
+    var $newPhotoForm = $target.closest('form');
+    $newPhotoForm.find('.url').find('input').attr('value', 'http://www.clker.com/cliparts/3/E/b/a/C/0/kids-world-hands-friends-networks-globe-illustration-small-md.png');
+    $newPhotoForm.find('.new-photo-comment').find('textarea').append('One of the all time great photos');
+  });
+
+  // need: demo wall, demo messages, demo photos. At end, we will delete users
 });
