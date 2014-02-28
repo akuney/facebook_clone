@@ -24,13 +24,6 @@ class ProfilesController < ApplicationController
     @profile.update_attributes(params[:profile])
     @profile.save!
 
-    @photo = Photo.new
-    @photo.url = @profile.photo_url
-    @photo.uploader_id = current_user.id
-    @photo.save
-    # if it fails validation, that's because we have that photo already
-
-
     redirect_to user_profile_url(current_user, @profile)
   end
 

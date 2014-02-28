@@ -3,6 +3,10 @@
 <form class='status-form' action="<%= status.persisted? ? status_url(status) : statuses_url %>"
   method="POST" <%= 'data-remote= "true"' unless status.persisted? %>">
 
+  <% if status.persisted? %>
+    <div class='text heading'>Edit Status</div>
+  <% end %>
+
   <input name="_method" type="hidden"
   value="<%= status.persisted? ? "PUT" : "POST"%>">
 

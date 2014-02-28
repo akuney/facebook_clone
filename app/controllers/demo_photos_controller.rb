@@ -1,8 +1,10 @@
 class DemoPhotosController < ApplicationController
   def create
-    Photo.last(4)[0..2].each do |photo|
-      photo.destroy
-    end
+     Photo.last(5)[0..2].each do |photo|
+       photo.destroy
+     end
+
+     # make sure to create the new photo first
 
     Photo.create!(
     url: "https://pbs.twimg.com/profile_images/378800000499711388/1cc4499794d9ea042e7b358b37926e04.png",

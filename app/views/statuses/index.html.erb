@@ -4,9 +4,11 @@
   <%= render 'cases', :user => @user %>
   <%= render 'create_status_or_comment', :user => @user %>
 
-  <div class='demo demo-wall link submit-link'>
-    <%= link_to "Demo Wall", demo_walls_url, method: :post, remote: true %>
-  </div>
+  <% if @user == current_user && @user.statuses.count == 0 %>
+    <div class='demo demo-wall link submit-link'>
+      <%= link_to "Demo Wall", demo_walls_url, method: :post, remote: true %>
+    </div>
+  <% end%>
 
   <% wall_posts = @statuses + @comments %>
   <% wall_posts.sort!{ |post1, post2| post2.updated_at <=> post1.updated_at} %>

@@ -2,7 +2,7 @@
 <% user = message_thread.creator %>
 <% num_recipients = message_thread.num_recipients %>
 
-<%= render 'message_header', :message_thread => message_thread,
+<%= render 'message_threads/message_header', :message_thread => message_thread,
 :user => user %>
 
 <% if user == current_user %>

@@ -14,4 +14,10 @@
   <div class='link submit-link create-thread'>
     <%= link_to "Create New Thread", new_message_thread_url, remote: true %>
   </div>
+
+  <% if @message_threads.count == 0 %>
+    <div class='demo demo-messages submit link submit-link'>
+      <%= link_to "Demo Messages", demo_messages_url, method: :post, remote: true %>
+    </div>
+  <% end %>
 </div>

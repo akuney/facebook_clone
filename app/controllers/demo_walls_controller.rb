@@ -37,6 +37,37 @@ class DemoWallsController < ApplicationController
     post_id: Reply.last.id
     )
 
+    Comment.create!(
+    author_id: 1,
+    recipient_id: current_user.id,
+    text: "Lol, Jeff Doe. What a demo user."
+    )
+
+    Like.create!(
+    liker_id: 1,
+    post_type: "Comment",
+    post_id: Comment.last.id
+    )
+
+    Status.create!(
+    author_id: current_user.id,
+    text: ":("
+    )
+
+    Reply.create!(
+    author_id: 5,
+    parent_type: "Status",
+    parent_id: Status.last.id,
+    text: "What happened, Jeff?"
+    )
+
+    Reply.create!(
+    author_id: current_user.id,
+    parent_type: "Status",
+    parent_id: Status.last.id,
+    text: "It's extremely private. I don't want to talk about it."
+    )
+
     @statuses = current_user.statuses
     @comments = current_user.received_comments
 

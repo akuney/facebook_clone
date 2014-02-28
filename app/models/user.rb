@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   has_many :pending_friendships, dependent: :destroy
   has_many :pending_friends, :through => :pending_friendships
   has_many :inverse_pending_friendships,
-  :class_name => "PendingFriendship", :foreign_key => "pending_friend_id"
+  :class_name => "PendingFriendship", :foreign_key => "pending_friend_id", dependent: :destroy
   has_many :inverse_pending_friends, :through => :inverse_pending_friendships,
   :source => :user
 
@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   has_many :received_comments, class_name: "Comment", foreign_key: "recipient_id", dependent: :destroy
   has_many :replies, foreign_key: "author_id", dependent: :destroy
 
-  has_many :likes, foreign_key: "liker_id"
+  has_many :likes, foreign_key: "liker_id", dependent: :destroy
   has_many :statuses_liked, through: :likes, source: :post, source_type: "Status"
   has_many :comments_liked, through: :likes, source: :post, source_type: "Comment"
   has_many :replies_liked, through: :likes, source: :post, source_type: "Reply"

@@ -1,16 +1,16 @@
-<form action="<%= reply_url(@reply) %>" method="POST">
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+<div class='edit-reply'>
+  <div class='text heading'>Edit Reply</div>
+  <form action="<%= reply_url(@reply) %>" method="POST">
+    <%= render 'helpers/auth_token'%>
 
-  <input name="_method" type="hidden" value="PUT">
+    <input name="_method" type="hidden" value="PUT">
 
-  <div class='textarea'>
-    <textarea name="reply[text]"><%= @reply.text %></textarea>
-  </div>
+    <div class='textarea'>
+      <textarea name="reply[text]"><%= @reply.text %></textarea>
+    </div>
 
-  <div class='submit'>
-    <input type="submit" value="Submit">
-  </div>
-</form>
+    <div class='submit link'>
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>

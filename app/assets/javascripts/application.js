@@ -194,11 +194,18 @@ $(document).ready(function() {
     $parent.html(data);
   });
 
+  // the above creates some new photos, with tags
+
   $('.wall').on("ajax:success", ".demo-wall", function(event, data) {
     var $target = $(event.target);
     var $wall = $target.parent().parent();
     $wall.html(data);
   });
 
-  // need: demo wall, demo messages, demo photos.
+  $('.message-threads').on("ajax:success", ".demo-messages", function(event, data) {
+    var $target = $(event.target);
+    console.log($target.parent().parent());
+  });
+
+
 });

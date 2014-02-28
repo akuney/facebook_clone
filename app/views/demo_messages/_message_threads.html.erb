@@ -1,0 +1,13 @@
+<div class='message-threads group'>
+  <% unless message_threads.count == 0 %>
+    <% message_threads.each do |message_thread| %>
+      <div class='message-thread group'>
+        <%= render "message_threads/message_thread_partial", :message_thread => message_thread %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class='link submit-link create-thread'>
+    <%= link_to "Create New Thread", new_message_thread_url, remote: true %>
+  </div>
+</div>

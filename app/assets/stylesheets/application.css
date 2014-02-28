@@ -22,6 +22,7 @@
 .gray {
   color: gray;
 }
+
 .invisible {
   display: none;
 }
@@ -252,7 +253,7 @@ submit {
   padding-right: 10px;
 }
 
-.create-thread {
+.create-thread, .demo-messages {
   margin-top: 20px;
   float: left;
 }
@@ -385,6 +386,15 @@ submit {
   padding: 20px;
 }
 
+.edit-reply {
+  padding-top: 25px;
+  margin-left: 10px;
+}
+
+.edit-reply > form > .link {
+  margin-left: 0;
+}
+
 .new-reply {
 
   padding-top: 0;
@@ -401,6 +411,10 @@ submit {
 .status-form {
   padding-top: 25px;
   border-top: 0;
+}
+
+.status-form > .heading {
+  margin-left: 10px;
 }
 
 .status-form > .textarea {
@@ -603,7 +617,7 @@ form > .text-input > input {
 .photo-show > .links {
   float: left;
   margin-left: 40px;
-  min-width: 31%;
+  width: 500px;
 }
 
 .person-tagged > .username, .untagged-friend > .username {

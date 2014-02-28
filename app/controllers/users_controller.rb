@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
+    @user.all_message_threads.each do |message_thread|
+      message_thread.destroy
+    end
+    # maybe not the most desirable thing for the website
+
     redirect_to new_session_url
   end
 
