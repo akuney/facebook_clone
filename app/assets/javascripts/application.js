@@ -187,5 +187,5 @@ $(document).ready(function() {
     $newPhotoForm.find('.new-photo-comment').find('textarea').append('One of the all time great photos');
   });
 
-  // need: demo wall, demo messages, demo photos. At end, we will delete users
+  // need: demo wall, demo messages, demo photos.
 });

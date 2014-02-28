@@ -2,7 +2,9 @@
   <%= render 'helpers/top_bar/pic_and_name'%>
   <%= render 'helpers/top_bar/links'%>
 
+  <% if current_user.name == "Jeff Doe"%>
   <div class='demo demo-delete link submit-link'>
     <%= link_to "DESTROY DEMO USER", user_url(current_user), method: :delete %>
   </div>
+  <% end %>
 </div>
