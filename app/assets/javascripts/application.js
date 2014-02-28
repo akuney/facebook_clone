@@ -191,6 +191,7 @@ $(document).ready(function() {
     var $target = $(event.target);
     var $parent = $target.parent().parent();
 
+    console.log(data);
     $parent.html(data);
   });
 

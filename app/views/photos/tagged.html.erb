@@ -11,7 +11,7 @@
     <div class='no-tagged-photos text heading'>No Tagged Photos</div>
 
     <div class='demo-photos demo link submit-link'>
-      <a data-remote='true'>Demo Photos</a>
+      <%= link_to "Demo Photos", demo_photos_url, method: :post, remote: true %>
     </div>
   <% end %>
 </div>
@@ -19,7 +19,7 @@
 
 <div class='tagged-photos group'>
   <% @user.photos_tagged_in.each do |photo| %>
-    <%= render 'photo', :photo => photo %>
+    <%= render 'photos/photo', :photo => photo %>
   <% end %>
 </div>
 

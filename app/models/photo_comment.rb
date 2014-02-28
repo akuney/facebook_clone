@@ -1,5 +1,5 @@
 class PhotoComment < ActiveRecord::Base
-  attr_accessible :text
+  attr_accessible :text, :photo_id
 
   has_many :replies, as: :parent, dependent: :destroy
   has_many :likes, as: :post, dependent: :destroy
