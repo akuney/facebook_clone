@@ -1,0 +1,19 @@
+<div class='wall'>
+  <%= render 'statuses/cases', :user => user %>
+  <%= render 'statuses/create_status_or_comment', :user => user %>
+
+  <% wall_posts = statuses + comments %>
+  <% wall_posts.sort!{ |post1, post2| post2.updated_at <=> post1.updated_at} %>
+
+  <div class='statuses comments group'>
+    <% wall_posts.each do |wall_post| %>
+      <% if wall_post.class.to_s == "Status"%>
+        <%= render "statuses/show", :status => wall_post, :user => user %>
+        <%= render "replies/all", :post => wall_post %>
+      <% elsif wall_post.class.to_s == "Comment"%>
+        <%= render "comments/show", :comment => wall_post, :user => user %>
+        <%= render "replies/all", :post => wall_post %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

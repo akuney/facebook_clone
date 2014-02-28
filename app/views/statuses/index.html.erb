@@ -4,6 +4,10 @@
   <%= render 'cases', :user => @user %>
   <%= render 'create_status_or_comment', :user => @user %>
 
+  <div class='demo demo-wall link submit-link'>
+    <%= link_to "Demo Wall", demo_walls_url, method: :post, remote: true %>
+  </div>
+
   <% wall_posts = @statuses + @comments %>
   <% wall_posts.sort!{ |post1, post2| post2.updated_at <=> post1.updated_at} %>
 
@@ -18,7 +22,4 @@
       <% end %>
     <% end %>
   </div>
-
-
-
 </div>

@@ -191,8 +191,13 @@ $(document).ready(function() {
     var $target = $(event.target);
     var $parent = $target.parent().parent();
 
-    console.log(data);
     $parent.html(data);
+  });
+
+  $('.wall').on("ajax:success", ".demo-wall", function(event, data) {
+    var $target = $(event.target);
+    var $wall = $target.parent().parent();
+    $wall.html(data);
   });
 
   // need: demo wall, demo messages, demo photos.

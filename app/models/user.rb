@@ -27,10 +27,10 @@ class User < ActiveRecord::Base
   has_many :inverse_pending_friends, :through => :inverse_pending_friendships,
   :source => :user
 
-  has_many :statuses, foreign_key: "author_id"
-  has_many :authored_comments, class_name: "Comment", foreign_key: "author_id"
-  has_many :received_comments, class_name: "Comment", foreign_key: "recipient_id"
-  has_many :replies, foreign_key: "author_id"
+  has_many :statuses, foreign_key: "author_id", dependent: :destroy
+  has_many :authored_comments, class_name: "Comment", foreign_key: "author_id", dependent: :destroy
+  has_many :received_comments, class_name: "Comment", foreign_key: "recipient_id", dependent: :destroy
+  has_many :replies, foreign_key: "author_id", dependent: :destroy
 
   has_many :likes, foreign_key: "liker_id"
   has_many :statuses_liked, through: :likes, source: :post, source_type: "Status"

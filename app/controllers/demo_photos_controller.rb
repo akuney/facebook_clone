@@ -9,6 +9,36 @@ class DemoPhotosController < ApplicationController
     uploader_id: 1,
     tagged_user_ids: [2, current_user.id])
 
+    PhotoComment.create!(
+    photo_id: Photo.last.id,
+    text: "This is the world!!!"
+    )
+
+    Like.create!(
+    liker_id: 2,
+    post_type: "PhotoComment",
+    post_id: PhotoComment.last.id
+    )
+
+    Reply.create!(
+    author_id: 3,
+    parent_type: "PhotoComment",
+    parent_id: PhotoComment.last.id,
+    text: "That's it? There must be more..."
+    )
+
+    Like.create!(
+    liker_id: 1,
+    post_type: "Reply",
+    post_id: Reply.last.id
+    )
+
+    Like.create!(
+    liker_id: 5,
+    post_type: "Reply",
+    post_id: Reply.last.id
+    )
+
     Photo.create!(
     url: "http://www.independent.co.uk/incoming/article6149428.ece/ALTERNATES/w300/Prosser.jpg",
     uploader_id: 3,
