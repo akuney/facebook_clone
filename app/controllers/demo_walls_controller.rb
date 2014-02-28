@@ -75,6 +75,7 @@ class DemoWallsController < ApplicationController
       render partial: 'demo_walls/wall',
       locals: {user: current_user, statuses: @statuses, comments: @comments}
     else
+      render json: {hi: 'hi'}  # recently added
     end
   end
 end

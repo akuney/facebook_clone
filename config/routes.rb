@@ -52,7 +52,7 @@ FacebookClone::Application.routes.draw do
 
   resources :photo_taggings, only: [:create, :destroy]
 
-  root to: "session#new"
+  root to: "sessions#new"
 
   resources :notifications, only: :index
 

@@ -10,9 +10,11 @@
   <% if @user.photos_tagged_in.count == 0 %>
     <div class='no-tagged-photos text heading'>No Tagged Photos</div>
 
+    <% if current_user.name == "Jeff Doe"%>
     <div class='demo-photos demo link submit-link'>
       <%= link_to "Demo Photos", demo_photos_url, method: :post, remote: true %>
     </div>
+    <% end %>
   <% end %>
 </div>
 

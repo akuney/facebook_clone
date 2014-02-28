@@ -4,7 +4,7 @@
   <%= render 'cases', :user => @user %>
   <%= render 'create_status_or_comment', :user => @user %>
 
-  <% if @user == current_user && @user.statuses.count == 0 %>
+  <% if @user == current_user && @user.statuses.count == 0 && current_user.name == "Jeff Doe" %>
     <div class='demo demo-wall link submit-link'>
       <%= link_to "Demo Wall", demo_walls_url, method: :post, remote: true %>
     </div>
