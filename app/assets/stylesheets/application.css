@@ -306,7 +306,7 @@ submit {
 .friend > .photo, .friend > .link, .friend > .pic-and-name, .you > .pic-and-name,
 .not-friend > .pic-and-name {
   float: left;
-  margin-left: 10px;
+
 }
 
 

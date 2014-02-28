@@ -204,7 +204,7 @@ $(document).ready(function() {
 
   $('.message-threads').on("ajax:success", ".demo-messages", function(event, data) {
     var $target = $(event.target);
-    console.log($target.parent().parent());
+    $target.parent().parent().html(data);
   });
 
 
