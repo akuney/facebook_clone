@@ -516,6 +516,11 @@ form > .text-input > input {
   margin-top: 150px;
 }
 
+.no-tagged-photos {
+  margin-left: 10px;
+}
+
+
 .photos > .photo, .tagged-photos > .photo {
   float: left;
 }
@@ -740,3 +745,4 @@ form > .text-input > input {
   padding: 20px;
   background: red;
 }
+

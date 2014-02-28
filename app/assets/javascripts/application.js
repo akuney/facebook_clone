@@ -183,8 +183,15 @@ $(document).ready(function() {
   $('.new-photo').on("ajax:success", ".demo-photo-form", function(event, data) {
     var $target = $(event.target);
     var $newPhotoForm = $target.closest('form');
-    $newPhotoForm.find('.url').find('input').attr('value', 'http://www.clker.com/cliparts/3/E/b/a/C/0/kids-world-hands-friends-networks-globe-illustration-small-md.png');
+    $newPhotoForm.find('.url').find('input').attr('value', 'http://davidsmallbooks.com/images/david_small.jpg');
     $newPhotoForm.find('.new-photo-comment').find('textarea').append('One of the all time great photos');
+  });
+
+  $('.tag-demo').on("ajax:success", ".demo-photos", function(event, data) {
+    var $target = $(event.target);
+    var $parent = $target.parent().parent();
+
+    $parent.html(data);
   });
 
   // need: demo wall, demo messages, demo photos.

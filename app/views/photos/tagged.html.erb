@@ -6,9 +6,16 @@
 
 <%= render 'photos_top_bar', :user => @user %>
 
-<% if @user.photos_tagged_in.count == 0 %>
-  <div class='no-tagged-photos text heading'>No Tagged Photos</div>
-<% end %>
+<div class='tag-demo'>
+  <% if @user.photos_tagged_in.count == 0 %>
+    <div class='no-tagged-photos text heading'>No Tagged Photos</div>
+
+    <div class='demo-photos demo link submit-link'>
+      <a data-remote='true'>Demo Photos</a>
+    </div>
+  <% end %>
+</div>
+
 
 <div class='tagged-photos group'>
   <% @user.photos_tagged_in.each do |photo| %>
