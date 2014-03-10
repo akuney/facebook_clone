@@ -5,7 +5,7 @@ class Comment < ActiveRecord::Base
   has_many :likes, as: :post, dependent: :destroy
   has_many :likers, through: :likes, source: :liker
 
-  belongs_to :author, class_name: "User"
+  belongs_to :author, class_name: "User", foreign_key: :author_id
   belongs_to :recipient, class_name: "User"
 
 

@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ./statuses.js
 //= require_tree .
 
 
 $(document).ready(function() {
+
   $(".wall").on("ajax:success", ".likes", function(event, data) {
     var $target = $(event.currentTarget);
 
@@ -23,6 +25,7 @@ $(document).ready(function() {
     $target.children('.like-form').eq(0).toggleClass("invisible");
     $target.children('.unlike-button').eq(0).toggleClass("invisible");
   });
+
 
   $(".photo-comment").on("ajax:success", ".likes", function(event, data) {
     var $target = $(event.currentTarget);

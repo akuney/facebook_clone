@@ -1,0 +1,26 @@
+<!-- what would this be in Haml? -->
+
+
+<!-- status index -->
+
+%div.wall
+  = render 'cases', user: @user
+  = render 'create_status_or_comment', user: @user
+
+  - if @user == current_user && @user.statuses.count == 0 && current_user.name == "Jeff Doe"
+    %div.demo.demo-wall.link.submit-link
+      = link_to "Demo Wall", demo_walls_url, method: :post, remote: :true
+
+  - wall_posts = @statuses + @comments
+  - wall_posts.sort!{ |post1, post2| post2.updated_at <=> post1.updated_at }
+
+  %div.statuses.comments.group
+    - wall_posts.each do |wall_post|
+      - if wall_post.class.to_s == "Status"
+        = render "statuses/show", :status => wall_post, :user => @user
+        = render "replies/all", :post => wall_post
+      - elsif wall_post.class.to_s == "Comment"
+        = render "comments/show", :comment => wall_post, :user => @user
+        = render "replies/all", :post => wall_post
+
+

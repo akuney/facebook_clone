@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140224191757) do
+ActiveRecord::Schema.define(:version => 20140306153526) do
 
   create_table "comments", :force => true do |t|
     t.integer  "author_id"
@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(:version => 20140224191757) do
 
   add_index "messages", ["message_thread_id"], :name => "index_messages_on_message_thread_id"
 
+  create_table "pages", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "pending_friendships", :force => true do |t|
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
@@ -91,6 +97,10 @@ ActiveRecord::Schema.define(:version => 20140224191757) do
 
   add_index "photos", ["uploader_id"], :name => "index_photos_on_uploader_id"
 
+  create_table "products", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "profiles", :force => true do |t|
     t.string   "first_name",          :null => false
     t.string   "last_name",           :null => false
@@ -112,6 +122,12 @@ ActiveRecord::Schema.define(:version => 20140224191757) do
   end
 
   add_index "profiles", ["owner_id"], :name => "index_profiles_on_owner_id"
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "replies", :force => true do |t|
     t.integer  "author_id"
