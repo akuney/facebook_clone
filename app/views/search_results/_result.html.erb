@@ -1,6 +1,8 @@
 <div class='result group'>
   <% if current_user.all_friends.include?(user) %>
-    <%= render 'helpers/pic_and_name', :user => user%>
+    <div class='friend'>
+      <%= render 'helpers/pic_and_name', :user => user%>
+    </div>
     <div class='link'>Friends</div>
   <% elsif user != current_user %>
     <%= render 'helpers/not_friend', :user => user %>

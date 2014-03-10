@@ -11,7 +11,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+
 *= require 'top_bar'
+*= require 'users'
  *= require_self
  *= require_tree .
 
@@ -73,23 +75,24 @@ submit {
 .links {
   float: left;
   margin-top: 8px;
+  form > .link, .link {
+    float: left;
+    text-align: center;
+  }
 }
 
-.links > .link, .links > form > .link, .link {
+.link {
   float: left;
   text-align: center;
 }
 
 .submit-link {
   float: left;
+  input:hover {
+    cursor: pointer;
+    color: darkgray;
+  }
 }
-
-.submit-link > input:hover {
-  cursor: pointer;
-  color: darkgray;
-}
-
-
 
 .submit-link:hover, a:hover, submit:hover {
   cursor: pointer;
@@ -113,147 +116,11 @@ submit {
 
 /* individual user bar */
 
-.user {
-  padding-top: 25px;
-  padding-bottom: 25px;
-  border-bottom: 2px solid black;
-}
-.user > .pic-and-name {
-  float: left;
-}
-
-.result > .not-friend {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.pic-and-name > .image {
-  float: left;
-}
-
-.pic-and-name > .info {
-  float: left;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 26px;
-  font-family: sans-serif;
-}
-
-
-
-.user > .links > li {
-  float: left;
-}
-
-.user > .links > li, link,
-.user > .links > .mutual-friends,
-.user > .links > .add-friend
- {
-  margin-top: 10px;
-  margin-left: 30px;
-  padding: 8px;
-  background-color: lightgray;
-}
-
-
-
-/* non-friend */
-.user > .links > .add-friend {
-  float: left;
-  padding: 8px;
-}
-
-.add-friend:hover {
-  cursor: pointer;
-}
-
-
-.user > .links > .mutual-friends {
-  float: right;
-}
 
 
 
 /* messages */
 
-.message-threads {
-  padding-top: 25px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid black;
-}
-
-.message-thread {
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-.message-thread > .message-header {
-  float: left;
-}
-
-.message-thread > .message-header > .title {
-  float: left;
-  margin-top: 10px;
-}
-
-.message-thread > .message-header > .photo {
-  float: left;
-  padding-left: 40px;
-}
-
-.message-thread > .message-header > .text {
-  float: right;
-  text-align: center;
-  padding: 20px;
-  padding-right: 10px;
-}
-
-.create-thread, .demo-messages {
-  margin-top: 20px;
-  float: left;
-}
-
-.new-message {
-  padding-top: 25px;
-}
-
-.new-message > .title,
-.new-message > .recipients,
-.new-message > .message {
-  padding-bottom: 20px;
-}
-
-.new-message > .title {
-  margin-bottom: 20px;
-}
-
-.new-message > .title > .input {
-  border: 1px solid black;
-  float: left;
-}
-
-.new-message > .recipients > .text {
-  padding-bottom: 4px;
-}
-
-.new-message > .submit > input {
-  float: left;
-}
-
-.message {
-  margin-bottom: 10px;
-}
-
-.message > .message-box {
-  float: left;
-  margin: 26px;
-  margin-left: 40px;
-}
-
-.message > .message-box > .text {
-  text-align: center;
-}
 
 
 
@@ -262,8 +129,18 @@ submit {
 .friend > .photo, .friend > .link, .friend > .pic-and-name, .you > .pic-and-name,
 .not-friend > .pic-and-name {
   float: left;
-
 }
+
+.friend > .pic-and-name > .image {
+  float: left;
+}
+
+.friend > .pic-and-name > .info > a {
+  float: left;
+  padding-left: 20px;
+  padding-top: 25px;
+}
+
 
 
 .received-requests {
