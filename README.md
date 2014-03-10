@@ -1,4 +1,4 @@
-A lovingly rendered version of Facebook
+A lovingly rendered version of Facebook. If you go to the live website, you can log in and play around as a demo user. Alternatively, you can log in as akuney1@gmail.com through akuney5@gmail.com with the password "password" to see some other established users in action. Feel free to create multiple users and have them interact.
 
 ###Models:
 
