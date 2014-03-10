@@ -11,8 +11,10 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+*= require 'top_bar'
  *= require_self
  *= require_tree .
+
  */
 
 
@@ -48,7 +50,6 @@ li, .name, .text, input, button, a, .link {
 .link {
   padding: 8px;
   margin: 10px;
-
   background-color: lightgray;
 }
 
@@ -107,51 +108,6 @@ submit {
 }
 
 
-
-
-/* top bar */
-
-.top-bar > .pic-and-name {
-  float: left;
-}
-
-.top-bar > .pic-and-name > .pic {
-  float: left;
-}
-
-.top-bar > .pic-and-name > .name {
-  float: left;
-  padding-top: 38px;
-  padding-left: 20px;
-  font-size: 20px;
-  min-width: 40%;
-}
-
-.top-bar > .links {
-  float: right;
-  margin-top: 24px;
-  margin-left: 5px;
-  min-width: 70%;
-  position: absolute;
-  display: inline-block;
-}
-
-.top-bar > .links > li {
-  float: left;
-  padding: 7px;
-  margin: 7px;
-  background-color: lightgray;
-}
-
-
-.top-bar > .links > li > a:hover {
-  color: darkgray;
-}
-
-.top-bar {
-  padding-bottom: 60px;
-  border-bottom: 2px solid black;
-}
 
 
 

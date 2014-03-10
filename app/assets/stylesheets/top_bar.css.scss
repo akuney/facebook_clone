@@ -1,0 +1,45 @@
+/* top bar */
+
+.top-bar {
+  padding-bottom: 60px;
+  border-bottom: 2px solid black;
+
+  .pic-and-name {
+    float: left;
+
+    .pic, .name {
+      float: left;
+    }
+
+    .name {
+      padding-top: 38px;
+      padding-left: 20px;
+      font-size: 20px;
+      min-width: 40%;
+    }
+  }
+
+  .links {
+    float: right;
+    margin-top: 24px;
+    margin-left: 5px;
+    min-width: 70%;
+    position: absolute;
+    display: inline-block;
+
+    li {
+      float: left;
+      padding: 7px;
+      margin: 7px;
+      background-color: lightgray;
+
+      .a:hover {
+        color: darkgray;
+      }
+
+    }
+  }
+}
+
+
+
