@@ -1,8 +1,5 @@
 class DemoPhotosController < ApplicationController
   def create
-     Photo.last(5)[0..2].each do |photo|
-       photo.destroy
-     end
 
      # make sure to create the new photo first
 

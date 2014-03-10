@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
 
   has_many :photos_uploaded, class_name: "Photo", foreign_key: "uploader_id", dependent: :destroy
   has_many :photo_taggings, dependent: :destroy
-  has_many :photos_tagged_in, through: :photo_taggings, source: :photo
+  has_many :photos_tagged_in, through: :photo_taggings, source: :photo, dependent: :destroy
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
