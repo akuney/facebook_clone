@@ -4,9 +4,6 @@ class DemoPhotosController < ApplicationController
       photo.destroy
     end
 
-    current_user.photos_uploaded.each do |photo|
-      photo.destroy
-    end
      # make sure to create the new photo first
 
     Photo.create!(
