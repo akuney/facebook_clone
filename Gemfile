@@ -9,6 +9,13 @@ gem 'pg'
 gem 'pg_search'
 gem 'haml'
 
+group :test do
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

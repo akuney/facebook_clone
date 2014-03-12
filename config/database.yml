@@ -6,7 +6,7 @@ development:
   username: appacademy
   password:
 
-test:
+test: &test
   adapter: postgresql
   encoding: utf8
   database: project_test
@@ -23,3 +23,6 @@ production:
   password:
 
 
+
+cucumber:
+  <<: *test
