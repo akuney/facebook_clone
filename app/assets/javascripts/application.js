@@ -206,19 +206,6 @@ $(document).ready(function() {
     $newPhotoForm.find('.new-photo-comment').find('textarea').append('One of the all time great photos');
   });
 
-  $('.tag-demo').on("ajax:success", ".demo-photos", function(event, data) {
-    var $target = $(event.target);
-    var $parent = $target.parent().parent();
-
-    $parent.append(data);
-  });
-
-  $('.wall').on("ajax:success", ".demo-wall", function(event, data) {
-    var $target = $(event.target);
-    var $wall = $target.parent().parent();
-    $wall.html(data);
-  });
-
   $('.message-threads').on("ajax:success", ".demo-messages", function(event, data) {
     var $target = $(event.target);
     $target.parent().parent().html(data);
