@@ -1,7 +1,8 @@
 class Photo < ActiveRecord::Base
   attr_accessible :url, :uploader_id, :tagged_user_ids
 
-  validates_uniqueness_of :url, scope: [:uploader_id]
+  # validates_uniqueness_of :url, scope: [:uploader_id]
+  #(doesn't go well with demo user)
 
   belongs_to :uploader, class_name: "User"
   has_many :photo_taggings, dependent: :destroy
