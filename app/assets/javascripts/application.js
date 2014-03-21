@@ -34,6 +34,8 @@ $(document).ready(function() {
     $target.children('.unlike-button').eq(0).toggleClass("invisible");
   });
 
+  // liking and unliking happens dynamically
+
 
   $(".new-reply-form").on("ajax:success", function(event, data) {
     var $target = $(event.currentTarget);
@@ -47,6 +49,8 @@ $(document).ready(function() {
     var $target = $(event.currentTarget).parent().parent();
     $target.remove();
   });
+
+  // addition and deletion of replies
 
 
   $(".new-status").on("ajax:success", function(event, data) {
@@ -69,8 +73,10 @@ $(document).ready(function() {
     $textarea.val('');
   });
 
+  // statuses and comments appear immediately
 
-  // refactor those previous two at some point?
+
+
 
   $(".photo-info").on("ajax:success", ".people-tagged", function(event, data) {
     var $target = $(event.target);
@@ -93,13 +99,18 @@ $(document).ready(function() {
     $peopleTagged.append(data);
   });
 
-  // searching
+
+  //tagging and untagging photos
+
 
   $(".top-bar").on("ajax:success", ".new-search", function(event, data) {
     var $target = $(event.target);
     var $topBar = $target.parent().parent().parent();
     $topBar.append(data);
   });
+
+  //searching
+
 
   $(".not-friend").on("ajax:success", ".add-friend", function(event, data) {
     var $target = $(event.target);
@@ -129,6 +140,9 @@ $(document).ready(function() {
     $target.closest('.friend').remove();
   });
 
+  // sending, accepting, and rejecting friend requests, and unfriending
+
+
   $('.message-threads').on("ajax:success", ".create-thread", function(event, data) {
     var $target = $(event.target);
     var $messageThreads = $target.closest('.message-threads');
@@ -138,6 +152,9 @@ $(document).ready(function() {
     console.log(data);
     $messageThreads.append(data);
   });
+
+  // new message thread appears on the page
+
 
   $('.sign-up').on("ajax:success", ".demo-sign-in", function(event, data) {
     var $target = $(event.target);
@@ -193,10 +210,8 @@ $(document).ready(function() {
     var $target = $(event.target);
     var $parent = $target.parent().parent();
 
-    $parent.html(data);
+    $parent.append(data);
   });
-
-  // the above creates some new photos, with tags
 
   $('.wall').on("ajax:success", ".demo-wall", function(event, data) {
     var $target = $(event.target);
@@ -208,6 +223,8 @@ $(document).ready(function() {
     var $target = $(event.target);
     $target.parent().parent().html(data);
   });
+
+  // everything above involves the demo user
 
 
 });

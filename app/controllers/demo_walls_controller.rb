@@ -71,11 +71,12 @@ class DemoWallsController < ApplicationController
     @statuses = current_user.statuses
     @comments = current_user.received_comments
 
-    if request.xhr?
-      render partial: 'demo_walls/wall',
-      locals: {user: current_user, statuses: @statuses, comments: @comments}
-    else
-      render json: {hi: 'hi'}  # recently added
-    end
+    redirect_to user_statuses_url(current_user)
+    # if request.xhr?
+#       render partial: 'demo_walls/wall',
+#       locals: {user: current_user, statuses: @statuses, comments: @comments}
+#     else
+#       render json: {hi: 'hi'}  # recently added
+#     end
   end
 end
